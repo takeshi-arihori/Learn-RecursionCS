@@ -1,2 +1,15 @@
 # Learn-RecursionCS
-RecusionCSの学習用のリポジトリ
+
+RecusionCS の学習用のリポジトリ
+
+<!-- ディレクトリ構成 -->
+
+## ディレクトリ構成
+
+```
+.
+├── README.md
+├── advanced
+├── daily
+      ├────
+```
