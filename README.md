@@ -52,9 +52,9 @@ RecusionCS の学習用のリポジトリ
 
 ## スケジュール
 
-- [ ] Recursion 上級クリア Java & PHP (95H) 期限: 2024/01/07
-- [ ] kindle Docker 学習 (25H) 期限: 2024/01/11
-- [ ] Recursion File Manipulator Program (10H) 期限: 2024/01/13
+- [ ] Recursion 上級クリア Java & PHP (95H) 期限: 2024/01/10
+- [ ] kindle Docker 学習 (25H) 期限: 2024/01/14
+- [ ] Recursion File Manipulator Program (10H) 期限: 2024/01/17
 - [ ] Recursion Video Compressor (45H) 期限: 2024/01/23
 - [ ] Recursion Static Web Servers (40H) 期限: 2024/01/31
 - [ ] Recursion Dynamic Web Servers (40H) 期限: 2024/02/09
