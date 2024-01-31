@@ -52,9 +52,8 @@ RecusionCS の学習用のリポジトリ
 
 ## スケジュール
 
-- [ ] Recursion 上級クリア Java & PHP (95H) 期限: 2024/01/19
-- [ ] Recursion OOP (50H) 期限: 2024/01/31
-- [ ] Recursion デザインパターン (40H) 期限: 2024/02/10
+- [ ] Recursion 上級クリア Java & PHP (95H) 期限: 2024/01/31
+- [ ] Recursion OOP・デザインパターン (40H) 期限: 2024/02/10
 - [ ] Recursion File Manipulator Program (20H) 期限: 2024/02/12
 - [ ] Recursion Video Compressor (45H) 期限: 2024/02/23
 - [ ] Recursion Static Web Servers (40H) 期限: 2024/03/02
