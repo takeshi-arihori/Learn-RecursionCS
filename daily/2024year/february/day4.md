@@ -2,11 +2,11 @@
 
 ## 本日の目標(朝一番に確認してから学習開始)
 
-- [ ] Recursion 上級: 2H 10:00 ~ 12:00
+- [ ] Recursion: 8H 10:00 Start
 
 ## 目標振り返り
 
-- [ ] Recursion 上級: 1H 23:00 ~ 24:00
+- Recursion: 10:00 ~ 11:00 / microCMS の API テスト
 
 ## カリキュラム
 
