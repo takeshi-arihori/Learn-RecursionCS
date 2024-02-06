@@ -34,7 +34,7 @@ function print([first, second]) {
     console.log(first); // => 1
     console.log(second); // => 2
 }
-const array = [1, 2];
+// const array = [1, 2];
 // print(array);
 
 
@@ -61,3 +61,100 @@ const fibonacch = function innerFib(n) {
 
 // console.log(fibonacch(10)); // => 55
 
+
+// プロパティの存在確認
+// const obj = {
+//     key: 'value'
+// };
+
+// key プロパティが存在するかを確認する
+// console.log('key' in obj); // => true
+// console.log(Object.hasOwn(obj, 'key')); // => true
+
+
+// オブジェクトの複製
+// const shallowClone = (obj) => {
+//     return Object.assign({}, obj);
+// };
+
+// 通常のシャローコピー
+// const obj2 = { a: "a" };
+// const cloneObj = shallowClone(obj2);
+
+// console.log(obj2 === cloneObj); // => false
+
+// シャローコピーはネストされたオブジェクトを複製できません。
+// const obj3 = {
+//     level: 1,
+//     nest: {
+//         level: 2
+//     },
+// };
+// const cloneObj2 = shallowClone(obj3);
+// console.log(obj3 === cloneObj2); // => false
+// nestプロパティのオブジェクトは同じオブジェクトを参照している
+// console.log(obj3.nest === cloneObj2.nest); // => true
+
+
+
+
+// 再起的に複製してコピーする(deep copy)
+// const shallowClone = obj => Object.assign({}, obj);
+
+// // 引数の`obj`を浅く複製したオブジェクトを返す
+// function deepClone(obj) {
+//     const newObj = shallowClone(obj);
+//     // プロパティがオブジェクト型であるなら、再起的に複製する
+//     Object.keys(newObj)
+//         .filter(k => typeof newObj[k] === 'object')
+//         .forEach(k => newObj[k] = deepClone(newObj[k]));
+//     return newObj;
+// }
+// const obj = {
+//     level: 1,
+//     nest: {
+//         level: 2
+//     }
+// };
+
+// const cloneObj = deepClone(obj);
+// // `nest`オブジェクトも再起的に複製されている
+// console.log(obj.nest === cloneObj.nest); // => false
+
+
+// const obj = {};
+// `obj`というオブジェクト自体に`toString`メソッドが定義されているわけではない
+// console.log(Object.hasOwn(obj, "toString")); // => false
+// `in`演算子は指定されたプロパティ名が見つかるまで親をたどるため、`Object.prototype`まで見にいく
+// console.log("toString" in obj); // => true
+
+// const Array = function () { };
+// `Array.prototype`は`Object.prototype`を継承している
+// Array.prototype = Object.create(Object.prototype);
+// `Array`のインスタンスは、`Array.prototype`を継承している
+// const array = Object.create(Array.prototype);
+
+// console.log(array.hasOwnProperty === Object.prototype.hasOwnProperty); // => false
+
+
+
+// クロージャ
+function createCounter() {
+    let count = 0;
+    function increment() {
+        count = count + 1;
+        return count;
+    }
+    return increment;
+}
+
+// const myCounter = createCounter();
+// console.log(myCounter()); // => 1
+// console.log(myCounter()); // => 2
+
+// const newCounter = createCounter();
+// console.log(newCounter()); // => 1
+// console.log(newCounter()); // => 2
+
+// console.log(newCounter());
+// console.log(myCounter());
