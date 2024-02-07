@@ -42,22 +42,22 @@ function print([first, second]) {
 // 名前を持たない関数を無名関数（または匿名関数）と呼びます。
 // 関数の名前は関数の外からは呼ぶことができません。 一方、関数の中からは呼ぶことができるため、再帰的に関数を呼び出す際などに利用されます。
 
-const factorial = function innerFact(n) {
-    if (n === 0) {
-        return 1;
-    }
-    return n * innerFact(n - 1);
-}
+// const factorial = function innerFact(n) {
+//     if (n === 0) {
+//         return 1;
+//     }
+//     return n * innerFact(n - 1);
+// }
 // console.log(factorial); // => 6
 
-const fibonacch = function innerFib(n) {
-    if (n === 0) {
-        return 0;
-    } else if (n === 1) {
-        return 1;
-    }
-    return innerFib(n - 1) + innerFib(n - 2);
-}
+// const fibonacch = function innerFib(n) {
+//     if (n === 0) {
+//         return 0;
+//     } else if (n === 1) {
+//         return 1;
+//     }
+//     return innerFib(n - 1) + innerFib(n - 2);
+// }
 
 // console.log(fibonacch(10)); // => 55
 
@@ -139,14 +139,14 @@ const fibonacch = function innerFib(n) {
 
 
 // クロージャ
-function createCounter() {
-    let count = 0;
-    function increment() {
-        count = count + 1;
-        return count;
-    }
-    return increment;
-}
+// function createCounter() {
+//     let count = 0;
+//     function increment() {
+//         count = count + 1;
+//         return count;
+//     }
+//     return increment;
+// }
 
 // const myCounter = createCounter();
 // console.log(myCounter()); // => 1
@@ -158,3 +158,4 @@ function createCounter() {
 
 // console.log(newCounter());
 // console.log(myCounter());
+
