@@ -53,7 +53,7 @@ RecusionCS の学習用のリポジトリ
 ## RecursionCS スケジュール
 
 - [x] Recursion 上級クリア Java & PHP (95H) 期限: 2024/01/31
-- [ ] File Manipulator Program (25H) 期限: 2024/02/09
+- [x] File Manipulator Program (25H) 期限: 2024/02/09
 - [ ] バックエンドプロジェクト・Video Compressor (40H) 期限: 2024/02/18
 - [ ] フロントエンドプロジェクト・Library App (20H) 期限: 2024/02/24
 - [ ] OOP・デザインパターン (50H) 期限: 2024/03/03
