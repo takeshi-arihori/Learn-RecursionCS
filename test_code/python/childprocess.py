@@ -7,6 +7,12 @@ import os
 # これら2つのプロセスはそれぞれ別々に、プログラムの残りの部分を実行します。
 pid = os.fork()
 
+# print("pid: " + str(pid))
+# print()
+# print()
+# print()
+
+
 # pidが0より大きい場合、これは親プロセスです。
 if pid > 0:
     # os.getpid()は現在のプロセス(ここでは親プロセス)のPIDを返します。
