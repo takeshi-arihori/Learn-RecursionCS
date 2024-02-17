@@ -12,7 +12,28 @@
 <body>
 
     <h1>テスト</h1>
+    <div id="main"></div>
 
+    <script>
+        const main = document.getElementById("main");
+        main.innerHTML = '<h2>テスト</h2>';
+
+        const Prefixer = {
+            prefix: "pre",
+            prefixArray(strings) {
+                return strings.map((str => {
+                    // Arrow function 自体は this を持たない
+                    // `this`は外側の`prefixArray`関数が持つ`this`を参照する。
+                    // そのため、`this.prefix`は"pre"となる
+                    return this.prefix + "-" + str;
+                }));
+            }
+        }
+
+        const prefixedStrings = Prefixer.prefixArray(["one", "two", "three"]);
+        console.log(prefixedStrings);
+
+    </script>
 </body>
 
 
