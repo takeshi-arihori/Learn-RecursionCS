@@ -1,8 +1,16 @@
-console.log("index.js: loaded");
+const config = {
+    parentId: 'parent',
+    url: 'https://ndlsearch.ndl.go.jp/api/opensearch?',
+}
 
-// JSONテスト
-const jsonStr = `{"name":"Yamada","age":25,"bloodType":"B"}`;
+// ログを出力
+function logBookCall(params) {
+    const url = config.url + params;
+    fetch(url).then(res => res.json()).then(data => {
+        console.log(data);
+    });
+}
 
-// JSON文字列をオブジェクトに変換
-const obj = JSON.parse(jsonStr);
-console.log(obj.name); // Yamada
+
+// データを確認
+logBookCall("");
