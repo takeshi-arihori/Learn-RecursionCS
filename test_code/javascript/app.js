@@ -58,3 +58,4 @@ const up = counter.up;
 // 通常のメソッド定義では、thisは`undefined`となってしまうため例外が発生する
 // const increment = counter.increment;
 // increment(); // => TypeError: Cannot read property 'count' of undefined
+
