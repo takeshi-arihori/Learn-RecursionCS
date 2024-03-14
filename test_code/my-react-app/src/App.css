@@ -1,42 +1,59 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* カードコンテナのスタイル */
+.cards {
+  padding: 10rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.cardContainer {
+  padding: 1em;
+  border: 1px solid #ddd; /* 枠線 */
+  border-radius: 8px; /* 角丸 */
+  overflow: hidden; /* 枠外の内容を隠す */
+  width: 240px; /* 幅 */
+  height: 21rem; /* 高さ */
+  margin: 10px; /* 余白 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 影 */
+  transition: transform 0.2s; /* ホバー時のアニメーション */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.cardContainer:hover {
+  transform: scale(1.05); /* ホバー時に少し大きくする */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 画像ボックスのスタイル */
+.imgBox {
+  width: 100%; /* 幅 */
+  height: 140px; /* 高さ */
+  overflow: hidden; /* 枠外の内容を隠す */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.imgBox img {
+  width: 100%; /* 画像の幅 */
+  height: auto; /* 画像の高さを自動調整 */
 }
 
-.card {
-  padding: 2em;
+/* プログラミング言語名のスタイル */
+.programingName {
+  padding: 8px; /* 余白 */
+  background-color: #f7f7f7; /* 背景色 */
+  border-bottom: 1px solid #ddd; /* 下枠線 */
 }
 
-.read-the-docs {
-  color: #888;
-} */
+.programingName h2 {
+  margin: 0; /* 余白なし */
+  font-size: 16px; /* フォントサイズ */
+  color: #333; /* テキスト色 */
+}
+
+/* 説明文のスタイル */
+.programingDescription {
+  padding: 8px; /* 余白 */
+}
+
+.programingDescription p {
+  margin: 0; /* 余白なし */
+  font-size: 14px; /* フォントサイズ */
+  color: #666; /* テキスト色 */
+}
