@@ -1,26 +1,35 @@
-import './App.css'
-import { useState } from 'react'
+import { useState } from 'react';
 
-export default function App() {
-  const [count, setCount] = useState(0)
-
-  function handleClick() {
-    setCount(count + 1)
+function createInitialTodos(): { id: number, text: string }[] {
+  const initialTodos = [];
+  for (let i = 0; i < 50; i++) {
+    initialTodos.push({
+      id: i,
+      text: 'Item ' + (i + 1)
+    });
   }
-
-  return (
-    <div>
-      <h1>Conters that update separately</h1>
-      <MyButton count={count} onClick={handleClick} />
-      <MyButton count={count} onClick={handleClick} />
-    </div>
-  )
+  return initialTodos;
 }
 
-function MyButton({ count, onClick }: { count: number, onClick: () => void }) {
+export default function TodoList(): JSX.Element {
+  const [todos, setTodos] = useState(createInitialTodos);
+  const [text, setText] = useState('');
+
   return (
-    <button onClick={onClick}>
-      Clicked {count} Times
-    </button>
-  )
+    <>
+      <input value={text} onChange={e => setText(e.target.value)} />
+      <button onClick={() => {
+        setText('');
+        setTodos([{
+          id: todos.length,
+          text: text
+        }, ...todos]);
+      }}>Add</button>
+      <ul>
+        {todos.map(item => (
+          <li key={item.id}>{item.text}</li>
+        ))}
+      </ul>
+    </>
+  );
 }
