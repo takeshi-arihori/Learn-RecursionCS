@@ -19,10 +19,9 @@
 - シーケンス図: 役割分担された人や組織が協調して全体の仕事を達成する様子を時系列に表現する。
 - コミュニケーションズ図: 役割分担された人や組織が協調して全体の仕事を達成する様子を構造中心に表現する。
 
-#### kindle
+#### React, TypeScript: 5H
 
-#### React, TypeScript: 4H
-
+- RecursionCarriculum: 2H
 - - fluit
 - - useState
 
@@ -37,11 +36,16 @@
 
 - 不変性(Immutable): 値は直接変更できない。状態を更新する場合は、this.setState メソッドや useState フックから得られる setState 関数 (関数コンポーネントのみ) を使用して新しい状態を生成する。必要なコンポーネントのみを再レンダリングするため、パフォーマンスが向上する。
 
+#### React 実践教科書: 3H
+
+- [x] React の基本から CSS の使用、コンポーネントの分け方など
+- [x] Props の概念, useEffect, useState
+
 ## 合計学習時間
 
-- 7H
+- 6H
 
 ## 明日の目標（TODO 目標/できるようになりたいこと）
 
-- React, TypeScript: 4H
+- React, TypeScript: 8H
 - AWS Amplify 学習: 2H
