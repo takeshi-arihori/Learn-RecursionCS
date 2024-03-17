@@ -1,11 +1,14 @@
-import { FC } from 'react';
+import React, { useContext } from 'react';
+import { AdminFlagContext } from './providers/AdminFlagProvider';
 
-interface EditButtonProps {
-    isAdmin: boolean;
-}
+export const EditButton: React.FC = () => {
+    const context = useContext(AdminFlagContext);
 
-export const EditButton: FC<EditButtonProps> = ({ isAdmin }) => {
-    // ボタンが非活性の場合に適用するTailwind CSSクラス
+    if (!context) {
+        throw new Error('EditButton must be used within a AdminFlagProvider');
+    }
+
+    const { isAdmin } = context;
     const disabledClass = !isAdmin ? 'opacity-50 cursor-not-allowed' : '';
 
     return (
