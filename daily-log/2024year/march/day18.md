@@ -6,9 +6,9 @@
 
 ## 目標振り返り
 
-### 読書 オブジェクト指向でなぜつくるのか:
+### 読書 オブジェクト指向でなぜつくるのか: 0H
 
-### React, TypeScript:
+### React, TypeScript: 2H
 
 - **useState**
   State は読み取り専用として扱う必要がある。もし State を更新する場合は書き換えるのではなく置き換える(replace)。
@@ -61,9 +61,13 @@
     </label>
 ```
 
+- **Calculation App**
+- TypeScript で実装, Versel でデプロイ
+  [Calculator](https://calculator-git-main-takeshiarihoris-projects.vercel.app/)
+
 ## 合計学習時間
 
-- H
+- 2H
 
 ## 明日の目標（TODO 目標/できるようになりたいこと）
 
