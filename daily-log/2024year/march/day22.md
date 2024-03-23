@@ -60,3 +60,5 @@ writable:false // 書き込み可能でない
 
 -   **React, TypeScript**: 9H
 -   **読書**: 1H
+
+Diving deeper into the React mechanism. Before React 17, there were several performance improvements and simplification methods that couldn't be achieved with the React.createElement transpiler. Therefore, starting from React 17, two new entry points have been introduced.
