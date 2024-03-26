@@ -1,16 +1,26 @@
-const config = {
-    parentId: 'parent',
-    url: 'https://ndlsearch.ndl.go.jp/api/opensearch?',
-}
+const hello = document.getElementById("parent").textContent = "Hello, world!";
 
-// ログを出力
-function logBookCall(params) {
-    const url = config.url + params;
-    fetch(url).then(res => res.json()).then(data => {
-        console.log(data);
-    });
-}
+// h1タグを生成して表示
+const h1 = document.createElement("h1");
+h1.textContent = "Hello, world!";
+
+// 以下のコード
+let displayVal; // 入力欄の値を格納する変数
+console.log(displayVal);
 
 
-// データを確認
-logBookCall("");
+{/* <input type="text"
+    onChange={(e) => {
+        displayVal = e.target.value;
+    }} /> = { displayVal } */}
+// は以下のように書き換えられる
+<input type="text" id="input" />
+const input = document.getElementById("input");
+input.addEventListener("input", (e) => {
+    displayVal = e.target.value;
+    console.log(displayVal);
+});
+
+// 以下のコード
+// <button onClick={() => {
+//     console.log(displayVal);
