@@ -1,5 +1,5 @@
 import "./App.css";
-import { RandomCountry } from "./components/RandomCountry";
+// import { RandomCountry } from "./components/RandomCountry";
 // import { TwitterPreview } from "./components/TwitterPreview";
 // import { RecipeList } from "./components/RecipeList";
 // import { Form } from "./components/Form";
@@ -13,7 +13,7 @@ export default function App() {
                 {/* <Form /> */}
                 {/* <RecipeList /> */}
                 {/* <TwitterPreview /> */}
-                <RandomCountry />
+                {/* <RandomCountry /> */}
             </header>
         </div>
     );
