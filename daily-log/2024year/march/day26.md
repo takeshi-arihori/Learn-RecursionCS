@@ -2,20 +2,32 @@
 
 ## 本日の目標(朝一番に確認してから学習開始)
 
--   **React, TypeScript**: 4H
+-   **React**: 4H
 -   **読書**: 1H
 
 ## 目標振り返り
 
-### React, TypeScript: 4H
+### React: 4H
 
--   **Udemy 【2023 年最新】React(v18)完全入門ガイド** : 3H
+-   **Udemy 【2023 年最新】React(v18)完全入門ガイド**
 
 -   Sec04: useState
 
 -   Qiita 記事投稿: [React の useState によるステート管理と再レンダリングの仕組み](https://qiita.com/arihori13/items/f18e8814ed52350eb542)
 
--   **RecursionCS React**
+React の component の更新処理: commit という
+React で key が必要な理由:
+
+-   最後に挿入した場合: 最後だけ commit される
+-   最初に挿入した場合(key 無しの場合): 一度全部削除してから新しく子要素を作成する。
+-   key がある場合: key が一致するものは再利用される。
+
+-   key をつける際の注意点
+
+1. key は一意である必要がある(子要素の中で一意なら OK!!)
+2. key は更新されないようにする。
+
+配列の index を key にするのは NG (配列の順番が変わると key が変わるため)
 
 -   **読書: オブジェクト指向でなぜつくるのか**:
 
@@ -25,5 +37,5 @@
 
 ## 明日の目標（TODO 目標/できるようになりたいこと）
 
--   **React, TypeScript**: 4H
+-   **React**: 4H
 -   **読書**: 1H
