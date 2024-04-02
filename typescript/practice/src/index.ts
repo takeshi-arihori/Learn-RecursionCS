@@ -5,7 +5,13 @@ const rl = createInterface({
     output: process.stdout,
 });
 
-rl.question("文字列を入力して下さい:", (line) => {
-    console.log(`入力された文字列: ${line}`);
+rl.question("数値を入力して下さい:", (line) => {
+    const num = Number(line);
+
+    if (0 <= num && num <= 100) {
+        console.log("範囲内です");
+    } else {
+        console.log("範囲外です");
+    }
     rl.close();
 });
