@@ -14,9 +14,15 @@
 
 -   useEffect の特徴
 
-    -   ref で DOM を操作
+-   Postal Auto-Fill
 
--   **Udemy 【2023 年最新】React(v18)完全入門ガイド** sec190 ~
+-   カスタムフック(1)
+
+-   カスタムフック(2)
+
+-   useContext
+
+-   **Udemy 【2023 年最新】React(v18)完全入門ガイド** sec190 ~ 192
 
 -   Next.js
 
@@ -26,10 +32,10 @@
 
 ## 合計学習時間
 
--
+-   5H
 
 ## 明日の目標（TODO 目標/できるようになりたいこと）
 
--   **React**: 4H
--   **TypeScript**: 2H
+-   **React**: 3H
+-   **TypeScript**: 1H
 -   **Algorithm**: 1H
