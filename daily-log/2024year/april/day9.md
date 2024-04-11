@@ -20,7 +20,7 @@
 
 ### Algorithm: 1H
 
--   ハノイの塔[easy]
+-   [ハノイの塔 easy](https://recursionist.io/dashboard/problems/submissions/790781)
 
 ## 合計学習時間
 
