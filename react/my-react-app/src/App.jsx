@@ -1,5 +1,7 @@
 import "./App.css";
-import StatusBar, { SaveButton } from "./components/StatusBar";
+import { ChatRoom } from "./components/customHook/chatRoom/ChatRoom";
+// import StatusBar, { SaveButton } from "./components/StatusBar";
+// import CustomForm from "./components/customHook/CustomForm";
 // import SimpleFormWithCustomHook from "./components/customHook/SimpleFormWithCustomHook";
 // import PostCode from "./components/postalAutoFill/PostCode";
 // import Chat from "./components/Chat";
@@ -13,19 +15,19 @@ import StatusBar, { SaveButton } from "./components/StatusBar";
 export default function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                {/* <Todos /> */}
-                {/* <Form /> */}
-                {/* <RecipeList /> */}
-                {/* <TwitterPreview /> */}
-                {/* <RandomCountry /> */}
-                {/* <Video /> */}
-                {/* <Chat /> */}
-                {/* <PostCode /> */}
-                {/* <SimpleFormWithCustomHook /> */}
-                <StatusBar />
-                <SaveButton />
-            </header>
+            {/* <Todos /> */}
+            {/* <Form /> */}
+            {/* <RecipeList /> */}
+            {/* <TwitterPreview /> */}
+            {/* <RandomCountry /> */}
+            {/* <Video /> */}
+            {/* <Chat /> */}
+            {/* <PostCode /> */}
+            {/* <SimpleFormWithCustomHook /> */}
+            {/* <StatusBar /> */}
+            {/* <SaveButton /> */}
+            {/* <CustomForm /> */}
+            <ChatRoom />
         </div>
     );
 }
