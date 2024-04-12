@@ -1,5 +1,7 @@
 import "./App.css";
-import PostCode from "./components/postalAutoFill/PostCode";
+import StatusBar, { SaveButton } from "./components/StatusBar";
+// import SimpleFormWithCustomHook from "./components/customHook/SimpleFormWithCustomHook";
+// import PostCode from "./components/postalAutoFill/PostCode";
 // import Chat from "./components/Chat";
 // import Video from "./components/Video";
 // import { RandomCountry } from "./components/RandomCountry";
@@ -19,7 +21,10 @@ export default function App() {
                 {/* <RandomCountry /> */}
                 {/* <Video /> */}
                 {/* <Chat /> */}
-                <PostCode />
+                {/* <PostCode /> */}
+                {/* <SimpleFormWithCustomHook /> */}
+                <StatusBar />
+                <SaveButton />
             </header>
         </div>
     );
