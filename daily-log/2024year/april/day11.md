@@ -20,6 +20,8 @@
 
 #### テスト例:
 
+-   コンポーネントテスト
+
 ```
     describe("ボタン制御のテスト", () => {
         test("「カウントアップ」押下で「現在のカウント」が+1されるか", () => {
@@ -72,9 +74,11 @@ describe("counterReducerの動作確認", () => {
 
 ### Algorithm: 1H
 
+-   [k 番目の要素 medium](https://recursionist.io/dashboard/problems/submissions/791304)
+
 ## 合計学習時間
 
--   6H
+-   5H
 
 ## 明日の目標（TODO 目標/できるようになりたいこと）
 
