@@ -1,5 +1,9 @@
 import "./App.css";
-import PostCode from "./components/postalAutoFill/PostCode";
+import { ChatRoom } from "./components/customHook/chatRoom/ChatRoom";
+// import StatusBar, { SaveButton } from "./components/StatusBar";
+// import CustomForm from "./components/customHook/CustomForm";
+// import SimpleFormWithCustomHook from "./components/customHook/SimpleFormWithCustomHook";
+// import PostCode from "./components/postalAutoFill/PostCode";
 // import Chat from "./components/Chat";
 // import Video from "./components/Video";
 // import { RandomCountry } from "./components/RandomCountry";
@@ -11,16 +15,19 @@ import PostCode from "./components/postalAutoFill/PostCode";
 export default function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                {/* <Todos /> */}
-                {/* <Form /> */}
-                {/* <RecipeList /> */}
-                {/* <TwitterPreview /> */}
-                {/* <RandomCountry /> */}
-                {/* <Video /> */}
-                {/* <Chat /> */}
-                <PostCode />
-            </header>
+            {/* <Todos /> */}
+            {/* <Form /> */}
+            {/* <RecipeList /> */}
+            {/* <TwitterPreview /> */}
+            {/* <RandomCountry /> */}
+            {/* <Video /> */}
+            {/* <Chat /> */}
+            {/* <PostCode /> */}
+            {/* <SimpleFormWithCustomHook /> */}
+            {/* <StatusBar /> */}
+            {/* <SaveButton /> */}
+            {/* <CustomForm /> */}
+            <ChatRoom />
         </div>
     );
 }
