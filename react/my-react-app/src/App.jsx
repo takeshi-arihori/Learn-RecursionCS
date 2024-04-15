@@ -1,4 +1,5 @@
 import "./App.css";
+import { Home } from "./components/crossComponentCommunication/Home";
 import { ChatRoom } from "./components/customHook/chatRoom/ChatRoom";
 // import StatusBar, { SaveButton } from "./components/StatusBar";
 // import CustomForm from "./components/customHook/CustomForm";
@@ -27,7 +28,8 @@ export default function App() {
             {/* <StatusBar /> */}
             {/* <SaveButton /> */}
             {/* <CustomForm /> */}
-            <ChatRoom />
+            {/* <ChatRoom /> */}
+            <Home />
         </div>
     );
 }
