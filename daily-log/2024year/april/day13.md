@@ -2,19 +2,19 @@
 
 ## 本日の目標(朝一番に確認してから学習開始)
 
--   **React**: 3H
--   **Algorithm**: 1H
--   **Reading**: 1H
+**React**: 3H
+**Algorithm**: 1H
+**Reading**: 1H
 
 ## 目標振り返り
 
 ### React: 3H
 
--   **RecursionCS React**
+**RecursionCS React**
 
 -   useContext
 
--   -   useContext を使用するための 3 つのステップ
+    -   useContext を使用するための 3 つのステップ
 
 1. Context の作成
    最初に、共有したいデータに対する Context を作成します。これは React.createContext() メソッドを使って行います。このメソッドは Context オブジェクトを返し、それを通じて Provider と Consumer をアクセスできます。
