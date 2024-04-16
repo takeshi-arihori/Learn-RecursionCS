@@ -1,6 +1,11 @@
 import "./App.css";
-import { Home } from "./components/crossComponentCommunication/Home";
-import { ChatRoom } from "./components/customHook/chatRoom/ChatRoom";
+import CounterComponent from "./components/redux/CounterComponent";
+import { Provider } from "react-redux";
+import store from "./components/redux/store";
+// import TodoApp from "./components/todoList/TodoApp";
+// import Form from "./components/reducer/Form";
+// import { Home } from "./components/crossComponentCommunication/Home";
+// import { ChatRoom } from "./components/customHook/chatRoom/ChatRoom";
 // import StatusBar, { SaveButton } from "./components/StatusBar";
 // import CustomForm from "./components/customHook/CustomForm";
 // import SimpleFormWithCustomHook from "./components/customHook/SimpleFormWithCustomHook";
@@ -15,7 +20,7 @@ import { ChatRoom } from "./components/customHook/chatRoom/ChatRoom";
 
 export default function App() {
     return (
-        <div className="App">
+        <Provider store={store}>
             {/* <Todos /> */}
             {/* <Form /> */}
             {/* <RecipeList /> */}
@@ -29,7 +34,10 @@ export default function App() {
             {/* <SaveButton /> */}
             {/* <CustomForm /> */}
             {/* <ChatRoom /> */}
-            <Home />
-        </div>
+            {/* <Home /> */}
+            {/* <Form /> */}
+            {/* <TodoApp /> */}
+            <CounterComponent />
+        </Provider>
     );
 }
