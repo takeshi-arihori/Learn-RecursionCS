@@ -1,5 +1,5 @@
 import "./App.css";
-import CounterComponent from "./components/redux/CounterComponent";
+// import CounterComponent from "./components/redux/CounterComponent";
 import { Provider } from "react-redux";
 import store from "./components/redux/store";
 // import TodoApp from "./components/todoList/TodoApp";
@@ -19,25 +19,25 @@ import store from "./components/redux/store";
 // import Todos from "./components/Todos";
 
 export default function App() {
-    return (
-        <Provider store={store}>
-            {/* <Todos /> */}
-            {/* <Form /> */}
-            {/* <RecipeList /> */}
-            {/* <TwitterPreview /> */}
-            {/* <RandomCountry /> */}
-            {/* <Video /> */}
-            {/* <Chat /> */}
-            {/* <PostCode /> */}
-            {/* <SimpleFormWithCustomHook /> */}
-            {/* <StatusBar /> */}
-            {/* <SaveButton /> */}
-            {/* <CustomForm /> */}
-            {/* <ChatRoom /> */}
-            {/* <Home /> */}
-            {/* <Form /> */}
-            {/* <TodoApp /> */}
-            <CounterComponent />
-        </Provider>
-    );
+  return (
+    <Provider store={store}>
+      {/* <Todos /> */}
+      {/* <Form /> */}
+      {/* <RecipeList /> */}
+      {/* <TwitterPreview /> */}
+      {/* <RandomCountry /> */}
+      {/* <Video /> */}
+      {/* <Chat /> */}
+      {/* <PostCode /> */}
+      {/* <SimpleFormWithCustomHook /> */}
+      {/* <StatusBar /> */}
+      {/* <SaveButton /> */}
+      {/* <CustomForm /> */}
+      {/* <ChatRoom /> */}
+      {/* <Home /> */}
+      {/* <Form /> */}
+      {/* <TodoApp /> */}
+      {/* <CounterComponent /> */}
+    </Provider>
+  );
 }
