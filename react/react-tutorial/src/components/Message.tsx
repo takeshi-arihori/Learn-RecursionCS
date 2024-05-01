@@ -3,7 +3,7 @@ const Text = (props: { content: string }) => {
 	return <p className="text">{content}</p>
 }
 
-const Message = (props: {}) => {
+const Message = () => {
 	const content1 = 'This is parent component'
 	const content2 = 'Message uses Text component'
 	return (
