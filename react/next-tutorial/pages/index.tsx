@@ -14,8 +14,9 @@ type BaseLinkProps = React.PropsWithChildren<LinkProps> & {
 const BaseLink = (props: BaseLinkProps) => {
 	const { className, children, ...rest } = props
 	return (
-		<Link {...rest}>
-			<a className={className}>{children}</a></Link>
+		<Link {...rest} legacyBehavior>
+			<a className={className}>{children}</a>
+		</Link>
 	)
 }
 
