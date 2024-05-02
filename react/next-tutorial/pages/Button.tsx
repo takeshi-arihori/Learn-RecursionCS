@@ -1,5 +1,3 @@
-import '@styles/Button.css'
-
 type ButtonProps = {
 	label: string
 	text: string

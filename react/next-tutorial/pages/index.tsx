@@ -1,5 +1,17 @@
-import Image from "next/image";
+import type { NextPage } from 'next'
+import styled from 'styled-components'
 
-export default function Home() {
-	return <h3>Index.tsx</h3>
+const Badge = styled.span`
+	padding: 8px 16px;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+	background-color: red;
+	border-radius: 16px;
+`
+
+const Page: NextPage = () => {
+	return <Badge>Next.js</Badge>
 }
+
+export default Page
