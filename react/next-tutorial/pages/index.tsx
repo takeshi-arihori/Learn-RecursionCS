@@ -1,38 +1,43 @@
 import type { NextPage } from 'next'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-// propsを使用しスタイルを制御
-type ButtonProps = {
-	color: string
-	backgroundColor: string
-}
+// 赤色のボーダーを表示するスタイル
+const redBox = css`
+	padding: 0.25em 1em;
+	border: 3px solid #ff0000;
+	border-radius: 10px;
+`
 
-// 文字色と背景色がpropsから変更可能なボタンコンポーネント
-// 型引数にpropsの型を渡す
-const Button = styled.button<ButtonProps>`
-/* color, background, border-colorはpropsから渡す */
-	color: ${({ color }) => color};
-	background: ${(props) => props.backgroundColor};
-	border: 2px solid ${({ color }) => color};
-
+// 青色文字を表示するスタイル
+const font = css`
+	color: #1e90ff;
 	font-size: 2em;
+`
+
+// 赤色ボーダーと青色文字のスタイルをそれぞれ適用し、背景が透明なボタンコンポーネント
+const Button = styled.button`
+	background: transparent;
 	margin: 1em;
-	padding: .25em 1em;
-	border-radius: 8px;
 	cursor: pointer;
+
+	${redBox}
+	${font}
+`
+
+// 青色文字のスタイルを継承し、ボールドでテキストを表示するコンポーネント
+const Text = styled.p`
+	font-weight: bold;
+
+	${font}
 `
 
 const Page: NextPage = () => {
 	return (
 		<div>
-			{/* 赤色の文字で透明な背景のボタンを表示 */}
-			<Button backgroundColor='transparent' color='#FF0000'>
-				Hello
-			</Button>
-			{/* 白色の文字で青色の背景のボタンを表示 */}
-			<Button backgroundColor='#1E90FF' color='white'>
-				World
-			</Button>
+			{/* 青色文字で赤色ボーダーのボタンを表示 */}
+			<Button>Hello</Button>
+			{/* 青色文字のテキストを表示 */}
+			<Text>World</Text>
 		</div>
 	)
 }
