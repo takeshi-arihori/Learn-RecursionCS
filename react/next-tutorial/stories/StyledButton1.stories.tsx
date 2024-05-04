@@ -1,28 +1,33 @@
-import { useState } from 'react';
-import { ComponentMeta } from '@storybook/react';
-import { StyledButton } from '../components/StyledButton';
-// 新しくactionをインポート
-import { action } from '@storybook/addon-actions';
+// argTypeを使用してUIからpropsを制御するストーリー
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StyledButton } from '../components/StyledButton'
+import { title } from 'process'
 
 export default {
 	title: 'StyledButton',
 	component: StyledButton,
-} as ComponentMeta<typeof StyledButton>;
+	argTypes: {
+		// propsに渡すvariantをStorybookから変更できるように追加
+		variant: {
+			// ラジオボタンで設定できるように指定
+			control: { type: 'radio' },
+			options: ['primary', 'success', 'transparent'],
+		},
+		// propsに渡すchildrenをStorybookから変更できるように追加
+		children: {
+			// テキストボックスで入力できるよう設定
+			control: { type: 'text' },
+		},
+	},
+} as ComponentMeta<typeof StyledButton>
 
-// incrementという名前でactionを出力するための関数を作る
-const incrementAction = action('increment');
+// テンプレートコンポーネントを実装
+// Storybookから渡されたpropsをそのままButtonに渡す
+const Template: ComponentStory<typeof StyledButton> = (args) => <StyledButton {...args} />
 
-export const Primary = (props) => {
-	const [count, setCount] = useState(0);
-	const onClick = (e: React.MouseEvent) => {
-		// 現在のカウントを渡してincrementActionを呼び出す
-		incrementAction(e, count);
-		setCount((c) => c + 1)
-	}
-
-	return (
-		<StyledButton onClick={onClick} variant='primary' {...props}>
-			Count: {count}
-		</StyledButton>
-	)
+// 各propsを設定してStorybookで表示
+export const Primary = Template.bind({})
+Primary.args = {
+	variant: 'primary',
+	children: 'Primary',
 }
