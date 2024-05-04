@@ -1,29 +1,43 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { StyledButton } from '@/components/StyledButton'
-import MDXDocument from './StyledButton.mdx'
+import { ComponentMeta, Story } from '@storybook/react'
+import { StyledButton, StyledButtonProps } from '../components/StyledButton'
+import { linkTo } from '@storybook/addon-links'
 
 export default {
 	title: 'StyledButton',
 	component: StyledButton,
-	parameters: {
-		docs: {
-			// ドキュメント用のmdxコンポーネントを指定
-			page: MDXDocument,
-		},
-	},
 } as ComponentMeta<typeof StyledButton>
 
-// テンプレートコンポーネントを実装
-// Storybookから渡されたpropsをそのままButtonに渡す
-const Template: ComponentStory<typeof StyledButton> = (args) => (
-	<StyledButton {...args} />
-)
+const Template: Story<StyledButtonProps> = (args) => <StyledButton {...args} />
 
-// bindを呼び出しStoryを作成
 export const TemplateTest = Template.bind({})
-
-// デフォルトのpropsを設定する
 TemplateTest.args = {
 	variant: 'primary',
 	children: 'Primary',
+}
+
+export const Primary = (props) => {
+	// クリックしたらStyledButton/Successのストーリーへ遷移する
+	return (
+		<StyledButton {...props} variant='primary' onClick={linkTo('StyledButton', 'Success')}>
+			Primary
+		</StyledButton>
+	)
+}
+
+export const Success = (props) => {
+	// クリックしたらStyledButton/Transparentのストーリーへ遷移する
+	return (
+		<StyledButton {...props} variant='success' onClick={linkTo('StyledButton', 'Transparent')}>
+			Success
+		</StyledButton>
+	)
+}
+
+export const Transparent = (props) => {
+	// クリックしたらStyledButton/Primaryのストーリーへ遷移する
+	return (
+		<StyledButton {...props} variant='transparent' onClick={linkTo('StyledButton', 'Primary')}>
+			Transparent
+		</StyledButton>
+	)
 }
