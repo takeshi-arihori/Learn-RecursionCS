@@ -1,37 +1,42 @@
-import { Meta, Story } from '@storybook/react';
-import { StyledButton, StyledButtonProps } from '../components/StyledButton';
+import { ComponentMeta, Story } from '@storybook/react'
+import { StyledButton, StyledButtonProps } from '../components/StyledButton'
+import { linkTo } from '@storybook/addon-links'
 
-// ファイル内のStoryの設定(メタデータオブジェクト)
 export default {
-	// グループ名
 	title: 'StyledButton',
-	// 使用するコンポーネント
 	component: StyledButton,
-	// onClickが呼ばれたときにclickedというアクションを出力する
-	argTypes: {
-		onClick: { action: 'clicked' }
-	},
-} as Meta<typeof StyledButton>
+} as ComponentMeta<typeof StyledButton>
 
-export const Primary: Story<StyledButtonProps> = (props) => {
+const Template: Story<StyledButtonProps> = (args) => <StyledButton {...args} />
+
+export const TemplateTest = Template.bind({})
+TemplateTest.args = {
+	variant: 'primary',
+	children: 'Primary',
+}
+
+export const Primary = (props) => {
+	// クリックしたらStyledButton/Successのストーリーへ遷移する
 	return (
-		<StyledButton {...props} variant='primary'>
+		<StyledButton {...props} variant='primary' onClick={linkTo('StyledButton', 'Success')}>
 			Primary
 		</StyledButton>
 	)
 }
 
-export const Success: Story<StyledButtonProps> = (props) => {
+export const Success = (props) => {
+	// クリックしたらStyledButton/Transparentのストーリーへ遷移する
 	return (
-		<StyledButton {...props} variant='success'>
+		<StyledButton {...props} variant='success' onClick={linkTo('StyledButton', 'Transparent')}>
 			Success
 		</StyledButton>
 	)
 }
 
-export const Transparent: Story<StyledButtonProps> = (props) => {
+export const Transparent = (props) => {
+	// クリックしたらStyledButton/Primaryのストーリーへ遷移する
 	return (
-		<StyledButton {...props} variant='transparent'>
+		<StyledButton {...props} variant='transparent' onClick={linkTo('StyledButton', 'Primary')}>
 			Transparent
 		</StyledButton>
 	)
