@@ -1,4 +1,4 @@
-package OOP_Battery;
+package oop_battery;
 
 public class ExternalModule {
 	public static void dangerousMethod(String customerId, Battery7v battery) {

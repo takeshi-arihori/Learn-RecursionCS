@@ -1,4 +1,4 @@
-package OOP_Battery;
+package oop_battery;
 
 public class Battery7v {
 	// 要件に応じてprivateに設定してください。

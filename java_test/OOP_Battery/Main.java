@@ -1,4 +1,4 @@
-package OOP_Battery;
+package oop_battery;
 
 // ゲッターとセッターの練習
 // それでは、以下のエディタで Battery7v を更新して、実装と使用を分離してください。
