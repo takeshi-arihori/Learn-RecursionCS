@@ -1,3 +1,8 @@
 {
-  "java.project.sourcePaths": ["react/react-tutorial/src"]
+  "java.project.sourcePaths": [
+    "react/react-tutorial/src",
+    "java_test/dependencyInjection/src",
+    "java_test/company/src",
+    "java_test/farmSimulation/src"
+  ]
 }
