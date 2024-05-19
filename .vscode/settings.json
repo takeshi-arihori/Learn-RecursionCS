@@ -4,6 +4,8 @@
     "java_test/farmSimulation/src",
     "java_test/dependencyInjection/src",
     "java_test/company/src",
-    "java_OOP/abstractList/src"
+    "java_OOP/interface/src",
+    "java_OOP/abstractList/src",
+    "java_OOP/pluralInterface/src"
   ]
 }
