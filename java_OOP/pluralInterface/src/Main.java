@@ -9,7 +9,7 @@ class Main {
 	}
 
 	public static void personEatsEdible(Person p, Edible rawFood) {
-		System.out.println(p + " will prepare and eat :" + rawFood + ". They do the following:" + rawFood.howToPrepare());
+		System.out.println(p + " will preparœe and eat :" + rawFood + ". They do the following:" + rawFood.howToPrepare());
 		System.out.println("The person prepared and ate the meal. " + rawFood.calories() + " calories consumed.");
 		System.out.println();
 	}
@@ -28,5 +28,9 @@ class Main {
 
 		personInteractsWithObject(ashley, obj3);
 		personEatsEdible(ashley, obj3);
+
+		personInteractsWithObject(ashley, obj4);
+		personInteractsWithObject(ashley, obj5);
+
 	}
 }
