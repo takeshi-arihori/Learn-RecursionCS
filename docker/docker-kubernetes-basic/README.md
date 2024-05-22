@@ -287,3 +287,38 @@ docker build -t ex22_original2 /Users/takeshi-arihori/Documents/learning/learn-r
 
 - bash を起動させるコマンド (`docker run`コマンドや `docker exec`コマンドにつけて実行する。)
   `/bin/bash`
+
+### Docker Compose
+
+Docker Compose では構築に関する設定を記述した定義ファイルを YAML(YAML Ain't Markup Language)形式で用意し、ファイルの中身を「up(一括実行=run)」したり、「down(コンテナとネットワーク一括停止・削除)」したりする。
+
+#### Dockerfile と Docker Compose , Kubernetes の違い
+
+- Docker Compose は「docker run」の集合体で、作成するのはコンテナと周辺環境。(ネットワークやボリュームも合わせて作成できる。)あくまでコンテナを作って消すだけなので、管理はできない。
+- Dockerfile は、イメージを作るものなのでネットワークやボリュームを作成できない。
+- Kubernetes は、コンテナを管理するものである。
+
+Container の集合体: Services
+
+定義ファイルの記述例(大項目のみ)
+
+```
+version: '3'
+services:
+networks:
+volumes:
+```
+
+定義ファイル(YAML 形式)の記述ルールまとめ
+
+- 最初に Docker Compose のバージョンを記述
+- 大項目「services」「networks」「volumes」に続いて設定内容を書く
+- 親子関係はスペースで字下げして表す
+- 字下げのスペースは、同じ数の倍数とする
+- 名前は、大項目の下に字下げして書く
+- コンテナの設定内容は、名前の下に字下げして書く
+- 「-」が入っていたら複数指定できる
+- 名前の後ろには「:」をつける
+- 「:」の後ろには空白が必要(例外的にすぐ改行する時は不要)
+- コメントを入れたい場合は#を使う(コメントアウト)
+- 文字列を入れる場合は、「シングルクォート」、「ダブルクォート」のどちらかでくくる
