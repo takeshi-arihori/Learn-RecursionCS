@@ -287,3 +287,117 @@ docker build -t ex22_original2 /Users/takeshi-arihori/Documents/learning/learn-r
 
 - bash を起動させるコマンド (`docker run`コマンドや `docker exec`コマンドにつけて実行する。)
   `/bin/bash`
+
+### Docker Compose
+
+Docker Compose では構築に関する設定を記述した定義ファイルを YAML(YAML Ain't Markup Language)形式で用意し、ファイルの中身を「up(一括実行=run)」したり、「down(コンテナとネットワーク一括停止・削除)」したりする。
+
+#### Dockerfile と Docker Compose , Kubernetes の違い
+
+- Docker Compose は「docker run」の集合体で、作成するのはコンテナと周辺環境。(ネットワークやボリュームも合わせて作成できる。)あくまでコンテナを作って消すだけなので、管理はできない。
+- Dockerfile は、イメージを作るものなのでネットワークやボリュームを作成できない。
+- Kubernetes は、コンテナを管理するものである。
+
+Container の集合体: Services
+
+定義ファイルの記述例(大項目のみ)
+
+```
+version: '3'
+services:
+networks:
+volumes:
+```
+
+定義ファイル(YAML 形式)の記述ルールまとめ
+
+- 最初に Docker Compose のバージョンを記述
+- 大項目「services」「networks」「volumes」に続いて設定内容を書く
+- 親子関係はスペースで字下げして表す
+- 字下げのスペースは、同じ数の倍数とする
+- 名前は、大項目の下に字下げして書く
+- コンテナの設定内容は、名前の下に字下げして書く
+- 「-」が入っていたら複数指定できる
+- 名前の後ろには「:」をつける
+- 「:」の後ろには空白が必要(例外的にすぐ改行する時は不要)
+- コメントを入れたい場合は#を使う(コメントアウト)
+- 文字列を入れる場合は、「シングルクォート」、「ダブルクォート」のどちらかでくくる
+
+### Docker Compose の作成と実行
+
+1. 定義ファイルを作成
+
+- a: ファイルを作成
+
+```
+	touch docker/docker-kubernetes-basic/docker-compose.yml
+```
+
+- b: ファイルに記述する大項目を並べる
+
+```
+	version: '3'
+	services:
+	networks:
+	volumes:
+```
+
+- c: 名前を書く
+
+```
+	version: '3'
+	services:
+	mysql000ex11:
+	wordpress000ex12:
+	networks:
+		wordpress000net1:
+	volumes:
+		mysql000vol11:
+	wordpress000vol12:
+```
+
+- d: MySQL コンテナの定義を行う(MySQL8 以降の書き方
+
+```
+	version: '3'
+	services:
+	mysql000ex11:
+		image: mysql:8.0
+		container_name: mysql000ex11
+		networks:
+			- wordpress000net1
+		volumes:
+			- mysql000vol11:/var/lib/mysql
+		restart: always
+		command: mysqld --character-set-server=utf8mb4 --collation-server=user8mb4_unicode_ci --default-authentication-plugin=mysql_native_password
+		environment:
+			MYSQL_ROOT_PASSWORD: myrootpass
+			MYSQL_DATABASE: wordpress000db
+			MYSQL_USER: wordpress000kun
+			MYSQL_PASSWORD: wkunpass
+		wordpress000ex12:
+	networks:
+	wordpress000net1:
+	volumes:
+	mysql000vol11:
+	wordpress000vol12:
+```
+
+- e: WordPress コンテナの定義を行う
+
+2. 定義ファイルの内容を実行する
+
+- a: `docker compose -f ファイル名 up -d`で実行
+  -f はファイル名を指定するオプション
+
+- b: コンテナとネットワークを停止・削除
+  `docker compose -f ファイル名 down`
+
+- c: 後始末(image と volume を削除)
+
+### kubernetes(k8s)
+
+コンテナのオーケストレーションツール (システム全体の統括をし、複数のコンテナを管理できるもの) で、Docker とは別のソフトウェア。
+
+- 前提:
+  Docker は一台の物理的マシンで実行するイメージだったが、Kubernetes は複数の物理的マシン(仮想マシンなども)があることが前提。さらに、その 1 台 1 台の物理的マシンの中に複数のコンテナがある。
