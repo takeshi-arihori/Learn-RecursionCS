@@ -6,8 +6,10 @@
     "java_test/company/src",
     "java_OOP/pluralInterface/src",
     "java_OOP/interface/src",
+    "java_OOP/generic_purpose/src",
+    "java_OOP/generar_purpose/src",
     "java_OOP/data_structure_interface/src",
     "java_OOP/abstractList/src",
-    "java_OOP/generar_purpose/src"
+    "java_OOP/leastRecentlyUsedCache/src"
   ]
 }
