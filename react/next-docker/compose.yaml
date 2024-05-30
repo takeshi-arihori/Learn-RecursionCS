@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+    tty: true
+    volumes:
+      - ./src:/app
+    # Next.jsでホットリロードを有効にするためにWATCHPACK_POLLINGをtrueに設定
+    environment:
+      - WATCHPACK_POLLING=true
+    command: sh -c "npm run dev"
+    ports:
+      - "3000:3000"
