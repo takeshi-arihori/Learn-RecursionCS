@@ -53,4 +53,25 @@ printf("%s Rocks© Website %s. All rights reserved.", $planet, date("Y"));
 
 このように、sprintf や printf を使用することで、文字列の連結よりも効果的にフォーマットされた文字列を扱うことができます。
 
-## ローカル動的サーバ(2)
+## Lorem Ipsum (1)
+
+composer の install
+
+Dockerfile に以下を追記
+
+```
+# Composer のインストール
+RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
+    && HASH="$(curl -sS https://composer.github.io/installer.sig)" \
+    && echo "$HASH composer-setup.php" | sha384sum -c - \
+    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+    && rm composer-setup.php
+```
+
+## Lorem Ipsum(2)
+
+faker のインストール
+
+```
+
+```
