@@ -15,4 +15,15 @@ RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && rm composer-setup.php
 
-WORKDIR /var/www
+WORKDIR /var/www/html
+
+# Composer の依存関係をインストール
+COPY composer.json composer.lock ./
+RUN composer install
+
+# オートロードを再構築
+RUN composer dump-autoload
+
+# アプリケーションのソースコードをコピー
+COPY . .
+

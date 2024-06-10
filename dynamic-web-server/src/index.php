@@ -28,21 +28,14 @@ $users = RandomGenerator::users($min, $max);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Profiles</title>
   <style>
-    body {
+    .cards {
+      width: 100%;
       font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
       padding: 20px;
-    }
-
-    .user-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      width: 100%;
-      max-width: 1200px;
+      display: flex;
+      flex-wrap: wrap;
     }
 
     .user-card {
@@ -51,8 +44,11 @@ $users = RandomGenerator::users($min, $max);
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       padding: 20px;
+      margin: 2rem;
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
+      width: 25rem;
+      height: auto;
     }
 
     .user-card:hover {
@@ -60,9 +56,11 @@ $users = RandomGenerator::users($min, $max);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .user-card h2 {
+    h1,
+    h2 {
       font-size: 24px;
       margin-bottom: 10px;
+      text-align: center;
     }
 
     .user-card p {
@@ -80,9 +78,13 @@ $users = RandomGenerator::users($min, $max);
 
 <body>
   <h1>User Profiles</h1>
-  <?php foreach ($users as $user) : ?>
-    <?php echo $user->toHTML(); ?>
-  <?php endforeach; ?>
+  <!-- ユーザーの数を表示 -->
+  <h2><?php echo count($users); ?> Users</h2>
+  <div class="cards">
+    <?php foreach ($users as $user) : ?>
+      <?php echo $user->toHTML(); ?>
+    <?php endforeach; ?>
+  </div>
 </body>
 
 </html>

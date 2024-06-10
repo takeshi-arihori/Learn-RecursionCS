@@ -113,13 +113,14 @@ class User
   public function toMarkdown()
   {
     return "## User: {$this->firstName} {$this->lastName}
-                 - Email: {$this->email}
-                 - Phone Number: {$this->phoneNumber}
-                 - Address: {$this->address}
-                 - Birth Date: {$this->birthDate}
-                 - Is Active: {$this->isActive}
-                 - Role: {$this->role}";
+           - Email: {$this->email}
+           - Phone Number: {$this->phoneNumber}
+           - Address: {$this->address}
+           - Birth Date: {$this->birthDate->format('Y-m-d')}
+           - Membership Expiration Date: {$this->membershipExpirationDate->format('Y-m-d')}
+           - Role: {$this->role}";
   }
+
 
   public function toArray()
   {
@@ -128,11 +129,9 @@ class User
       'firstName' => $this->firstName,
       'lastName' => $this->lastName,
       'email' => $this->email,
-      'password' => $this->password,
       'phoneNumber' => $this->phoneNumber,
       'address' => $this->address,
       'birthDate' => $this->birthDate,
-      'isActive' => $this->isActive,
       'role' => $this->role
     ];
   }

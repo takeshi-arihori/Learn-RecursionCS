@@ -190,13 +190,13 @@
             "time": "2024-04-18T09:32:20+00:00"
         }
     ],
-    "packages-dev": [],
-    "aliases": [],
+    "packages-dev": [ ],
+    "aliases": [ ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": [ ],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": [ ],
+    "platform-dev": [ ],
     "plugin-api-version": "2.6.0"
 }
