@@ -20,6 +20,20 @@ $count = (int)$count;
 // 指定された数のユーザーを生成
 $users = RandomGenerator::users($count, $count);
 
+// 検証
+if (is_null($count) || is_null($format)) {
+  exit('Missing parameters.');
+}
+
+if (!is_numeric($count) || $count < 1 || $count > 100) {
+  exit('Invalid count. Must be a number between 1 and 100.');
+}
+
+$allowedFormats = ['json', 'txt', 'html', 'md'];
+if (!in_array($format, $allowedFormats)) {
+  exit('Invalid type. Must be one of: ' . implode(', ', $allowedFormats));
+}
+
 // 出力フォーマットに応じてヘッダーとコンテンツを設定
 if ($format === 'markdown') {
   // Markdown形式で出力するためのヘッダーを設定し、ダウンロードさせる
