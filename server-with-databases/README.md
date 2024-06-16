@@ -40,93 +40,9 @@ RecursionCS バックエンドカリキュラム
 
 ## 環境要件
 
-このコースを通じて、ローカルとプロダクション環境はどちらも Ubuntu の Linux ディストリビューションであることが前提です。プロダクションは AWS EC2 インスタンスなどのクラウド VM にホストされるべきで、ローカルはローカル VM インスタンスまたはデスクトップ OS のいずれかになります。
-
-### Docker を使用した環境構築
-
-Docker を使用することで、以下の利点があります:
-
-- **一貫した環境:** ローカルとプロダクション環境で同一の設定を使用できるため、一貫した動作が保証されます。
-- **依存関係の管理:** 各コンテナ内で依存関係を個別に管理できるため、環境の汚染を防ぎます。
-- **スケーラビリティ:** Docker Compose を使用することで、マルチコンテナアプリケーションの構築と管理が容易になります。
-
-## 開発環境
-
-- **Web サーバ**: Nginx 1.25.0
-- **データベース**: MySQL 8.0
-- **言語**: PHP 8.1
-
-## 参考
-
-- [参考記事](https://qiita.com/shikuno_dev/items/f236c8280bb745dd6fb4)
-
-## プロジェクト構成
-
 ```
-.
-├── docker/
-│ ├── mysql/
-│ │ └── my.cnf
-│ ├── nginx/
-│ │ └── default.conf
-│ └── php/
-│ ├── Dockerfile
-│ └── php.ini
-├── src/
-│    ├── index.php
-│    └── header.php
-├── compose.yml
-└── .env
+VirtualBox: 7.0
+Ubuntu: 24.04
+Vim
 ```
 
-## セットアップ手順
-
-### 1. リポジトリをクローン
-
-### 2. 環境変数を設定
-
-.env ファイルを作成し、以下の内容を追加します。
-
-```
-MYSQL_ROOT_PASSWORD=password
-MYSQL_DATABASE=php-docker-db
-MYSQL_USER=user
-MYSQL_PASSWORD=password
-PROJECT_NAME=my_project
-
-```
-
-### 3. Docker コンテナをビルドして起動
-
-```
-docker-compose up --build
-```
-
-### 4. phpMyAdmin にアクセス
-
-ブラウザで http://localhost:8080 にアクセスし、以下の情報でログインします。
-
-```
-サーバ: mysql
-ユーザ名: root
-パスワード: .envファイルで設定したMYSQL_ROOT_PASSWORDの値（例: password）
-```
-
-## Docker 内での DB 操作
-
-### MySQL コンテナに入る
-
-```
-docker-compose exec mysql /bin/bash
-```
-
-### MySQL にログイン
-
-```
-mysql -u root -p
-```
-
-### 注意事項
-
-- 各プロジェクトで使用する際は、.env ファイルの内容をプロジェクトに合わせて変更してください。
-- Docker Compose ファイルで定義されたボリューム名やネットワーク名もプロジェクトごとにユニークにしてください。
