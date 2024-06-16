@@ -46,3 +46,12 @@ Ubuntu: 24.04
 Vim
 ```
 
+## directory構造
+```
+└── Exceptions
+│   ├── ReadAndParseEnvException.php
+├── Helpers
+│   ├── Settings.php
+└── init-app.php
+```
+
