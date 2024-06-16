@@ -73,11 +73,6 @@ Docker を使用することで、以下の利点があります:
 
 ### 1. リポジトリをクローン
 
-```bash
-git clone https://github.com/yourusername/yourrepository.git
-cd yourrepository
-```
-
 ### 2. 環境変数を設定
 
 .env ファイルを作成し、以下の内容を追加します。
