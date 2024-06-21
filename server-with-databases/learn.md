@@ -26,7 +26,7 @@ spl_autoload_register( function($name) {
 
 ## バックエンドを通じてテーブルスキーマを管理する方法
 ### 1. 単一のファイルに書き込む `cars-setup.sql'
-手動のSQLスクリプトを使うアプローは、シェルを通じて直接実行することができる。
+手動のSQLスクリプトを使うアプローチは、シェルを通じて直接実行することができる。
 ```
 mysql -u takeshi -p practice_db < Database/Examples/cars-setup.sql
 ```
