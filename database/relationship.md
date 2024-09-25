@@ -59,15 +59,3 @@ O(log n)やO(1)の速度でデータを見つけることができる。
 ![primary-key](https://github.com/user-attachments/assets/154586e4-ab11-4f20-843b-c457e63d75b8)
 
 - **非キー属性**: 候補に含まれない全ての属性
-
-## 参照関係2
-
-
-
-
-
-
-
-
-
-
