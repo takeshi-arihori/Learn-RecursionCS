@@ -46,3 +46,55 @@ MySQL <8.4からMySQL >9.0にアップグレードするには、まずMySQL 8.4
 - ユーザ一覧の確認: `SELECT user, host FROM mysql.user;`
 - ユーザーの作成: `CREATE USER user_name@host_name IDENTIFIED BY 'password';`
 - 作成したユーザーでログイン: `mysql -u user_name -p;`
+
+**[rootユーザーに関して](https://dev.mysql.com/doc/refman/8.0/ja/default-privileges.html)**  
+
+SQLは大文字・小文字を区別しないが、SQLステートメントは大文字で記述するのが一般的。
+
+- ユーザーパスワード変更: `SET PASSWORD FOR user_name@host_name = 'new_password';`
+- ユーザー名、ホスト名変更: `RENAME USER 'user_name'@'host_name' TO 'new_user_name'@'new_host_name';`
+
+- ホスト名を指定するオプション: `mysql -u user_name -h 127.0.0.1 -p`
+ホスト名が`localhost`の場合は、ログイン時にホスト名を省略することができる。
+
+- ユーザーの削除: `DROP USER user_name@host_name; `
+
+## データベースの作成
+
+- データベースの作成: `CREATE DATABASE db_name;`
+- データベースの削除" `DROP DATABASE db_name;`
+
+## テーブルの作成
+
+### データ型と内容
+| データ型      | 内容                                               |
+|---------------|----------------------------------------------------|
+| INT           | 4 バイトの数値                                      |
+| BIGINT        | 8 バイトの数値                                      |
+| FLOAT         | 浮動小数点ありの数値                                |
+| DATE          | 日付                                                |
+| DATETIME      | 日時                                                |
+| CHAR(n)       | 固定長文字列（足りない分は空白で埋められる）        |
+| VARCHAR(n)    | 変長文字列                                          |
+| TEXT          | 変長文字列  (ポインタのみが格納されデータは別領域)   |
+
+- 使用するデータベースの選択: `USE DATABASE名`
+- テーブルの作成: `CREATE TABLE db_name.table_name (column_name data_type, column_name data_type, ...);` (USEで使用するデータベースを選択している場合は`db_name`は不要)
+
+### VARCHARが255文字の宣言をする理由
+「CHAR とは対照的に、VARCHAR 値は、1 バイトまたは 2 バイト長のプリフィクスの付いたデータとして格納されます。  
+長さプリフィクスは、値に含まれるバイト数を示します。255 バイト以下の値を格納するカラムでは 1 バイト長のプリフィクスを使用し、255 バイトよりも大きい値を格納するカラムでは 2 バイト長のプリフィクスを使用します」  
+つまり、256 文字以上を格納できるようにすると、より多くのデータ容量を消費するということです。   
+従って、先ほど作成した departments テーブルのnameカラムでは、1 バイト長のプリフィックスで収まる中では最大の文字数である 255 文字に設定しています。  
+
+### スキーマ
+データベース設計では、スキーマと呼ばれるデータベースのデータ構造やデータの持ち方が大事になってくる
+- 外部スキーマ: データベースのビューや、アプリケーションのユーザーインターフェースなど
+- 概念スキーマ: 開発者から見たデータベースで、データ構造や関係について
+- 内部スキーマ: DBMSから見たデータベースで、データを格納しているファイルなど具体的な格納方法など
+
+- 作成したテーブルのスキーマを表示: `SHOW CREATE TABLE table_name;`
+
+## インデックスと制約
+
+
