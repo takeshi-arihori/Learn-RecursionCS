@@ -142,6 +142,9 @@ mysql>
 
 それぞれの制約はテーブルの特定のカラムに対して設定することができる。  
 
+## テーブルの更新
+
+`ALTER TABLE table_name RENAME [TO|AS] new_table_name;`
 
 
 
