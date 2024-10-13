@@ -112,12 +112,12 @@ SQLは大文字・小文字を区別しないが、SQLステートメントは�
 
 
 ### 制約
-- 主キー(PRIMARY KEY)制約
+- 主キー(PRIMARY KEY)制約: `CREATE TABLE members (id INT PRIMARY KEY); `
   - 一意を保証
   - NULLを禁止
   - 1つのテーブルにおいて1つのカラムにだけ主キー制約を設定できる
   - 主キー制約を設定するカラムにはインデックスが必要。(自動で設定される)
-```
+```bash
 mysql> CREATE TABLE members (id INT PRIMARY KEY);
 Query OK, 0 rows affected (0.00 sec)
 
@@ -131,20 +131,75 @@ mysql> SHOW COLUMNS FROM members;
 
 mysql>
 ```
-- 外部キー(FOREIGN KEY)制約
+- 外部キー(FOREIGN KEY)制約: `CREATE TABLE authors (id INT PRIMARY KEY);  CREATE TABLE books (id INT, author_id INT, FOREIGN KEY author_fk(author_id) REFERENCES authors(id));`
   - 他のテーブルの主キーを参照する
   - この制約を設定したカラム(外部キー)の値は、必ず主キーに設定したカラムに存在する値でなければいけない
   - この制約を設定したカラムの値を先に削除しなければ、参照先の主キーのデータを削除することはできない
   - 外部キー制約を設定するカラム、参照先の主キーカラムにはインデックスが必要。(自動で設定される)
 - NOT NULL制約
-- 一意(UNIQUENESS)制約
-- CHECK制約
+  - NULL値を禁止: `CREATE TABLE products (id INT, name VARCHAR(255) NOT NULL);`
+- 一意(UNIQUENESS)制約: `CREATE TABLE employees (id INT, name VARCHAR(255), email VARCHAR(255) UNIQUE); `
+  - 一つのカラムでデータが重複することを禁止
+  - 複数のカラムに設定可能
+  - NULLを禁止するわけではない
+  - 自動でインデックスが設定される
+- CHECK制約: `CREATE TABLE users (id INT PRIMARY KEY, age INT, CONSTRAINT age_check CHECK(age >= 18));`
+  - 条件を指定して、その条件を満たさないデータが入るのを禁止する
 
 それぞれの制約はテーブルの特定のカラムに対して設定することができる。  
 
 ## テーブルの更新
 
-`ALTER TABLE table_name RENAME [TO|AS] new_table_name;`
+`ALTER TABLE table_name change_command;`
+- **テーブルの変更内容**
+  - テーブル名、カラム名、インデックス名を変更する
+  - カラムの定義を変更する
+  - カラムを追加する
+  - カラムを削除する
+
+### テーブル名の変更
+`ALTER TABLE table_name RENAME [TO|AS] new_table_name;`  
+
+### カラム名の変更
+`ALTER TABLE new_departments RENAME COLUMN start_date TO start_on;`  
+
+### インデックス名の変更
+`ALTER TABLE new_departments RENAME INDEX id_index TO new_id_index;`  
+
+### カラムの定義の変更
+`ALTER TABLE table_name MODIFY column_name new_definition;`  
+例: `ALTER TABLE new_departments MODIFY id BIGINT UNIQUE;`  
+keyが重複するので、`ALTER TABLE new_departments DROP INDEX new_id_index;` で、インデックスを削除  
+
+#### KEY, INDEX, UNIQUE kEY, PRIMARY KEYについて(MySQL)
+- KEY, INDEX: インデックスツリーが作成され、データ走査が速くなる
+- UNIQUE KEY: 値を重複させたくないカラムに対して設定するキー。そのカラムに対して自動的にインデックスが付与される。
+- PRIMARY KEY: UNIQUE KEY + NULL値を許さない、一つのテーブルに一つしか設定できない。主キーとしての特徴を持たせたい場合はこれを使用。
+
+### カラムの追加
+`ALTER TABLE table_name ADD column_name definition [FIRST | AFTER column_name];`  
+
+### カラムの削除
+`ALTER TABLE table_name DROP column_name;`
+
+
+## テーブルの削除
+- テーブルの削除: `DROP TABLE table_name;`  
+- カラムに付与する設定を削除する場合: `ALTER TABLE table_name DROP [INDEX CHECK ...];`
+
+- データの全削除: `TRUNCATE TABLE table_name`
+指定したテーブルに存在するデータを全て削除することができる。一度テーブルを削除した後、元のテーブル定義の通りにテーブルを再作成するため、DDL(データ定義言語)に分類される。
+`AUTO_INCREMENT`について: `DELETE`で削除した場合は削除前の状態から続けて採番され、`TRUNCATE`でデータを削除した場合は開始値にリセットされる。
+
+
+
+
+
+
+
+
+
+
 
 
 
