@@ -75,7 +75,7 @@ WHERE句で指定できる条件
 
 ## SQL演算子(NOT/IN)
 ### IN
-IN 句は、列挙している値のいずれかを含む場合、true を返し、それ以外の場合、false を返します。  
+IN 句は、列挙している値のいずれかを含む場合、true を返し、それ以外の場合、false を返します。   
 
 - 例: `SELECT * FROM products WHERE price IN (100000, 200000);`
   - 1 行目のレコードについて、WHERE price IN (10000,20000) を評価していきます。
@@ -84,14 +84,17 @@ IN 句は、列挙している値のいずれかを含む場合、true を返し
   - この WHERE 句の結果が true であれば、1 行目のレコードを出力します。
   - 次のレコードへ
 
-※ IN区を使用する際、NULLをINの候補地に含めることはできない。
+※ IN句を使用する際、NULLをINの候補地に含めることはできない。
 
 ### NOT IN
-列挙している値のいずれも含まない場合 true を返す。処理の順番としては、まず IN 句が処理されます。その後、IN 句の出力で得られた真偽値と NOT を組み合わせて評価します。
+列挙している値のいずれも含まない場合 true を返す。処理の順番としては、まず IN 句が処理されます。その後、IN 句の出力で得られた真偽値と NOT を組み合わせて評価します。   
+`SELECT * FROM products WHERE model_year NOT IN (2020);`
+
 
 ## SQL演算子(BETWEEN/LIKE/IS)
 ### BETWEEN
-BETWEEN 句は、指定された二つの値の間に入っている場合、true を返し、それ以外の場合、false を返します。
+BETWEEN 句は、指定された二つの値の間に入っている場合、true を返し、それ以外の場合、false を返します。  
+`SELECT * FROM products WHERE price BETWEEN 100000 AND 200000`  
 
 ### LIKE
 LIKE 句は、指定された文字列が含まれている場合、true を返し、それ以外の場合、false を返します。
@@ -100,6 +103,38 @@ LIKE 句は、指定された文字列が含まれている場合、true を返�
   - 後方一致: `%search_word`
   - 部分一致: `%search_word%`
   - 中間一致: `_%search_word%_`
+
+
+## データの表示(ORDER/LIMIT)
+### ORDER
+ORDER 句は、データの表示順を指定することができます。昇順（上から下へ大きくなっていく順番）の場合は、ORDER BY column_name ASC と指定できます。降順（上から下へ小さくなっていく順番）の場合は、ORDER BY column_name DESC と指定できます。    
+`SELECT * FROM products ORDER BY price ASC;`
+
+### LIMIT
+LIMIT 句は、表示するレコード数を指定することができます。例えば、3 つのレコードだけを表示したい場合は、LIMIT 3 と指定できます。この時取り出されるデータは、ORDER 句によって決められた順番の上から順になっています。  
+`SELECT * FROM users ORDER BY age ASC LIMIT 3;`  
+
+## データの作成(INSERT)
+### INSERT
+指定したテーブルに 1 レコード追加することができます。  
+`INSERT INTO table_name (column_name1, column_name2, ...) VALUES (value1, value2, ...);`   
+
+複数行のレコードを追加する場合,（カンマ）繋ぎにして記述します。  
+`INSERT INTO table_name (column_name1, column_name2, ...) VALUES (value1, value2, ...), (value3, value4, ...);`
+
+## データの更新と削除(UPDATE/DELETE)
+### UPDATE
+データの更新には、UPDATE を使用します。
+`UPDATE table_name SET column_name=value WHERE clause;`
+
+### DELETE
+データの削除には、DELETE を使用します。  
+`DELETE FROM table_name WHERE clause;`  
+
+
+
+
+
 
 
 
