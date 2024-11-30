@@ -1,3 +1,9 @@
-# RecursionCSでの学習内容
+# RecursionCS カリキュラム
 
-コーディング問題などの練習用のリポジトリ
+```zsh
+.
+├── README.md
+├── advanced
+├── beginner
+└── intermediate
+```
