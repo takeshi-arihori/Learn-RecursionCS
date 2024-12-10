@@ -22,18 +22,18 @@
     </header>
 
     <div class="container mx-auto">
-        <main class="text-center mb-2 h-[calc(100vh-3rem)]">
+        <main class="text-center mb-2">
             <?php
             require_once('convert_to_century.php');
             ?>
         </main>
 
-        <footer class="text-center mt-12">
-            <a href="/" class="inline-block bg-blue-500 text-white text-lg font-medium py-2 px-4 rounded hover:bg-blue-600 transition">
-                ← Back to Home
-            </a>
-        </footer>
     </div>
+    <footer class="text-center mt-12">
+        <a href="/" class="inline-block bg-blue-500 text-white text-lg font-medium py-2 px-4 rounded hover:bg-blue-600 transition">
+            ← Back to Home
+        </a>
+    </footer>
 </body>
 
 </html>
