@@ -16,7 +16,9 @@
         </header>
 
         <main class="text-center mt-12">
-            <p class="text-gray-700 text-lg">This is the Intermediate page. Level up your skills!</p>
+            <?php
+            require_once('Test.php');
+            ?>
         </main>
 
         <footer class="text-center mt-12">
@@ -24,6 +26,7 @@
                 ← Back to Home
             </a>
         </footer>
+
     </div>
 </body>
 
