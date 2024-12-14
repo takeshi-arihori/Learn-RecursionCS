@@ -109,6 +109,3 @@ echo "<br>";
 // 地球上で 50lb を 100m 移動するのに必要なエネルギー量を計算してください。(22241.089934)
 echo joulesByWork(forceNewtons(poundsToKg(50), planetGravityMpss("Earth")), 100);
 echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";

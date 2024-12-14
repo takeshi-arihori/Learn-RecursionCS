@@ -16,11 +16,14 @@
         </header>
 
         <main class="text-center mt-12">
-            <?php
-            require_once('Test.php');
-            require_once('Newton.php');
-            require_once('Newton2.php');
-            ?>
+            <p class="mt-2 text-lg text-green-600">Test.php</p>
+            <?php require_once('Test.php'); ?>
+            <p class="mt-2 text-lg text-green-600">Newton.php</p>
+            <?php require_once('Newton.php'); ?>
+            <p class="mt-2 text-lg text-green-600">Newton2.php</p>
+            <?php require_once('Newton2.php'); ?>
+            <p class="mt-2 text-lg text-green-600">QuadraticEquation.php</p>
+            <?php require_once('QuadraticEquation.php'); ?>
         </main>
 
         <footer class="text-center mt-12">
