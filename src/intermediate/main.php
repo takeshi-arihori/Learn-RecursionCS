@@ -18,6 +18,8 @@
         <main class="text-center mt-12">
             <?php
             require_once('Test.php');
+            require_once('Newton.php');
+            require_once('Newton2.php');
             ?>
         </main>
 
