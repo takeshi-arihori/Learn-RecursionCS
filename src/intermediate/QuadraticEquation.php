@@ -82,7 +82,6 @@ function calculateVolume(float $r): float
 function calculateVolumeFromEquation(int $a, int $b, int $c): float
 {
     $r = solveQuadraticEquation($a, $b, $c);
-    echo gettype(calculateVolume($r)) . PHP_EOL;
     return calculateVolume($r);
 }
 
