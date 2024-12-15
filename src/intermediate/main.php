@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+
+// ファイル名のリスト
+$files = [
+    'Test.php',
+    'Newton.php',
+    'Newton2.php',
+    'QuadraticEquation.php',
+    'ValidCredit.php'
+];
+
+?>
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,14 +30,10 @@
         </header>
 
         <main class="text-center mt-12">
-            <p class="mt-2 text-lg text-green-600">Test.php</p>
-            <?php require_once('Test.php'); ?>
-            <p class="mt-2 text-lg text-green-600">Newton.php</p>
-            <?php require_once('Newton.php'); ?>
-            <p class="mt-2 text-lg text-green-600">Newton2.php</p>
-            <?php require_once('Newton2.php'); ?>
-            <p class="mt-2 text-lg text-green-600">QuadraticEquation.php</p>
-            <?php require_once('QuadraticEquation.php'); ?>
+            <?php foreach ($files as $file): ?>
+                <p class="mt-2 text-lg text-green-600"><?php echo $file; ?></p>
+                <?php require_once($file); ?>
+            <?php endforeach; ?>
         </main>
 
         <footer class="text-center mt-12">
