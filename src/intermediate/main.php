@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+
+// ファイル名のリスト
+$files = [
+    'Test.php',
+    'Newton.php',
+    'Newton2.php',
+    'QuadraticEquation.php',
+    'ValidCredit.php'
+];
+
+?>
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +30,10 @@
         </header>
 
         <main class="text-center mt-12">
-            <p class="text-gray-700 text-lg">This is the Intermediate page. Level up your skills!</p>
+            <?php foreach ($files as $file): ?>
+                <p class="mt-2 text-lg text-green-600"><?php echo $file; ?></p>
+                <?php require_once($file); ?>
+            <?php endforeach; ?>
         </main>
 
         <footer class="text-center mt-12">
@@ -24,6 +41,7 @@
                 ← Back to Home
             </a>
         </footer>
+
     </div>
 </body>
 
