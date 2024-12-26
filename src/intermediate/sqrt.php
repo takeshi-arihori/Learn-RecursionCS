@@ -43,7 +43,7 @@ function isSquareRootCloseEnough(float $a, float $b): bool
     // 誤差 |a-b| を計算するために、abs関数を使用。abs(x) は x の絶対値を返す
     // return 100 * abs(($a - $b) / $b) < 0.01;
     $result = 100 * abs(($a - $b) / $b);
-    echo "result : " . strval($result) . PHP_EOL;
+    // echo "result : " . strval($result) . PHP_EOL;
     return $result < 0.01;
 }
 
