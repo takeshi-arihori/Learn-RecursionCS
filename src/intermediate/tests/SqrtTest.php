@@ -19,3 +19,6 @@ class SqrtTest extends TestCase
         $this->assertEqualsWithDelta(1.41421356, squareRootHelper(2, 1.414285), 0.000001);
     }
 }
+
+// 実行方法
+// $ php vendor/bin/phpunit --testdox tests/SqrtTest.php
