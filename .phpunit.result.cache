@@ -1,1 +1,1 @@
-{"version":1,"defects":{"SqrtTest::testIsSquareRootCloseEnough":7,"SqrtTest::testSquareRootHelper":7},"times":{"SqrtTest::testIsSquareRootCloseEnough":0.003,"SqrtTest::testSquareRootHelper":0.003}}
+{"version":1,"defects":{"SqrtTest::testIsSquareRootCloseEnough":7,"SqrtTest::testSquareRootHelper":7},"times":{"SqrtTest::testIsSquareRootCloseEnough":0.003,"SqrtTest::testSquareRootHelper":0.003,"MathSplitTest::testRecursiveDigitsAdded":0.006}}
