@@ -81,3 +81,38 @@ function squareRoot(float $x): float
     // 初期値は 1
     return squareRootHelper($x, 1);
 }
+
+
+/**
+ * while文を使って平方根を求める
+ *
+ * @param float $a
+ * @param float $b
+ * @return boolean
+ */
+function isSquareRootCloseEnoughWhile(float $a, float $b): bool
+{
+    return abs($a - $b) / $b < 0.000001; // 精度を向上させるために条件を修正
+}
+
+/**
+ * while文を使って平方根を求める
+ * 
+ * @param float $x
+ * @return float
+ */
+function squareRootWhile(float $x): float
+{
+    // 1 から推定値をスタート
+    $guess = 1;
+
+    // 条件を満たすまで繰り返し推定値を探し続ける
+    // 2つの近似値が正しいかどうかをチェック
+    while (!isSquareRootCloseEnoughWhile($x / $guess, $guess)) {
+        // 新しい推定値を格納
+        // 新しい推定値は guess と x/guess の平均
+        $guess = ($guess + $x / $guess) / 2;
+    }
+
+    return $guess;
+}
