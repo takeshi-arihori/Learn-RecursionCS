@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__ . '/../math_split.php';
+require_once __DIR__ . '/../MathSplit.php';
 
 class MathSplitTest extends TestCase
 {

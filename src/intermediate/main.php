@@ -9,7 +9,13 @@ $files = [
     'Newton.php',
     'Newton2.php',
     'QuadraticEquation.php',
-    'ValidCredit.php'
+    'ValidCredit.php',
+    'Gcd.php',
+    'SieveOfElastoTenes.php',
+    'Stack.php',
+    'TwosComplement.php',
+    'ForLoop.php',
+    'MathSplit.php',
 ];
 
 ?>
