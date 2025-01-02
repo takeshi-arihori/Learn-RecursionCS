@@ -13,7 +13,7 @@ $files = [
     'Gcd.php',
     'SieveOfElastoTenes.php',
     'Stack.php',
-    'TwosComplement.php',
+    'Complement.php',
     'ForLoop.php',
     'MathSplit.php',
 ];
