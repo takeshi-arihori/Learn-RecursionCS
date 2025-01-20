@@ -1,45 +1,59 @@
+import { Fragment } from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
 export const App = () => {
     return (
         <div>
-            <PackingList />
+            <List />
         </div>
     );
 };
 
-const ListLayout = styled.li`
-    list-style-type: none;
+export default App;
+
+const StyleWrap = styled.ul`
     display: flex;
-    gap: 5px;
+    flex-direction: column;
+    align-items: start;
 `;
 
-Item.propTypes = {
-    name: PropTypes.string.isRequired,
-    isPacked: PropTypes.bool.isRequired,
-};
+const StyleList = styled.li`
+    list-style-type: none;
+    margin: 10px 0;
+`;
 
-export function Item({ name, isPacked }) {
-    return (
-        <ListLayout>
-            {name} {isPacked ? "✅" : "❌"}
-        </ListLayout>
-    );
+const people = [{
+    id: 0,
+    name: 'Creola Katherine Johnson',
+    profession: 'mathematician',
+}, {
+    id: 1,
+    name: 'Mario José Molina-Pasquel Henríquez',
+    profession: 'chemist',
+}, {
+    id: 2,
+    name: 'Mohammad Abdus Salam',
+    profession: 'physicist',
+}, {
+    id: 3,
+    name: 'Percy Lavon Julian',
+    profession: 'chemist',
+}, {
+    id: 4,
+    name: 'Subrahmanyan Chandrasekhar',
+    profession: 'astrophysicist',
+}];
+
+export function List() {
+    const listItems = people
+        .filter(person => person.profession === 'chemist')
+        .map(person => (
+            <Fragment key={person.id}>
+                <StyleList>
+                    {person.name} : {person.profession}
+                </StyleList>
+            </Fragment>
+        ));
+
+    return <StyleWrap>{listItems}</StyleWrap>;
 }
-
-export function PackingList() {
-    return (
-        <section>
-            <h1>Sally Ride&apos;s Packing List</h1>
-            <ul>
-                <Item isPacked={true} name="Space suit" />
-                <Item isPacked={true} name="Helmet with a golden leaf" />
-                <Item isPacked={false} name="Photo of Tam" />
-                <Item isPacked={false} name="Telescope" />
-            </ul>
-        </section>
-    );
-}
-
-export default App;
