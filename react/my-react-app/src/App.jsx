@@ -47,13 +47,13 @@ const people = [{
 export function List() {
     const listItems = people
         .filter(person => person.profession === 'chemist')
-        .map(person => (
+        .map(person =>
             <Fragment key={person.id}>
                 <StyleList>
                     {person.name} : {person.profession}
                 </StyleList>
             </Fragment>
-        ));
+        );
 
     return <StyleWrap>{listItems}</StyleWrap>;
 }
