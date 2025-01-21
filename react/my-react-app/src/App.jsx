@@ -1,59 +1,135 @@
-import { Fragment } from "react";
-import styled from "styled-components";
+import { useState } from 'react'
+import style from 'styled-components'
 
-export const App = () => {
+const StyleWrapper = style.div`
+    font-family: Arial, sans-serif;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+`;
+
+const ElementWrap = style.div`
+    margin-bottom: 20px;
+`;
+
+const ButtonStyle = style.button`
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: #45a049;
+    }
+`;
+
+const ButtonStyleRed = style(ButtonStyle)`
+    background-color: #f44336;
+
+    &:hover {
+        background-color: #da190b;
+    }
+`;
+
+const LabelStyle = style.label`
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    user-select: none;
+
+    input {
+        margin-right: 10px;
+    }
+`;
+
+const TitleStyle = style.h1`
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+`;
+
+const App = () => {
     return (
-        <div>
-            <List />
-        </div>
-    );
+        <StyleWrapper>
+            <Counter />
+            <MyCheckBox />
+            <MyInput />
+        </StyleWrapper>
+    )
+}
+
+import PropTypes from 'prop-types';
+
+const Title = ({ children }) => {
+    return <TitleStyle>{children}</TitleStyle>
+}
+
+const Counter = () => {
+    const [count, setCount] = useState(0);
+    return (
+        <ElementWrap>
+            <Title>Counter App</Title>
+            <p>Count: {count}</p>
+            <ButtonStyle onClick={() => setCount(count + 1)}>Increment</ButtonStyle>
+            <ButtonStyleRed onClick={() => setCount(count - 1)}>Decrement</ButtonStyleRed>
+        </ElementWrap>
+    )
+}
+
+
+const MyCheckBox = () => {
+    const [liked, setLiked] = useState(true);
+
+    function handleChange(e) {
+        setLiked(e.target.checked);
+    }
+
+    return (
+        <ElementWrap>
+            <Title>Like Button</Title>
+            <LabelStyle>
+                <input
+                    type='checkbox'
+                    checked={liked}
+                    onChange={handleChange}
+                />
+                I like this
+            </LabelStyle>
+            <p>You {liked ? 'liked' : 'did not like'} this.</p>
+        </ElementWrap>
+    )
+}
+Title.propTypes = {
+    children: PropTypes.node.isRequired,
 };
 
-export default App;
+const MyInput = () => {
+    const [text, setText] = useState('');
 
-const StyleWrap = styled.ul`
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-`;
+    function handleChange(e) {
+        setText(e.target.value);
+    }
 
-const StyleList = styled.li`
-    list-style-type: none;
-    margin: 10px 0;
-`;
-
-const people = [{
-    id: 0,
-    name: 'Creola Katherine Johnson',
-    profession: 'mathematician',
-}, {
-    id: 1,
-    name: 'Mario José Molina-Pasquel Henríquez',
-    profession: 'chemist',
-}, {
-    id: 2,
-    name: 'Mohammad Abdus Salam',
-    profession: 'physicist',
-}, {
-    id: 3,
-    name: 'Percy Lavon Julian',
-    profession: 'chemist',
-}, {
-    id: 4,
-    name: 'Subrahmanyan Chandrasekhar',
-    profession: 'astrophysicist',
-}];
-
-export function List() {
-    const listItems = people
-        .filter(person => person.profession === 'chemist')
-        .map(person =>
-            <Fragment key={person.id}>
-                <StyleList>
-                    {person.name} : {person.profession}
-                </StyleList>
-            </Fragment>
-        );
-
-    return <StyleWrap>{listItems}</StyleWrap>;
+    return (
+        <ElementWrap>
+            <Title>Input Field</Title>
+            <input
+                type='text'
+                value={text}
+                onChange={handleChange}
+            />
+            <p>You typed: {text}</p>
+            <ButtonStyleRed onClick={() => setText('')}>Clear</ButtonStyleRed>
+        </ElementWrap>
+    );
 }
+
+
+export default App
