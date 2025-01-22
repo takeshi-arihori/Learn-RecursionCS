@@ -55,6 +55,13 @@ const TitleStyle = style.h1`
     color: #333;
 `;
 
+// Form Object
+const FormObjectInner = style.div`
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+`;
+
 const App = () => {
     return (
         <StyleWrapper>
@@ -62,6 +69,7 @@ const App = () => {
             <MyCheckBox />
             <MyInput />
             <Form />
+            <FormObject />
         </StyleWrapper>
     )
 }
@@ -148,6 +156,7 @@ const Form = () => {
 
     return (
         <ElementWrap>
+            <Title>Form</Title>
             <input
                 value={name}
                 onChange={e => setName(e.target.value)}
@@ -169,5 +178,55 @@ const Form = () => {
     );
 }
 
+const FormObject = () => {
+    const [form, setForm] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+    });
+
+    return (
+        <ElementWrap>
+            <Title>Form Object</Title>
+            <FormObjectInner>
+                <label>
+                    First name:
+                    <input
+                        value={form.firstName}
+                        onChange={e => setForm({
+                            ...form,
+                            firstName: e.target.value
+                        })}
+                    />
+                </label>
+                <label>
+                    Last name:
+                    <input
+                        value={form.lastName}
+                        onChange={e => setForm({
+                            ...form,
+                            lastName: e.target.value
+                        })}
+                    />
+                </label>
+                <label>
+                    Email:
+                    <input
+                        value={form.email}
+                        onChange={e => setForm({
+                            ...form,
+                            email: e.target.value
+                        })}
+                    />
+                </label>
+            </FormObjectInner>
+            <p>
+                {form.firstName}{' '}
+                {form.lastName}{' '}
+                ({form.email})
+            </p>
+        </ElementWrap>
+    );
+}
 
 export default App
