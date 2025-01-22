@@ -61,6 +61,7 @@ const App = () => {
             <Counter />
             <MyCheckBox />
             <MyInput />
+            <Form />
         </StyleWrapper>
     )
 }
@@ -127,6 +128,43 @@ const MyInput = () => {
             />
             <p>You typed: {text}</p>
             <ButtonStyleRed onClick={() => setText('')}>Clear</ButtonStyleRed>
+        </ElementWrap>
+    );
+}
+
+const Form = () => {
+    const [name, setName] = useState('');
+    const [age, setAge] = useState(30);
+
+    const handleClick = () => {
+        setAge(age => age + 1);
+        setAge(age => age + 1);
+        setAge(age => age + 1);
+    }
+
+    const incrementAge = () => {
+        setAge(age => age + 1);
+    }
+
+    return (
+        <ElementWrap>
+            <input
+                value={name}
+                onChange={e => setName(e.target.value)}
+            />
+            <button onClick={handleClick}>
+                Increment Age
+            </button>
+            <p>Hello, {name}. You are {age}</p>
+            <button onClick={() => {
+                incrementAge();
+                incrementAge();
+                incrementAge();
+                incrementAge();
+                incrementAge();
+            }}>
+                Age+5
+            </button>
         </ElementWrap>
     );
 }
