@@ -1,5 +1,5 @@
 import style from 'styled-components'
-import UseStateLearn from './UseStateLearn';
+import UseStateLearn from './useStateLearn/UseStateLearn';
 
 const StyleWrapper = style.div`
     font-family: Arial, sans-serif;
