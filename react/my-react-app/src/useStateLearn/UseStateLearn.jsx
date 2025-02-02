@@ -18,7 +18,8 @@ const LabelStyle = style.label`
 `;
 
 const TitleStyle = style.h1`
-    font-size: 24px;
+    margin-top: 30px;
+    font-size: 30px;
     text-align: center;
     color: #333;
 `;
@@ -32,6 +33,7 @@ const FormObjectInner = style.div`
 
 
 import PropTypes from 'prop-types';
+import BucketList from './BucketList';
 
 export const Title = ({ children }) => {
     return <TitleStyle>{children}</TitleStyle>
@@ -297,6 +299,7 @@ export const UseStateLearn = () => {
             <FormObject />
             <FormObjectNested />
             <TaskApp />
+            <BucketList />
         </ElementWrap>
     );
 }
