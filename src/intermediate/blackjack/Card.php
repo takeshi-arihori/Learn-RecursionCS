@@ -1,5 +1,6 @@
 <?php
 
+// 1 枚分のカードを表すクラス
 class Card
 {
     public $suit;
