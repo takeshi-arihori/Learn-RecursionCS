@@ -13,7 +13,7 @@ class Deck
 
     // デッキを生み出すメソッドを作成 (staticメソッドを使用)
     // 前記号・全ての値を用意し、forb運で一つずつカードを生成
-    public static function generateDeck()
+    public static function generateDeck(): array
     {
         $newDeck = [];
         $suits = ['♠', '♦', '♣', '♥'];
@@ -26,4 +26,15 @@ class Deck
         }
         return $newDeck;
     }
+
+    public function printDeck(): void
+    {
+        echo "Displaying cards..." . PHP_EOL;
+        foreach ($this->deck as $card) {
+            echo $card->getCardString() . PHP_EOL;
+        }
+    }
 }
+
+$deck1 = new Deck();
+$deck1->printDeck();
