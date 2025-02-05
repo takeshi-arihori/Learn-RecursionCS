@@ -27,6 +27,12 @@ class Deck
         return $newDeck;
     }
 
+    // カードをドロー
+    public function draw(): Card
+    {
+        return array_pop($this->deck);
+    }
+
     public function printDeck(): void
     {
         echo "Displaying cards..." . PHP_EOL;
@@ -50,9 +56,12 @@ class Deck
 
 $deck1 = new Deck();
 
-// シャッフル前のデッキ
-$deck1->printDeck();
-
 // デッキをシャッフル
 $deck1->shuffleDeck();
-$deck1->printDeck();
+
+// デッキを確認
+echo $deck1->deck[count($deck1->deck) - 1]->getCardString() . PHP_EOL;
+echo $deck1->draw()->getCardString() . PHP_EOL;
+echo $deck1->deck[count($deck1->deck) - 1]->getCardString() . PHP_EOL;
+echo $deck1->draw()->getCardString() . PHP_EOL;
+echo $deck1->deck[count($deck1->deck) - 1]->getCardString() . PHP_EOL;
