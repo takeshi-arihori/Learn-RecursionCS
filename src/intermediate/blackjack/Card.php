@@ -3,9 +3,9 @@
 // 1 枚分のカードを表すクラス
 class Card
 {
-    public $suit;
-    public $value;
-    public $intValue;
+    public string $suit;
+    public string $value;
+    public int $intValue;
     public function __construct(string $suit, string $value, int $intValue)
     {
         $this->suit = $suit;

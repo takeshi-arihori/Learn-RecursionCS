@@ -5,7 +5,7 @@ require_once __DIR__ . '/Card.php';
 // トランプのカードを生成するためのデッキを表すクラス
 class Deck
 {
-    public $deck; // 52 枚のカードが格納される配列
+    public array $deck; // 52 枚のカードが格納される配列
     public function __construct()
     {
         $this->deck = Deck::generateDeck();
