@@ -34,7 +34,25 @@ class Deck
             echo $card->getCardString() . PHP_EOL;
         }
     }
+
+    // in-placeアルゴリズムでデッキをシャッフルするメソッド
+    public function shuffleDeck(): void
+    {
+        $deckSize = count($this->deck);
+        for ($i = $deckSize - 1; $i >= 0; $i--) {
+            $j = mt_rand(0, $i);
+            $temp = $this->deck[$i];
+            $this->deck[$i] = $this->deck[$j];
+            $this->deck[$j] = $temp;
+        }
+    }
 }
 
 $deck1 = new Deck();
+
+// シャッフル前のデッキ
+$deck1->printDeck();
+
+// デッキをシャッフル
+$deck1->shuffleDeck();
 $deck1->printDeck();
