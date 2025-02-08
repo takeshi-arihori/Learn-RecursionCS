@@ -60,8 +60,8 @@ $deck1 = new Deck();
 $deck1->shuffleDeck();
 
 // デッキを確認
-echo $deck1->deck[count($deck1->deck) - 1]->getCardString() . PHP_EOL;
-echo $deck1->draw()->getCardString() . PHP_EOL;
-echo $deck1->deck[count($deck1->deck) - 1]->getCardString() . PHP_EOL;
-echo $deck1->draw()->getCardString() . PHP_EOL;
-echo $deck1->deck[count($deck1->deck) - 1]->getCardString() . PHP_EOL;
+// echo $deck1->deck[count($deck1->deck) - 1]->getCardString() . PHP_EOL;
+// echo $deck1->draw()->getCardString() . PHP_EOL;
+// echo $deck1->deck[count($deck1->deck) - 1]->getCardString() . PHP_EOL;
+// echo $deck1->draw()->getCardString() . PHP_EOL;
+// echo $deck1->deck[count($deck1->deck) - 1]->getCardString() . PHP_EOL;
