@@ -4,6 +4,7 @@ use PHPUnit\Framework\TestCase;
 
 require_once __DIR__ . '/../blackjack/Card.php';
 require_once __DIR__ . '/../blackjack/Deck.php';
+require_once __DIR__ . '/../blackjack/Dealer.php';
 
 class BlackJackCardTest extends TestCase
 {
@@ -32,7 +33,23 @@ class BlackJackCardTest extends TestCase
         $this->assertEquals('♥A(1)', $deck->deck[39]->getCardString());
         $this->assertEquals('♥K(13)', $deck->deck[51]->getCardString());
     }
+
+    // Dealerクラスのscore21Individualメソッドをテスト
+    public function testScore21Individual()
+    {
+        $dealer = new Dealer();
+
+        // PlayerAの手札
+        $card1 = new Card("♦︎", "A", 1);
+        $card2 = new Card("♦︎", "J", 11);
+        $this->assertEquals(12, $dealer->score21Individual([$card1, $card2]));
+
+        // PlayerBの手札
+        $card1 = new Card("♦︎", "9", 9);
+        $card2 = new Card("♦︎", "K", 13);
+        $this->assertEquals(0, $dealer->score21Individual([$card1, $card2]));
+    }
 }
 
 // 実行方法
-// php phpunit --testdox intermediate/tests/BlackjackCardTest.php
+// phpunit --testdox intermediate/tests/BlackjackCardTest.php

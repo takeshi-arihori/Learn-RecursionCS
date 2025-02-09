@@ -53,6 +53,17 @@ class Dealer
             }
         }
     }
+
+    // 各プレーヤーの手札を受け取って、合計値を計算するscore21Individualメソッドを作成します。
+    // ブラックジャックでは値の合計値が21を超えるとNGなのでその場合は0とします。
+    static function score21Individual(array $hand): int
+    {
+        $value = 0;
+        foreach ($hand as $card) {
+            $value += $card->intValue;
+        }
+        return $value > 21 ? 0 : $value;
+    }
 }
 
 $table1 = Dealer::startGame(3, "21");
