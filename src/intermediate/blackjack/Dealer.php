@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/Card.php';
 require_once __DIR__ . '/Deck.php';
+require_once __DIR__ . '/HelperFunctions.php';
 
 /**
  * ディーラーは状態を持たないステートレスオブジェクト
@@ -64,10 +65,28 @@ class Dealer
         }
         return $value > 21 ? 0 : $value;
     }
+
+    // ブラックジャックで勝利したプレイヤを表示
+    // 配列のスコアを key: value に変換
+    static function winnerOf21(array $table): string
+    {
+        $points = [];
+        $cache = [];
+        for ($i = 0; $i < count($table["players"]); $i++) {
+            $point = Dealer::score21Individual($table["players"][$i]);
+            // それぞれのpointを配列に保存
+            array_push($points, $point);
+
+            if (isset($cache[$point]) && $cache[$point] >= 1) $cache[$point] += 1;
+            else $cache[$point] = 1;
+        }
+
+        // 各プレイヤーの得点を確認
+        echo implode(',', $points) . " ";
+
+        $winnerIndex = HelperFunctions::maxInArrayIndex($points);
+        if ($cache[$points[$winnerIndex]] > 1) return "It is a draw";
+        else if ($cache[$points[$winnerIndex]] >= 0) return "player " . ($winnerIndex + 1) . " is the winner";
+        else return "No winners..";
+    }
 }
-
-$table1 = Dealer::startGame(3, "21");
-Dealer::printTableInformation($table1);
-
-$table2 = Dealer::startGame(4, "poker");
-Dealer::printTableInformation($table2);

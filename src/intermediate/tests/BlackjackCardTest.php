@@ -64,6 +64,23 @@ class BlackJackCardTest extends TestCase
         $this->assertEquals(0, $helper->maxInArrayIndex([1, 1, 1, 1, 1]));
         $this->assertEquals(4, $helper->maxInArrayIndex([1, 1, 1, 1, 2]));
     }
+
+    // DealerクラスのwinnerOf21メソッドをテスト
+    public function testWinnerOf21()
+    {
+        $table = [
+            "players" => [
+                [new Card("♥", "K", 13), new Card("♣", "K", 13)],
+                [new Card("♠", "4", 4), new Card("♠", "8", 8)],
+                [new Card("♣", "A", 1), new Card("♥", "7", 7)],
+                [new Card("♦", "5", 5), new Card("♣", "10", 10)]
+            ],
+            "gameMode" => "21",
+            "deck" => new Deck()
+        ];
+
+        $this->assertEquals("player 4 is the winner", Dealer::winnerOf21($table));
+    }
 }
 
 // 実行方法
