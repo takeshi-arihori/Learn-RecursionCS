@@ -6,24 +6,28 @@ require_once __DIR__ . '/Card.php';
 class Deck
 {
     public array $deck; // 52 枚のカードが格納される配列
-    public function __construct()
+    public function __construct(string $gameMode = null)
     {
-        $this->deck = Deck::generateDeck();
+        $this->deck = Deck::generateDeck($gameMode);
     }
 
     // デッキを生み出すメソッドを作成 (staticメソッドを使用)
     // 前記号・全ての値を用意し、forb運で一つずつカードを生成
-    public static function generateDeck(): array
+    public static function generateDeck(string $gameMode = null): array
     {
         $newDeck = [];
         $suits = ['♠', '♦', '♣', '♥'];
         $values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+        $blackJack = ["A" => 1, "J" => 10, "Q" => 10, "K" => 10];
 
         for ($i = 0; $i < count($suits); $i++) {
             for ($j = 0; $j < count($values); $j++) {
-                $newDeck[] = new Card($suits[$i], $values[$j], $j + 1);
+                $currentValue = $values[$j];
+                $intValue = ($gameMode == "21") ? (isset($blackJack[$currentValue]) ? $blackJack[$currentValue] : (int)$currentValue) : $j + 1;
+                array_push($newDeck, new Card($suits[$i], $values[$j], $intValue));
             }
         }
+        var_dump($newDeck);
         return $newDeck;
     }
 

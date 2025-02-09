@@ -16,7 +16,7 @@ class Dealer
         $table = array(
             "players" => array(),
             "gameMode" => $gameMode,
-            "deck" => new Deck()
+            "deck" => new Deck($gameMode)
         );
 
         // デッキをシャッフル
@@ -90,3 +90,9 @@ class Dealer
         else return "No winners..";
     }
 }
+
+
+$table = Dealer::startGame(4, "21");
+
+Dealer::printTableInformation($table);
+echo Dealer::winnerOf21($table) . PHP_EOL;
