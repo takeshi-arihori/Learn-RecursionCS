@@ -89,10 +89,21 @@ class Dealer
         else if ($cache[$points[$winnerIndex]] >= 0) return "player " . ($winnerIndex + 1) . " is the winner";
         else return "No winners..";
     }
+
+    // 卓のゲームの種類によって勝利条件を変更する
+    static function checkWinner(array $table): string
+    {
+        if ($table["gameMode"] == "21") return Dealer::winnerOf21($table);
+        // TODO: pokerは後ほど作成
+        else return "no game";
+    }
 }
 
+$table1 = Dealer::startGame(1, "poker");
+$table2 = Dealer::startGame(3, "21");
 
-$table = Dealer::startGame(4, "21");
+Dealer::printTableInformation($table1);
+echo Dealer::checkWinner($table1);
 
-Dealer::printTableInformation($table);
-echo Dealer::winnerOf21($table) . PHP_EOL;
+Dealer::printTableInformation($table2);
+echo Dealer::checkWinner($table2);
