@@ -5,6 +5,7 @@ use PHPUnit\Framework\TestCase;
 require_once __DIR__ . '/../blackjack/Card.php';
 require_once __DIR__ . '/../blackjack/Deck.php';
 require_once __DIR__ . '/../blackjack/Dealer.php';
+require_once __DIR__ . '/../blackjack/HelperFunctions.php';
 
 class BlackJackCardTest extends TestCase
 {
@@ -48,6 +49,20 @@ class BlackJackCardTest extends TestCase
         $card1 = new Card("♦︎", "9", 9);
         $card2 = new Card("♦︎", "K", 13);
         $this->assertEquals(0, $dealer->score21Individual([$card1, $card2]));
+
+        // PlayerCの手札
+        $card1 = new Card("♦︎", "A", 1);
+        $card2 = new Card("♦︎", "A", 1);
+        $this->assertEquals(2, $dealer->score21Individual([$card1, $card2]));
+    }
+
+    // 一番高いスコアを判断。maxInArrayIndexメソッドをテスト
+    public function testMaxScoreInArrayIndex()
+    {
+        $helper = new HelperFunctions();
+        $this->assertEquals(2, $helper->maxInArrayIndex([1, 2, 3, 2, 1]));
+        $this->assertEquals(0, $helper->maxInArrayIndex([1, 1, 1, 1, 1]));
+        $this->assertEquals(4, $helper->maxInArrayIndex([1, 1, 1, 1, 2]));
     }
 }
 
