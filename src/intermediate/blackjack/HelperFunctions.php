@@ -7,7 +7,7 @@
 class HelperFunctions
 {
     // 数値で構成される配列を受け取り、最大値のインデックスを返す
-    static function maxInArrayIndex(array $intArr): int
+    public static function maxInArrayIndex(array $intArr): int
     {
         $maxIndex = 0;
         $maxValue = $intArr[0];
@@ -19,5 +19,26 @@ class HelperFunctions
             }
         }
         return $maxIndex;
+    }
+
+    // 数字だけの配列を作成
+    public static function generateNumberArr(array $playerCard): array
+    {
+        $intArr = [];
+        foreach ($playerCard as $card) {
+            array_push($intArr, $card->intValue);
+        }
+        return $intArr;
+    }
+
+    // Hashmapの作成
+    public static function createHashmap(array $cardPower, array $numberArr): array
+    {
+        $hashmap = [];
+
+        foreach ($cardPower as $card) $hashmap[$card] = 0;
+        foreach ($numberArr as $value) $hashmap[(string)$value]++;
+
+        return $hashmap;
     }
 }

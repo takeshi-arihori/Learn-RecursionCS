@@ -27,7 +27,6 @@ class Deck
                 array_push($newDeck, new Card($suits[$i], $values[$j], $intValue));
             }
         }
-        var_dump($newDeck);
         return $newDeck;
     }
 
