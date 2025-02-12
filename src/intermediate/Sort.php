@@ -48,7 +48,7 @@ class Sort
             // currentValueの左側を探索し、挿入できる箇所を探索する
             for ($j = $i - 1; $j >= 0; $j--) {
                 // currentValueが小さい場合は、値を入れ替えていく
-                if ($currentValue <= $list[$i]) {
+                if ($currentValue <= $list[$j]) {
                     $list[$j + 1] = $list[$j];
                     $list[$j] = $currentValue;
                 }
