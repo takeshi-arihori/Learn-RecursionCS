@@ -9,11 +9,11 @@
 
 class BinaryTree
 {
-    public string $data;
+    public int $data;
     public ?BinaryTree $left;
     public ?BinaryTree $right;
 
-    public function __construct(string $data, ?BinaryTree $left = null, ?BinaryTree $right = null)
+    public function __construct(int $data, ?BinaryTree $left = null, ?BinaryTree $right = null)
     {
         $this->data = $data;
         $this->left = $left;
@@ -40,5 +40,29 @@ class BinaryTree
     {
         if (count($numOfArray) === 0) return null;
         return $this->sortedArrayToBSTHelper($numOfArray, 0, count($numOfArray) - 1);
+    }
+
+    // BSTリストの中にキーが存在するかどうかを再帰を用いて確認する
+    public function keyExist(int $key, ?BinaryTree $bst): bool
+    {
+        if ($bst === null) return false;
+        if ($bst->data === $key) return true;
+
+        // 現在のノードよりキーが小さければ左に、大きければ右にたどる。
+        if ($bst->data > $key) return $this->keyExist($key, $bst->left);
+        else return $this->keyExist($key, $bst->right);
+    }
+
+    // 反復iteratorを使って木構造を検索
+    public function keyExistIterator(int $key, ?BinaryTree $bst): bool
+    {
+        $iterator = $bst;
+        while ($iterator !== null) {
+            if ($iterator->data === $key) return true;
+            // 現在のノードよりキーが小さければ左に、大きければ右にたどる。
+            if ($iterator->data > $key) $iterator = $iterator->left;
+            else $iterator = $iterator->right;
+        }
+        return false;
     }
 }
