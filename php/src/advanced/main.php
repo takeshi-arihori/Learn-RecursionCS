@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+<?php
+// ファイル名のリスト
+$files = [];
+?>
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +23,10 @@
         </header>
 
         <main class="text-center mt-12">
-            <p class="text-gray-700 text-lg">This is the Advanced page. Dive into the complexities of recursion!</p>
+            <?php foreach ($files as $file): ?>
+                <?php require_once($file); ?>
+                <p class="text-gray-700 text-lg">This is the Advanced page. Dive into the complexities of recursion!</p>
+            <?php endforeach; ?>
         </main>
 
         <footer class="text-center mt-12">
