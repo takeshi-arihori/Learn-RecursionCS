@@ -4,7 +4,10 @@
 
 <?php
 // ファイル名のリスト
-$files = [];
+$files = [
+    "BinaryTree.php",
+    "MergedArray.php",
+];
 ?>
 
 
