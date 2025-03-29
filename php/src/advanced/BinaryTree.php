@@ -19,10 +19,25 @@ class BinaryTree
         $this->left = $left;
         $this->right = $right;
     }
+}
+
+class BinarySearchTree
+{
+    public $root;
+
+    public function __construct(array $numOfArray)
+    {
+        if (empty($numOfArray)) {
+            $this->root = null;
+        } else {
+            $this->root = $this->sortedArrayToBSTHelper($numOfArray, 0, count($numOfArray) - 1);
+        }
+    }
 
     public function sortedArrayToBSTHelper(array $list, int $startIndex, int $endIndex): ?BinaryTree
     {
-        if ($startIndex === $endIndex) return new BinaryTree(($list[$startIndex]));
+        if ($startIndex > $endIndex) return null;
+        if ($startIndex === $endIndex) return new BinaryTree($list[$startIndex]);
         $middleIndex = floor(($startIndex + $endIndex) / 2);
 
         $left = null;
@@ -34,12 +49,6 @@ class BinaryTree
         $root = new BinaryTree($list[$middleIndex], $left, $right);
 
         return $root;
-    }
-
-    public function sortedArrayToBST(array $numOfArray): ?BinaryTree
-    {
-        if (count($numOfArray) === 0) return null;
-        return $this->sortedArrayToBSTHelper($numOfArray, 0, count($numOfArray) - 1);
     }
 
     // BSTリストの中にキーが存在するかどうかを再帰を用いて確認する
@@ -64,5 +73,17 @@ class BinaryTree
             else $iterator = $iterator->right;
         }
         return false;
+    }
+
+    // keyを受け取り、BinarySearchTree内を探索し、部分木subTreeを返す
+    public function search(int $key): ?BinaryTree
+    {
+        $iterator = $this->root;
+        while ($iterator !== null) {
+            if ($iterator->data === $key) return $iterator;
+            if ($iterator->data > $key) $iterator = $iterator->left;
+            else $iterator = $iterator->right;
+        }
+        return null;
     }
 }

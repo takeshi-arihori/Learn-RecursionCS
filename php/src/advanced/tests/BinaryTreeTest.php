@@ -11,80 +11,91 @@ class BinaryTreeTest extends TestCase
 {
     public function testSortedArrayToBST()
     {
-        $binaryTree = new BinaryTree(0); // ダミーのデータで初期化
-
         // テストケース1: 基本的な配列
         $list1 = [1, 2, 3, 4, 5];
-        $bst1 = $binaryTree->sortedArrayToBST($list1);
-        $this->assertTrue($this->isValidBST($bst1));
-        $this->assertEquals(3, $bst1->data); // ルートノードは中央値
+        $bst1 = new BinarySearchTree($list1);
+        $this->assertTrue($this->isValidBST($bst1->root));
+        $this->assertEquals(3, $bst1->root->data); // ルートノードは中央値
 
         // テストケース2: 空の配列
         $list2 = [];
-        $bst2 = $binaryTree->sortedArrayToBST($list2);
-        $this->assertNull($bst2);
+        $bst2 = new BinarySearchTree($list2);
+        $this->assertNull($bst2->root);
 
         // テストケース3: 単一要素
         $list3 = [1];
-        $bst3 = $binaryTree->sortedArrayToBST($list3);
-        $this->assertTrue($this->isValidBST($bst3));
-        $this->assertEquals(1, $bst3->data);
+        $bst3 = new BinarySearchTree($list3);
+        $this->assertTrue($this->isValidBST($bst3->root));
+        $this->assertEquals(1, $bst3->root->data);
 
         // テストケース4: 偶数長の配列
         $list4 = [1, 2, 3, 4];
-        $bst4 = $binaryTree->sortedArrayToBST($list4);
-        $this->assertTrue($this->isValidBST($bst4));
-        $this->assertEquals(2, $bst4->data); // ルートノードは中央値
+        $bst4 = new BinarySearchTree($list4);
+        $this->assertTrue($this->isValidBST($bst4->root));
+        $this->assertEquals(2, $bst4->root->data); // ルートノードは中央値
 
         // テストケース5: 負の数を含む配列
         $list5 = [-5, -3, 0, 2, 4];
-        $bst5 = $binaryTree->sortedArrayToBST($list5);
-        $this->assertTrue($this->isValidBST($bst5));
-        $this->assertEquals(0, $bst5->data); // ルートノードは中央値
+        $bst5 = new BinarySearchTree($list5);
+        $this->assertTrue($this->isValidBST($bst5->root));
+        $this->assertEquals(0, $bst5->root->data); // ルートノードは中央値
     }
 
     public function testKeyExist()
     {
-        $binaryTree = new BinaryTree(0);
-
         // テスト用の二分探索木を作成
         $list = [1, 2, 3, 4, 5];
-        $bst = $binaryTree->sortedArrayToBST($list);
+        $bst = new BinarySearchTree($list);
 
         // テストケース1: 存在する値
-        $this->assertTrue($binaryTree->keyExist(3, $bst));
-        $this->assertTrue($binaryTree->keyExist(1, $bst));
-        $this->assertTrue($binaryTree->keyExist(5, $bst));
+        $this->assertTrue($bst->keyExist(3, $bst->root));
+        $this->assertTrue($bst->keyExist(1, $bst->root));
+        $this->assertTrue($bst->keyExist(5, $bst->root));
 
         // テストケース2: 存在しない値
-        $this->assertFalse($binaryTree->keyExist(0, $bst));
-        $this->assertFalse($binaryTree->keyExist(6, $bst));
-        $this->assertFalse($binaryTree->keyExist(-1, $bst));
+        $this->assertFalse($bst->keyExist(0, $bst->root));
+        $this->assertFalse($bst->keyExist(6, $bst->root));
+        $this->assertFalse($bst->keyExist(-1, $bst->root));
 
         // テストケース3: 空の木
-        $this->assertFalse($binaryTree->keyExist(1, null));
+        $this->assertFalse($bst->keyExist(1, null));
     }
 
     public function testKeyExistIterator()
     {
-        $binaryTree = new BinaryTree(0);
-
         // テスト用の二分探索木を作成
         $list = [1, 2, 3, 4, 5];
-        $bst = $binaryTree->sortedArrayToBST($list);
+        $bst = new BinarySearchTree($list);
 
         // テストケース1: 存在する値
-        $this->assertTrue($binaryTree->keyExistIterator(3, $bst));
-        $this->assertTrue($binaryTree->keyExistIterator(1, $bst));
-        $this->assertTrue($binaryTree->keyExistIterator(5, $bst));
+        $this->assertTrue($bst->keyExistIterator(3, $bst->root));
+        $this->assertTrue($bst->keyExistIterator(1, $bst->root));
+        $this->assertTrue($bst->keyExistIterator(5, $bst->root));
 
         // テストケース2: 存在しない値
-        $this->assertFalse($binaryTree->keyExistIterator(0, $bst));
-        $this->assertFalse($binaryTree->keyExistIterator(6, $bst));
-        $this->assertFalse($binaryTree->keyExistIterator(-1, $bst));
+        $this->assertFalse($bst->keyExistIterator(0, $bst->root));
+        $this->assertFalse($bst->keyExistIterator(6, $bst->root));
+        $this->assertFalse($bst->keyExistIterator(-1, $bst->root));
 
         // テストケース3: 空の木
-        $this->assertFalse($binaryTree->keyExistIterator(1, null));
+        $this->assertFalse($bst->keyExistIterator(1, null));
+    }
+
+    public function testSearch()
+    {
+        // テスト用の二分探索木を作成
+        $list = [1, 2, 3, 4, 5];
+        $bst = new BinarySearchTree($list);
+
+        // テストケース1: 存在する値
+        $this->assertEquals(3, $bst->search(3)->data);
+        $this->assertEquals(1, $bst->search(1)->data);
+        $this->assertEquals(5, $bst->search(5)->data);
+
+        // テストケース2: 存在しない値
+        $this->assertNull($bst->search(0));
+        $this->assertNull($bst->search(6));
+        $this->assertNull($bst->search(-1));
     }
 
     private function isValidBST($root, $min = PHP_INT_MIN, $max = PHP_INT_MAX)
