@@ -1,6 +1,5 @@
 import java.util.Deque;
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 
 public class GymConstruction {
     public static void main(String[] args) {
