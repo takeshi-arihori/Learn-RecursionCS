@@ -86,4 +86,44 @@ class BinarySearchTree
         }
         return null;
     }
+
+    // rootとBST内に存在するkeyを受け取り、根ノードが後続ノードである部分木を返す
+    public function successor(?BinaryTree $root, int $key): ?BinaryTree
+    {
+        // keyのノードを探す
+        $targetNode = $this->search($key);
+        if ($targetNode === null) return null;
+
+        // ケース1: targetNodeが右の子を持っている場合
+        if ($targetNode->right !== null) {
+            return $this->minimumNode($targetNode->right);
+        }
+
+        // ケース2: targetNodeが右の子を持っていない場合
+        $successor = null;
+        $iterator = $root;
+
+        while ($iterator !== null) {
+            if ($targetNode->data < $iterator->data) {
+                $successor = $iterator;
+                $iterator = $iterator->left;
+            } else if ($targetNode->data > $iterator->data) {
+                $iterator = $iterator->right;
+            } else {
+                break;
+            }
+        }
+
+        return $successor;
+    }
+
+    // 最小値を探す
+    private function minimumNode(?BinaryTree $root): ?BinaryTree
+    {
+        $iterator = $root;
+        while ($iterator !== null && $iterator->left !== null) {
+            $iterator = $iterator->left;
+        }
+        return $iterator;
+    }
 }

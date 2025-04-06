@@ -98,6 +98,46 @@ class BinaryTreeTest extends TestCase
         $this->assertNull($bst->search(-1));
     }
 
+    public function testSuccessor()
+    {
+        // テスト用の二分探索木を作成
+        $list = [1, 2, 3, 4, 5, 6, 7];
+        $bst = new BinarySearchTree($list);
+
+        // テストケース1: 左部分木のノードの後続ノード
+        $successor1 = $bst->successor($bst->root, 1);
+        $this->assertEquals(2, $successor1->data);
+
+        $successor2 = $bst->successor($bst->root, 2);
+        $this->assertEquals(3, $successor2->data);
+
+        // テストケース2: 右部分木のノードの後続ノード
+        $successor3 = $bst->successor($bst->root, 5);
+        $this->assertEquals(6, $successor3->data);
+
+        $successor4 = $bst->successor($bst->root, 6);
+        $this->assertEquals(7, $successor4->data);
+
+        // テストケース3: ルートノードの後続ノード
+        $successor5 = $bst->successor($bst->root, 4);
+        $this->assertEquals(5, $successor5->data);
+
+        // テストケース4: 葉ノードの後続ノード
+        $successor6 = $bst->successor($bst->root, 7);
+        $this->assertNull($successor6);
+
+        // テストケース5: 存在しないキーの場合
+        $successor7 = $bst->successor($bst->root, 8);
+        $this->assertNull($successor7);
+
+        $successor8 = $bst->successor($bst->root, 0);
+        $this->assertNull($successor8);
+
+        // テストケース6: 右の子を持たないノードの後続ノード
+        $successor9 = $bst->successor($bst->root, 3);
+        $this->assertEquals(4, $successor9->data);
+    }
+
     private function isValidBST($root, $min = PHP_INT_MIN, $max = PHP_INT_MAX)
     {
         if ($root === null) {
