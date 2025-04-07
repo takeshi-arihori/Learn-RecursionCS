@@ -40,11 +40,8 @@ class BinarySearchTree
         if ($startIndex === $endIndex) return new BinaryTree($list[$startIndex]);
         $middleIndex = floor(($startIndex + $endIndex) / 2);
 
-        $left = null;
-        if ($middleIndex - 1 >= $startIndex) $left = $this->sortedArrayToBSTHelper($list, $startIndex, $middleIndex - 1);
-
-        $right = null;
-        if ($middleIndex + 1 <= $endIndex) $right = $this->sortedArrayToBSTHelper($list, $middleIndex + 1, $endIndex);
+        $left = ($middleIndex - 1 >= $startIndex) ? $this->sortedArrayToBSTHelper($list, $startIndex, $middleIndex - 1) : null;
+        $right = ($middleIndex + 1 <= $endIndex) ? $this->sortedArrayToBSTHelper($list, $middleIndex + 1, $endIndex) : null;
 
         $root = new BinaryTree($list[$middleIndex], $left, $right);
 
