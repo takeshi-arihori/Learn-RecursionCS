@@ -138,6 +138,91 @@ class BinaryTreeTest extends TestCase
         $this->assertEquals(4, $successor9->data);
     }
 
+    public function testPredecessor()
+    {
+        // テストケース1: 基本的な二分探索木
+        $list = [1, 2, 3, 4, 5, 6, 7];
+        $bst = new BinarySearchTree($list);
+
+        // テストケース1: 右部分木のノードの先行ノード
+        $predecessor1 = $bst->predecessor($bst->root, 7);
+        $this->assertEquals(6, $predecessor1->data);
+
+        $predecessor2 = $bst->predecessor($bst->root, 6);
+        $this->assertEquals(5, $predecessor2->data);
+
+        // テストケース2: 左部分木のノードの先行ノード
+        $predecessor3 = $bst->predecessor($bst->root, 2);
+        $this->assertEquals(1, $predecessor3->data);
+
+        $predecessor4 = $bst->predecessor($bst->root, 3);
+        $this->assertEquals(2, $predecessor4->data);
+
+        // テストケース3: ルートノードの先行ノード
+        $predecessor5 = $bst->predecessor($bst->root, 4);
+        $this->assertEquals(3, $predecessor5->data);
+
+        // テストケース4: 葉ノードの先行ノード
+        $predecessor6 = $bst->predecessor($bst->root, 1);
+        $this->assertNull($predecessor6);
+
+        // テストケース5: 存在しないキーの場合
+        $predecessor7 = $bst->predecessor($bst->root, 8);
+        $this->assertNull($predecessor7);
+
+        $predecessor8 = $bst->predecessor($bst->root, 0);
+        $this->assertNull($predecessor8);
+
+        // テストケース6: 左の子を持たないノードの先行ノード
+        $predecessor9 = $bst->predecessor($bst->root, 5);
+        $this->assertEquals(4, $predecessor9->data);
+
+        // テストケース7: 負の数を含む二分探索木
+        $list2 = [-300, -279, -238, -189, -181, -158, -148, -147, -116, -88, -67];
+        sort($list2);
+        $bst2 = new BinarySearchTree($list2);
+
+        // -88の先行ノードは-116
+        $predecessor10 = $bst2->predecessor($bst2->root, -88);
+        $this->assertEquals(-116, $predecessor10->data);
+
+        // -116の先行ノードは-147
+        $predecessor11 = $bst2->predecessor($bst2->root, -116);
+        $this->assertEquals(-147, $predecessor11->data);
+
+        // -147の先行ノードは-148
+        $predecessor12 = $bst2->predecessor($bst2->root, -147);
+        $this->assertEquals(-148, $predecessor12->data);
+
+        // -148の先行ノードは-158
+        $predecessor13 = $bst2->predecessor($bst2->root, -148);
+        $this->assertEquals(-158, $predecessor13->data);
+
+        // -158の先行ノードは-181
+        $predecessor14 = $bst2->predecessor($bst2->root, -158);
+        $this->assertEquals(-181, $predecessor14->data);
+
+        // -181の先行ノードは-189
+        $predecessor15 = $bst2->predecessor($bst2->root, -181);
+        $this->assertEquals(-189, $predecessor15->data);
+
+        // -189の先行ノードは-238
+        $predecessor16 = $bst2->predecessor($bst2->root, -189);
+        $this->assertEquals(-238, $predecessor16->data);
+
+        // -238の先行ノードは-279
+        $predecessor17 = $bst2->predecessor($bst2->root, -238);
+        $this->assertEquals(-279, $predecessor17->data);
+
+        // -279の先行ノードは-300
+        $predecessor18 = $bst2->predecessor($bst2->root, -279);
+        $this->assertEquals(-300, $predecessor18->data);
+
+        // -300の先行ノードはnull（最小値）
+        $predecessor19 = $bst2->predecessor($bst2->root, -300);
+        $this->assertNull($predecessor19);
+    }
+
     private function isValidBST($root, $min = PHP_INT_MIN, $max = PHP_INT_MAX)
     {
         if ($root === null) {

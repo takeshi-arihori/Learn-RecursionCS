@@ -104,17 +104,48 @@ class BinarySearchTree
         $iterator = $root;
 
         while ($iterator !== null) {
+            // ターゲットとiteratorが同じ場合は、successorを返す
+            if ($targetNode->data == $iterator->data) return $successor;
+            // 左側に進むときは、現在のiteratorが後続ノードである可能性があるので、successorを更新する
             if ($targetNode->data < $iterator->data) {
                 $successor = $iterator;
                 $iterator = $iterator->left;
+                // 右側に進むときは、successorを更新しない
             } else if ($targetNode->data > $iterator->data) {
                 $iterator = $iterator->right;
-            } else {
-                break;
             }
         }
 
         return $successor;
+    }
+
+    // rootとBST内に存在するkeyを受け取り、根ノードが先行ノードである部分木を返す
+    public function predecessor(?BinaryTree $root, int $key): ?BinaryTree
+    {
+        // keyのノードを探す
+        $targetNode = $this->search($key);
+        if ($targetNode === null) return null;
+
+        // ケース1: targetNodeが左の子を持っている場合
+        if ($targetNode->left !== null) {
+            return $this->maximumNode($targetNode->left);
+        }
+
+        // ケース2: targetNodeが左の子を持っていない場合
+        $predecessor = null;
+        $iterator = $root;
+
+        while ($iterator !== null) {
+            if ($targetNode->data === $iterator->data) return $predecessor;
+            if ($targetNode->data > $iterator->data) {
+                $predecessor = $iterator;
+                $iterator = $iterator->right;
+            } else if ($targetNode->data < $iterator->data) {
+                $iterator = $iterator->left;
+            }
+        }
+
+        return $predecessor;
     }
 
     // 最小値を探す
@@ -123,6 +154,16 @@ class BinarySearchTree
         $iterator = $root;
         while ($iterator !== null && $iterator->left !== null) {
             $iterator = $iterator->left;
+        }
+        return $iterator;
+    }
+
+    // 最大値を探す
+    private function maximumNode(?BinaryTree $root): ?BinaryTree
+    {
+        $iterator = $root;
+        while ($iterator !== null && $iterator->right !== null) {
+            $iterator = $iterator->right;
         }
         return $iterator;
     }
