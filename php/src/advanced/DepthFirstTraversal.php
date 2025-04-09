@@ -30,12 +30,61 @@ class BinaryTree
         echo ("") . PHP_EOL;
     }
 
-    function inOrderWalk($tRoot): void
+    // 間順走査
+    public function inOrderWalk($tRoot): void
     {
         if ($tRoot !== null) {
             $this->inOrderWalk($tRoot->left);
             echo ($tRoot->data . " ");
             $this->inOrderWalk($tRoot->right);
+        }
+    }
+
+    public function printPreOrder(): void
+    {
+        $this->preOrderWalk($this);
+        echo ("") . PHP_EOL;
+    }
+
+    // 前順走査
+    public function preOrderWalk($tRoot): void
+    {
+        if ($tRoot !== null) {
+            echo ($tRoot->data . " ");
+            $this->preOrderWalk($tRoot->left);
+            $this->preOrderWalk($tRoot->right);
+        }
+    }
+
+    public function printPostOrder(): void
+    {
+        $this->postOrderWalk($this);
+        echo ("") . PHP_EOL;
+    }
+
+    // 後順走査
+    public function postOrderWalk($tRoot): void
+    {
+        if ($tRoot !== null) {
+            $this->postOrderWalk($tRoot->left);
+            $this->postOrderWalk($tRoot->right);
+            echo ($tRoot->data . " ");
+        }
+    }
+
+    public function printLevelOrder(): void
+    {
+        $this->levelOrderWalk($this);
+        echo ("") . PHP_EOL;
+    }
+
+    // 逆順間走査
+    public function levelOrderWalk($tRoot): void
+    {
+        if ($tRoot !== null) {
+            $this->levelOrderWalk($tRoot->right);
+            echo ($tRoot->data . " ");
+            $this->levelOrderWalk($tRoot->left);
         }
     }
 }
