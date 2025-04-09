@@ -19,6 +19,21 @@ class BinaryTree
         $this->left = $left;
         $this->right = $right;
     }
+
+    public function printInOrder(): void
+    {
+        $this->inOrderWalk($this);
+        echo ("") . PHP_EOL;
+    }
+
+    function inOrderWalk($tRoot): void
+    {
+        if ($tRoot !== null) {
+            $this->inOrderWalk($tRoot->left);
+            echo ($tRoot->data . " ");
+            $this->inOrderWalk($tRoot->right);
+        }
+    }
 }
 
 class BinarySearchTree
