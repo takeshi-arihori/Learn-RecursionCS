@@ -38,13 +38,21 @@ let user6 = new User(6, "estrologyturnout", "cosmoticsrty@example.com", "5523531
 let userRelation = [user1, user2, user3, user4, user5, user6];
 
 // select演算子
-let selectUser = (predicateF: (user: User) => boolean, relation: User[]): User[] => relation.filter(predicateF);
+const select = <T>(predicateF: (tuple: T) => boolean, relation: T[]): T[] => relation.filter(predicateF);
 
 // predicateF
-let f: <T>(predicate: (tuple: T) => boolean) => (tuple: T) => boolean = predicate => tuple => predicate(tuple);
+const f = <T>(predicate: (tuple: T) => boolean) => (tuple: T): boolean => predicate(tuple);
 
 // σusername = "parkriderz"(USERS)
-// - users 関係から、username 属性が "parkriderz" に等しい全てのタプルを選択します。
-console.log("----例1----");
-let ex1 = selectUser(f(x => x.userName == "parkriderz"), userRelation);
+console.log("----例1 users 関係から、username 属性が parkriderz に等しい全てのタプルを選択 ----");
+let ex1 = select(f(x => x.userName == "parkriderz"), userRelation);
 console.log(ex1);
+console.log("----例2 users 関係から、countryCode 属性が 44 に等しい全てのタプルを選択 ----");
+let ex2 = select(f(x => x.countryCode == 44), userRelation);
+console.log(ex2);
+console.log("----例3 users 関係から、type 属性が admin または type 属性が editor に等しい全てのタプルを選択 ----");
+let ex3 = select(f(x => x.type == "admin" || x.type == "editor"), userRelation);
+console.log(ex3);
+console.log("----例4 users 関係から、type が subscriber に等しく、かつ、dateOfBirth 年が 1995 年以下の全てのタプルを選択 ----");
+let ex4 = select(f(x => x.type == "subscriber" && parseInt(x.dateOfBirth.split("/")[2]) <= 1995), userRelation);
+console.log(ex4);
