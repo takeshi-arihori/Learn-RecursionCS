@@ -140,16 +140,3 @@ class DepthFirstTraversal
         $this->root->printInOrder();
     }
 }
-
-// 昇順に並んだ配列を作成
-class RandomContainer
-{
-    public static function generateList(int $size): array
-    {
-        $list = [];
-        for ($i = 0; $i < $size; $i++) {
-            $list[] = rand(1, 100);
-        }
-        return $list;
-    }
-}
