@@ -238,6 +238,29 @@ class BinaryTreeTest extends TestCase
         return $this->isValidBST($root->left, $min, $root->data) &&
             $this->isValidBST($root->right, $root->data, $max);
     }
+
+    // 二分気の最大の深さ
+    public function testMaximumDepth()
+    {
+        // テストケース1: 基本的な二分探索木
+        $list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]; // -> 深さ: 3
+        $bst = new BinarySearchTree($list);
+
+        $this->assertEquals(3, $bst->maximumDepth($bst->root));
+
+        // テストケース2: 空の木
+        $bst2 = new BinarySearchTree([]); // -> 深さ: 0
+        $this->assertEquals(0, $bst2->maximumDepth($bst2->root));
+
+        // テストケース3: 単一ノードの木
+        $bst3 = new BinarySearchTree([1]); // -> 深さ: 0
+        $this->assertEquals(0, $bst3->maximumDepth($bst3->root));
+
+        // テストケース4: 完全二分木
+        $list4 = [1, 2, 3, 4, 5, 6, 7]; // -> 深さ: 2
+        $bst4 = new BinarySearchTree($list4);
+        $this->assertEquals(2, $bst4->maximumDepth($bst4->root));
+    }
 }
 
 // 実行方法

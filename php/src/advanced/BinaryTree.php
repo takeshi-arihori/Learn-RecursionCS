@@ -179,4 +179,12 @@ class BinarySearchTree
         }
         return $iterator;
     }
+
+    // 最大の深さを求める
+    public function maximumDepth(?BinaryTree $root): int
+    {
+        if ($root === null) return 0;
+        if ($root->left === null && $root->right === null) return 0;
+        return max($this->maximumDepth($root->left), $this->maximumDepth($root->right)) + 1;
+    }
 }
