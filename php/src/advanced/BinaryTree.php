@@ -185,6 +185,16 @@ class BinarySearchTree
     {
         if ($root === null) return 0;
         if ($root->left === null && $root->right === null) return 0;
-        return max($this->maximumDepth($root->left), $this->maximumDepth($root->right)) + 1;
+        // ヘルパーメソッドを使って深さをカウントする
+        return $this->maximumDepthHelper($root, 0);
+    }
+
+    // 最大の深さを求めるヘルパーメソッド
+    private function maximumDepthHelper(?BinaryTree $root, int $count): int
+    {
+        // rootの左の子がnullになるまで左に進み、nullになったらcountを返す
+        $leftDepth = ($root->left !== null) ? $this->maximumDepthHelper($root->left, $count + 1) : $count;
+        $rightDepth = ($root->right !== null) ? $this->maximumDepthHelper($root->right, $count + 1) : $count;
+        return max($leftDepth, $rightDepth);
     }
 }
