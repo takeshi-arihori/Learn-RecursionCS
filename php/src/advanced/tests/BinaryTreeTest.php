@@ -289,6 +289,33 @@ class BinaryTreeTest extends TestCase
         $this->assertFalse($bst->keyExist(8, $bst->root), "8 should not exist in the tree.");
         $this->assertFalse($bst->keyExist(25, $bst->root), "25 should not exist in the tree.");
     }
+
+    // 新しく実装した allElementsSorted メソッドのテスト
+    public function testAllElementsSorted()
+    {
+        // テストケース1: 2つの普通の二分探索木
+        $bst1 = new BinarySearchTree([1, 3, 5]);
+        $bst2 = new BinarySearchTree([2, 4, 6]);
+
+        $sortedElements = $bst1->allElementsSorted($bst1->root, $bst2->root);
+        $this->assertEquals([1, 2, 3, 4, 5, 6], $sortedElements);
+
+        // テストケース2: 1つの木が空の場合
+        $bst3 = new BinarySearchTree([]);
+        $sortedElements2 = $bst1->allElementsSorted($bst1->root, $bst3->root);
+        $this->assertEquals([1, 3, 5], $sortedElements2);
+
+        // テストケース3: 両方の木が空の場合
+        $bst4 = new BinarySearchTree([]);
+        $sortedElements3 = $bst3->allElementsSorted($bst3->root, $bst4->root);
+        $this->assertEquals([], $sortedElements3);
+
+        // テストケース4: 重複要素を含む場合
+        $bst5 = new BinarySearchTree([1, 3, 5]);
+        $bst6 = new BinarySearchTree([1, 3, 6]);
+        $sortedElements4 = $bst5->allElementsSorted($bst5->root, $bst6->root);
+        $this->assertEquals([1, 1, 3, 3, 5, 6], $sortedElements4);
+    }
 }
 
 // 実行方法

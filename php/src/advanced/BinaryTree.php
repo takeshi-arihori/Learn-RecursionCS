@@ -199,14 +199,73 @@ class BinarySearchTree
     }
 
     // 挿入
-    public function insert(int $value): ?BinaryTree
+    public function insert(int $value, ?BinaryTree $node = null): ?BinaryTree
     {
-        $iterator = $this->root;
-        while ($iterator !== null) {
-            if ($iterator->data > $value && $iterator->left === null) $iterator->left = new BinaryTree($value);
-            elseif ($iterator->data < $value && $iterator->right === null) $iterator->right = new BinaryTree($value);
-            $iterator = ($iterator->data > $value) ? $iterator->left : $iterator->right;
+        // ノードが指定されていない場合はルートを使用
+        if ($node === null) {
+            $node = $this->root;
+            // ルートも存在しない場合は新しいルートを作成
+            if ($node === null) {
+                $this->root = new BinaryTree($value);
+                return $this->root;
+            }
         }
-        return $this->root;
+
+        // 値が既に存在する場合は何もしない
+        if ($node->data === $value) {
+            return $node;
+        }
+
+        // 値が現在のノードより小さい場合は左へ
+        if ($value < $node->data) {
+            // 左の子が存在しない場合は新しいノードを作成
+            if ($node->left === null) {
+                $node->left = new BinaryTree($value);
+            } else {
+                // 左の子が存在する場合は再帰的に挿入
+                $this->insert($value, $node->left);
+            }
+        }
+        // 値が現在のノードより大きい場合は右へ
+        else {
+            // 右の子が存在しない場合は新しいノードを作成
+            if ($node->right === null) {
+                $node->right = new BinaryTree($value);
+            } else {
+                // 右の子が存在する場合は再帰的に挿入
+                $this->insert($value, $node->right);
+            }
+        }
+
+        return $node;
+    }
+
+    // 二つの二分探索木の全要素をソートされた配列として返す
+    public function allElementsSorted(?BinaryTree $root1, ?BinaryTree $root2): array
+    {
+        $sortedList = [];
+
+        // 中間順巡回（in-order traversal）で木の要素を配列に追加
+        $this->allElementsSortedHelper($root1, $sortedList);
+        $this->allElementsSortedHelper($root2, $sortedList);
+
+        // 結果を昇順にソート
+        sort($sortedList);
+
+        return $sortedList;
+    }
+
+    // 二分探索木の要素を配列に追加するヘルパーメソッド
+    private function allElementsSortedHelper(?BinaryTree $root, array &$sortedList): void
+    {
+        // 中間順巡回（in-order traversal）を実行
+        if ($root !== null) {
+            // 左部分木を処理
+            $this->allElementsSortedHelper($root->left, $sortedList);
+            // 現在のノードの値を配列に追加
+            $sortedList[] = $root->data;
+            // 右部分木を処理
+            $this->allElementsSortedHelper($root->right, $sortedList);
+        }
     }
 }
