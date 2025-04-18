@@ -197,4 +197,16 @@ class BinarySearchTree
         $rightDepth = ($root->right !== null) ? $this->maximumDepthHelper($root->right, $count + 1) : $count;
         return max($leftDepth, $rightDepth);
     }
+
+    // 挿入
+    public function insert(int $value): ?BinaryTree
+    {
+        $iterator = $this->root;
+        while ($iterator !== null) {
+            if ($iterator->data > $value && $iterator->left === null) $iterator->left = new BinaryTree($value);
+            elseif ($iterator->data < $value && $iterator->right === null) $iterator->right = new BinaryTree($value);
+            $iterator = ($iterator->data > $value) ? $iterator->left : $iterator->right;
+        }
+        return $this->root;
+    }
 }

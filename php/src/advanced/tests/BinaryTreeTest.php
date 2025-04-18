@@ -261,6 +261,34 @@ class BinaryTreeTest extends TestCase
         $bst4 = new BinarySearchTree($list4);
         $this->assertEquals(2, $bst4->maximumDepth($bst4->root));
     }
+
+    // 挿入テスト
+    public function testInsert()
+    {
+        // テスト用の二分探索木を作成
+        $list = [10, 5, 15];
+        $bst = new BinarySearchTree($list);
+
+        // テストケース1: 新しい値を挿入
+        $bst->insert(3, $bst->root); // 左部分木に挿入
+        $bst->insert(7, $bst->root); // 左部分木に挿入
+        $bst->insert(12, $bst->root); // 右部分木に挿入
+        $bst->insert(20, $bst->root); // 右部分木に挿入
+
+        // 挿入後の検証
+        $this->assertTrue($bst->keyExist(3, $bst->root), "3 should exist in the tree after insertion.");
+        $this->assertTrue($bst->keyExist(7, $bst->root), "7 should exist in the tree after insertion.");
+        $this->assertTrue($bst->keyExist(12, $bst->root), "12 should exist in the tree after insertion.");
+        $this->assertTrue($bst->keyExist(20, $bst->root), "20 should exist in the tree after insertion.");
+
+        // テストケース2: 既存の値を挿入（重複値の扱いを確認）
+        $bst->insert(10, $bst->root); // 既存の値を挿入
+        $this->assertTrue($bst->keyExist(10, $bst->root), "10 should still exist in the tree after reinsertion.");
+
+        // テストケース3: 挿入されていない値の検証
+        $this->assertFalse($bst->keyExist(8, $bst->root), "8 should not exist in the tree.");
+        $this->assertFalse($bst->keyExist(25, $bst->root), "25 should not exist in the tree.");
+    }
 }
 
 // 実行方法
