@@ -316,6 +316,38 @@ class BinaryTreeTest extends TestCase
         $sortedElements4 = $bst5->allElementsSorted($bst5->root, $bst6->root);
         $this->assertEquals([1, 1, 3, 3, 5, 6], $sortedElements4);
     }
+
+    // invertTree メソッドのテスト
+    public function testInvertTree()
+    {
+        // テストケース1: 基本的な二分探索木
+        $list = [1, 2, 3, 4, 5];
+        //      3
+        //     / \
+        //    1   4
+        //     \   \
+        //      2   5
+        $bst = new BinarySearchTree($list);
+        $bst->invertTree($bst->root);
+        //      3
+        //     / \
+        //    4   1
+        //   /     \
+        //  5       2
+
+        // 左部分木と右部分木を入れ替えた後の検証
+        $this->assertEquals(3, $bst->root->data); // ルートノード
+        $this->assertEquals(4, $bst->root->left->data); // 左部分木
+        $this->assertEquals(1, $bst->root->right->data); // 右部分木
+
+        // 深さ2のノードもチェック（存在する場合）
+        if ($bst->root->left->left !== null) {
+            $this->assertEquals(5, $bst->root->left->left->data); // 左部分木の左の子
+        }
+        if ($bst->root->right->right !== null) {
+            $this->assertEquals(2, $bst->root->right->right->data); // 右部分木の右の子
+        }
+    }
 }
 
 // 実行方法
