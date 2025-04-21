@@ -50,6 +50,11 @@ docker compose exec app php artisan migrate:fresh
 ### テストの実行
 `docker compose exec app php artisan test`
 
+### Laravelのキャッシュをクリア
+```zsh
+docker compose exec app php artisan config:clear
+docker compose exec app php artisan config:cache
+```
 
 ## 参考サイト
 **Docker環境構築参照**  
