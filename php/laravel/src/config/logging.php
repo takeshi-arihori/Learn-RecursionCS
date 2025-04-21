@@ -53,7 +53,7 @@ return [
     'channels' => [
 
         'stack' => [
-            'driver' => 'stack',
+            'driver' => 'daily',
             'channels' => explode(',', env('LOG_STACK', 'single')),
             'ignore_exceptions' => false,
         ],
@@ -126,13 +126,19 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
-        'binarytree' => [
+        'binaryTreeError' => [
             'driver' => 'daily',
-            'path' => storage_path('logs/import/binarytree/log.log'),
+            'path' => storage_path('logs/binarytree/error.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => 30,
+            'replace_placeholders' => true,
+        ],
+        'binaryTreeSuccess' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/binarytree/success.log'),
             'level' => env('LOG_LEVEL', 'debug'),
             'days' => 30,
             'replace_placeholders' => true,
         ],
     ],
-
 ];

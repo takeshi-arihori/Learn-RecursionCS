@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BinaryTree;
 
 use App\Http\Controllers\Controller;
+use BinaryTree;
 
 class BinaryTreeController extends Controller
 {
@@ -22,13 +23,23 @@ class BinaryTreeController extends Controller
         return $this->data;
     }
 
-    public function getLeftData(): ?BinaryTreeController
+    public function getLeftTree(): ?BinaryTreeController
     {
         return $this->left;
     }
 
-    public function getRightData(): ?BinaryTreeController
+    public function getRightTree(): ?BinaryTreeController
     {
         return $this->right;
+    }
+
+    public function setLeftTree(int $data): void
+    {
+        $this->left = new BinaryTreeController($data);
+    }
+
+    public function setRightTree(int $data): void
+    {
+        $this->right = new BinaryTreeController($data);
     }
 }
