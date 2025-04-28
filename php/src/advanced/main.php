@@ -5,8 +5,9 @@
 <?php
 // ファイル名のリスト
 $files = [
-    "BinaryTree.php",
-    "MergedArray.php",
+    'GymConstruction.php',
+    'binaryTree/BinaryTree.php',
+    'binaryTree/BinarySearchTree.php',
 ];
 ?>
 
