@@ -1,17 +1,19 @@
 package main
 
 import (
-	"io"
-	"log"
-	"net/http"
+	"recursion/domain/usecase"
+	"recursion/infrastructure/inmemory"
+	"recursion/interface/cli"
 )
 
 func main() {
-	helloHandler := func(w http.ResponseWriter, req *http.Request) {
-		io.WriteString(w, "Hello, World!\n")
-	}
-	http.HandleFunc("/", helloHandler)
+	// リポジトリの初期化
+	todoRepo := inmemory.NewInMemoryTodoRepository()
 
-	log.Println("server start at port 8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	// ユースケースの初期化
+	todoUsecase := usecase.NewTodoUsecase(todoRepo)
+
+	// CLIの初期化と実行
+	todoCLI := cli.NewTodoCLI(todoUsecase)
+	todoCLI.Run()
 }

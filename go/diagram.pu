@@ -1,0 +1,33 @@
+@startuml
+package "メイン" {
+  [依存性注入] as Main
+}
+
+package "ドメイン層" {
+  [エンティティ] as Entity
+  [リポジトリインターフェース] as RepoInterface
+  [ユースケース] as Usecase
+}
+
+package "インフラストラクチャ層" {
+  [リポジトリ実装] as RepoImpl
+}
+
+package "インターフェース層" {
+  [CLI] as CLI
+}
+
+Main --> Usecase
+Main --> RepoImpl
+Main --> CLI
+
+CLI --> Usecase
+
+Usecase --> RepoInterface
+Usecase --> Entity
+
+RepoImpl --> RepoInterface
+RepoImpl --> Entity
+
+note "クリーンアーキテクチャの依存関係の流れ" as N1
+@enduml
