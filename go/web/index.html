@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Web API デモアプリ</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Go Web API デモアプリケーション</h1>
+            <p>Go言語で実装されたWeb APIの動作確認用デモサイトです</p>
+        </header>
+
+        <main>
+            <!-- Hello API Section -->
+            <section class="api-section">
+                <h2>👋 Hello API</h2>
+                <p><strong>エンドポイント:</strong> <code>GET /api/hello</code></p>
+                
+                <div class="input-group">
+                    <label for="nameInput">名前を入力:</label>
+                    <input type="text" id="nameInput" placeholder="あなたの名前" value="太郎">
+                    <button onclick="callHelloAPI()">Hello API を呼び出し</button>
+                </div>
+                
+                <div class="response-container">
+                    <h3>レスポンス:</h3>
+                    <pre id="helloResponse">ボタンを押してAPIを呼び出してください</pre>
+                </div>
+            </section>
+
+            <!-- Categories API Section -->
+            <section class="api-section">
+                <h2>📁 Categories API</h2>
+                <p><strong>エンドポイント:</strong> <code>GET /api/categories</code></p>
+                
+                <div class="input-group">
+                    <button onclick="callCategoriesAPI()">Categories API を呼び出し</button>
+                </div>
+                
+                <div class="response-container">
+                    <h3>レスポンス:</h3>
+                    <pre id="categoriesResponse">ボタンを押してAPIを呼び出してください</pre>
+                </div>
+                
+                <div id="categoriesList" class="categories-grid"></div>
+            </section>
+
+            <!-- Calculator API Section -->
+            <section class="api-section">
+                <h2>🧮 Calculator API</h2>
+                <p><strong>エンドポイント:</strong> <code>GET /api/calculator</code></p>
+                
+                <div class="calculator-form">
+                    <div class="input-row">
+                        <input type="number" id="numberX" placeholder="数値 X" value="10" step="any">
+                        <select id="operator">
+                            <option value="plus">+ (加算)</option>
+                            <option value="minus">- (減算)</option>
+                            <option value="multiply">* (乗算)</option>
+                            <option value="divide">/ (除算)</option>
+                        </select>
+                        <input type="number" id="numberY" placeholder="数値 Y" value="5" step="any">
+                        <button onclick="callCalculatorAPI()">計算実行</button>
+                    </div>
+                </div>
+                
+                <div class="response-container">
+                    <h3>レスポンス:</h3>
+                    <pre id="calculatorResponse">ボタンを押してAPIを呼び出してください</pre>
+                </div>
+                
+                <div id="calculatorResult" class="result-display"></div>
+            </section>
+
+            <!-- API Status Section -->
+            <section class="api-section">
+                <h2>🔍 API接続状況</h2>
+                <div class="status-container">
+                    <div id="serverStatus" class="status-item">
+                        <span class="status-indicator unknown"></span>
+                        <span>サーバー接続: 未確認</span>
+                    </div>
+                    <button onclick="checkServerStatus()">接続確認</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>💡 <strong>使用方法:</strong> まず Go サーバーを起動してください: <code>cd backend && go run .</code></p>
+            <p>🌐 <strong>サーバーURL:</strong> <a href="http://localhost:8000" target="_blank">http://localhost:8000</a></p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

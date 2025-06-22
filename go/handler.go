@@ -7,8 +7,24 @@ import (
 	"strconv"
 )
 
+// enableCORS はCORSヘッダーを設定する
+func enableCORS(w http.ResponseWriter) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+}
+
 // helloHandler handles /api/hello endpoint
 func helloHandler(w http.ResponseWriter, r *http.Request) {
+	// CORS設定
+	enableCORS(w)
+
+	// OPTIONSリクエストの処理
+	if r.Method == "OPTIONS" {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+
 	// クエリパラメータを解析する
 	query := r.URL.Query()
 	name := query.Get("name")
@@ -32,6 +48,15 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 
 // categoriesHandler handles /api/categories endpoint
 func categoriesHandler(w http.ResponseWriter, r *http.Request) {
+	// CORS設定
+	enableCORS(w)
+
+	// OPTIONSリクエストの処理
+	if r.Method == "OPTIONS" {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+
 	// カテゴリの配列を定義
 	categories := []string{
 		"Technology",
@@ -58,6 +83,15 @@ func categoriesHandler(w http.ResponseWriter, r *http.Request) {
 
 // calculatorHandler handles /api/calculator endpoint
 func calculatorHandler(w http.ResponseWriter, r *http.Request) {
+	// CORS設定
+	enableCORS(w)
+
+	// OPTIONSリクエストの処理
+	if r.Method == "OPTIONS" {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+
 	// クエリパラメータを解析
 	query := r.URL.Query()
 	operator := query.Get("o")
@@ -123,6 +157,7 @@ func calculatorHandler(w http.ResponseWriter, r *http.Request) {
 
 // sendErrorResponse はエラーレスポンスを送信するヘルパー関数
 func sendErrorResponse(w http.ResponseWriter, statusCode int, message string) {
+	enableCORS(w) // エラーレスポンスにもCORS設定
 	w.WriteHeader(statusCode)
 	response := map[string]string{
 		"error": message,
