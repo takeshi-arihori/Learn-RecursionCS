@@ -1,0 +1,40 @@
+@startuml Person-Wallet Connection Diagram
+
+class Person {
+    - firstName: string
+    - lastName: string
+    - age: int
+    - heightM: double
+    - weightKg: double
+    - denomination: string
+    --
+    + Person(name: string, age: int age: int, henghtM: doublem weightKg:double)
+    + Person(firstName: string, lastName: string, age: int, heightM: double, weightKg: double, intiialMoney: int)
+    + getFirstName(): string
+    + getCash(): double
+    + getPayed(int money): int[]
+    + spendMoney(int money): int[]
+    + spendMoney(int money): int[]
+    + dropWallet(): Wallet
+    + addWallet(wallet: Wallet)
+    + setDenominationPreference(denomination: string)
+}
+
+class Wallet {
+    - bill1: int
+    - bill5: int
+    - bill10: int
+    - bill20: int
+    - bill50: int
+    - bill100: int
+    --
+    + Wallet()
+    + Wallet(bill1: int, bill5: int, bill10: int, bill20: int, bill50: int, bill100: int)
+    + getTotalMoney(): int
+    + insertBill(bill: int, amount: int): int
+    + removeBill(bill: int, amount: int): int
+}
+
+Person --> Wallet
+
+@enduml

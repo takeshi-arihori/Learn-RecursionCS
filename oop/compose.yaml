@@ -1,0 +1,37 @@
+services:
+  # Nginxの定義
+  web:
+    # Nginxコンテナに使用するイメージを指定
+    image: nginx:1.27.0
+    # ホストマシンのポートをコンテナのポートにマッピング
+    ports:
+      # <ホストマシンのポート>:<コンテナのポート>
+      - 8810:80
+    # Nginxの設定ファイルをマウント
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    # PlantUMLサービスとの依存関係を設定
+    depends_on:
+      - plantuml
+  # app:
+  # app:
+    # # アプリケーションのイメージを指定
+    # image: 'ghcr.io/ryuz/jupyterlab:latest'
+    # # コンテナ名を指定
+    # container_name: jupyterlab
+    # # ホストマシンのポートをコンテナのポートにマッピング
+    # ports:
+    #   - "8888:8888"
+    # # 環境変数を設定
+    # environment:
+    #   - JUPYTER_ENABLE_LAB=yes
+    #   - JUPYTER_TOKEN=ryuz
+    #   - JUPYTER_PASSWORD=ryuz
+    # # ボリュームをマウント
+    # volumes:
+    #   - ./data:/home/jovyan/work
+  plantuml:
+    image: 'plantuml/plantuml-server:tomcat'
+    container_name: plantuml
+    ports:
+     - "8005:8080"
