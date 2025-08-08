@@ -1,0 +1,11 @@
+{
+    "phpunit.php": "/usr/local/bin/php",
+    "phpunit.phpunit": "vendor/bin/phpunit",
+    "phpunit.args": [
+        "-c",
+        "phpunit.xml",
+        "--colors=always"
+    ],
+    "phpunit.clearOutputOnRun": true,
+    "phpunit.showAfterExecution": "auto"
+}

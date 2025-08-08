@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__ . '/../index.php';
+require_once __DIR__ . '/../person.php';
 
 class PersonTest extends TestCase
 {
@@ -15,6 +15,11 @@ class PersonTest extends TestCase
         $this->person = new Person("John", "Doe", 25, 1.75, 70.5);
     }
 
+    /**
+     * コンストラクタが正しくPersonオブジェクトを初期化することをテスト
+     * - 各プロパティ（firstName, lastName, age, heightM, weightKg）が正しく設定される
+     * - walletプロパティが初期状態でnullであることを確認
+     */
     public function testConstructor(): void
     {
         $person = new Person("Alice", "Smith", 30, 1.68, 60.0);
@@ -27,17 +32,29 @@ class PersonTest extends TestCase
         $this->assertNull($person->wallet);
     }
 
+    /**
+     * 財布を持っていない場合のgetCash()メソッドの動作をテスト
+     * - 財布がない場合は0を返すことを確認
+     */
     public function testGetCashWithNoWallet(): void
     {
         $this->assertEquals(0, $this->person->getCash());
     }
 
+    /**
+     * 空の財布を持っている場合のgetCash()メソッドの動作をテスト
+     * - 財布はあるが中身が空の場合は0を返すことを確認
+     */
     public function testGetCashWithEmptyWallet(): void
     {
         $this->person->wallet = new Wallet();
         $this->assertEquals(0, $this->person->getCash());
     }
 
+    /**
+     * お金が入った財布を持っている場合のgetCash()メソッドの動作をテスト
+     * - 財布の中身（100円札2枚、50円札1枚）の合計金額250円が返されることを確認
+     */
     public function testGetCashWithMoneyInWallet(): void
     {
         $wallet = new Wallet();
@@ -48,12 +65,20 @@ class PersonTest extends TestCase
         $this->assertEquals(250, $this->person->getCash());
     }
 
+    /**
+     * 財布を持っていない場合のprintState()メソッドの動作をテスト
+     * - 人物の基本情報と所持金0円が正しく出力されることを確認
+     */
     public function testPrintState(): void
     {
         $this->expectOutputString("John Doe 25 1.75 70.5 0");
         $this->person->printState();
     }
 
+    /**
+     * 財布を持っている場合のprintState()メソッドの動作をテスト
+     * - 人物の基本情報と財布の中身（100円）が正しく出力されることを確認
+     */
     public function testPrintStateWithWallet(): void
     {
         $wallet = new Wallet();
@@ -66,6 +91,12 @@ class PersonTest extends TestCase
 
     // TDD用の失敗テスト - これらは実装前に失敗することを期待
 
+    /**
+     * getPaid()メソッドの実装前テスト（TDD用）
+     * - 給料を受け取って財布に正しい紙幣の組み合わせで入れることをテスト
+     * - 186円 = 100円×1 + 50円×1 + 20円×1 + 10円×1 + 5円×1 + 1円×1
+     * - 現在は未実装のためテストをスキップ
+     */
     public function testGetPaidShouldFail(): void
     {
         $this->markTestIncomplete('getPaid method is not implemented yet');
@@ -81,6 +112,11 @@ class PersonTest extends TestCase
         $this->assertEquals(186, $this->person->getCash());
     }
 
+    /**
+     * 財布を持っていない状態でgetPaid()を呼んだ場合のテスト（TDD用）
+     * - 財布がない場合は空の配列を返し、所持金は0円のままであることを確認
+     * - 現在は未実装のためテストをスキップ
+     */
     public function testGetPaidWithoutWalletShouldFail(): void
     {
         $this->markTestIncomplete('getPaid method is not implemented yet');
@@ -90,6 +126,13 @@ class PersonTest extends TestCase
         $this->assertEquals(0, $this->person->getCash());
     }
 
+    /**
+     * spendMoney()メソッドの実装前テスト（TDD用）
+     * - 指定した金額を支払い、適切な紙幣の組み合わせで返すことをテスト
+     * - 150円支払い = 100円×1 + 50円×1
+     * - 支払い後は残高100円になることを確認
+     * - 現在は未実装のためテストをスキップ
+     */
     public function testSpendMoneyShouldFail(): void
     {
         $this->markTestIncomplete('spendMoney method is not implemented yet');
@@ -107,6 +150,12 @@ class PersonTest extends TestCase
         $this->assertEquals(100, $this->person->getCash()); // Remaining 100
     }
 
+    /**
+     * 残高不足でspendMoney()を呼んだ場合のテスト（TDD用）
+     * - 50円しか持っていない状態で100円支払いを試行
+     * - 支払いできない場合は空の配列を返し、所持金は変わらないことを確認
+     * - 現在は未実装のためテストをスキップ
+     */
     public function testSpendMoneyInsufficientFundsShouldFail(): void
     {
         $this->markTestIncomplete('spendMoney method is not implemented yet');
@@ -120,6 +169,11 @@ class PersonTest extends TestCase
         $this->assertEquals(50, $this->person->getCash()); // No change
     }
 
+    /**
+     * 財布を持っていない状態でspendMoney()を呼んだ場合のテスト（TDD用）
+     * - 財布がない場合は空の配列を返し、所持金は0円のままであることを確認
+     * - 現在は未実装のためテストをスキップ
+     */
     public function testSpendMoneyWithoutWalletShouldFail(): void
     {
         $this->markTestIncomplete('spendMoney method is not implemented yet');
@@ -129,6 +183,12 @@ class PersonTest extends TestCase
         $this->assertEquals(0, $this->person->getCash());
     }
 
+    /**
+     * addWallet()メソッドの動作をテスト
+     * - 財布を追加して、その財布が正しく設定されることを確認
+     * - 返り値として追加した財布が返されることを確認
+     * - 所持金が正しく計算されることを確認
+     */
     public function testAddWallet(): void
     {
         $wallet = new Wallet();
@@ -141,6 +201,13 @@ class PersonTest extends TestCase
         $this->assertEquals(100, $this->person->getCash());
     }
 
+    /**
+     * dropWallet()メソッドの実装前テスト（TDD用）
+     * - 財布を落として、その財布が返されることを確認
+     * - 財布がnullに設定されることを確認
+     * - 所持金が0円になることを確認
+     * - 現在は未実装のためテストをスキップ
+     */
     public function testDropWalletShouldFail(): void
     {
         $this->markTestIncomplete('dropWallet method is not implemented yet');
@@ -156,6 +223,12 @@ class PersonTest extends TestCase
         $this->assertEquals(0, $this->person->getCash());
     }
 
+    /**
+     * 財布を持っていない状態でdropWallet()を呼んだ場合のテスト（TDD用）
+     * - 財布がない場合はnullを返すことを確認
+     * - 財布プロパティはnullのままであることを確認
+     * - 現在は未実装のためテストをスキップ
+     */
     public function testDropWalletWhenNoWalletShouldFail(): void
     {
         $this->markTestIncomplete('dropWallet method is not implemented yet');
