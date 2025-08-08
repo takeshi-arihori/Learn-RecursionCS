@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__ . '/../person.php';
+require_once __DIR__ . '/../src/models/Wallet.php';
 
 class WalletTest extends TestCase
 {
