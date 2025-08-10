@@ -1,39 +1,61 @@
-# OOP TDD Learning Project
+# OOP - オブジェクト指向プログラミング
 
-このプロジェクトは、PHP でのオブジェクト指向プログラミング（OOP）とテスト駆動開発（TDD）を学習するためのものです。
+## 概要
+PHP を使用したオブジェクト指向プログラミングの実践学習です。Docker環境でテスト駆動開発（TDD）を行い、クラス設計、継承、カプセル化などのOOPの核心概念を学習します。
 
 ## プロジェクト構成
 
 ```
 oop/
-├── index.php              # WalletクラスとPersonクラスの実装
-├── phpunit.xml           # PHPUnit設定ファイル
-├── composer.json         # Composerの依存関係設定
-├── tests/               # テストファイル
-│   ├── WalletTest.php   # Walletクラスのテスト（完全実装済み）
-│   └── PersonTest.php   # Personクラスのテスト（一部TDD用）
-└── vendor/              # Composer依存関係
+├── src/models/          # モデルクラス
+│   ├── Person.php      # 人物クラス
+│   └── Wallet.php      # 財布クラス
+├── tests/              # テストクラス
+│   ├── PersonTest.php  # Person クラステスト
+│   └── WalletTest.php  # Wallet クラステスト
+├── docker/             # Docker設定
+│   ├── nginx/          # Nginx設定
+│   └── php/            # PHP設定
+├── public/             # Web公開ディレクトリ
+├── vendor/             # Composer依存関係
+├── compose.yaml        # Docker Compose設定
+├── composer.json       # Composer設定
+└── phpunit.xml         # PHPUnit設定
 ```
 
-## セットアップ
+## セットアップと実行
 
-### 1. 依存関係のインストール
+### Docker環境の起動
 ```bash
-composer install
+cd oop
+docker-compose up -d
 ```
 
-### 2. テストの実行
+### テスト実行
 ```bash
-# 全テストを実行
+# 全テスト実行
 ./vendor/bin/phpunit
 
-# 特定のテストクラスを実行
-./vendor/bin/phpunit tests/WalletTest.php
+# 特定テストクラス実行
 ./vendor/bin/phpunit tests/PersonTest.php
+./vendor/bin/phpunit tests/WalletTest.php
 
-# 特定のテストメソッドを実行
-./vendor/bin/phpunit --filter testAddWallet
+# テスト詳細表示
+./vendor/bin/phpunit --verbose
 ```
+
+### Composer依存関係管理
+```bash
+# 依存関係インストール
+composer install
+
+# 依存関係更新
+composer update
+```
+
+### Web アクセス
+- URL: http://localhost:8080 (Nginx経由)
+- 直接アクセス: public/index.php
 
 ## クラス構造
 

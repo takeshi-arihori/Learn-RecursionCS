@@ -4,99 +4,144 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a Recursion Curriculum learning repository containing programming exercises and implementations across multiple languages: PHP, Java, JavaScript/TypeScript, Go, Python, C++, and SQL. The repository follows a structured approach with beginner, intermediate, and advanced level exercises organized by language.
+This is a Recursion Curriculum learning repository containing programming exercises and implementations across multiple languages: PHP, Java, JavaScript/TypeScript, Go, Python, C++, and C. The repository follows a structured approach organized by learning topics and difficulty levels.
 
 ## Project Structure
 
 ```
 /
-├── php/                    # PHP implementations with Docker environment
-├── go/                     # Go web API server with frontend demo
-├── js/                     # JavaScript/TypeScript projects
-│   ├── my-react-app/       # React application with Vite
-│   └── db-relation/        # TypeScript database relations
-├── java/                   # Java algorithms and data structures
-├── python/                 # Python projects including UDP networking
-├── c/                      # C++ implementations
-└── sql/                    # SQL exercises
+├── beginner/               # Basic programming exercises
+│   └── php/               # PHP fundamentals and basic concepts
+├── intermediate/          # Intermediate level algorithms and concepts
+│   └── php/              # PHP intermediate exercises with extensive testing
+├── advanced/             # Advanced algorithms and data structures
+│   ├── php/             # PHP binary tree implementations
+│   └── java/            # Java advanced algorithms
+├── oop/                 # Object-oriented programming with Docker
+│   └── src/models/      # Person and Wallet classes (PHP)
+├── lang-training/       # Language-specific training projects
+│   ├── go/             # Go web API server with frontend
+│   └── typescript/     # TypeScript exercises
+├── database/           # Database-related exercises
+│   └── c/             # C++ database implementations
+├── video-compressor/   # Video compression and networking
+│   └── python/        # Python UDP client-server projects
+└── daily/             # Learning logs and daily notes
 ```
 
 ## Development Commands
 
 ### PHP Development
+
+#### Beginner Level
 ```bash
-# Run tests
-cd php/src && ./vendor/bin/phpunit
+# Run beginner exercises
+cd beginner/php
+php main.php
+```
+
+#### Intermediate Level
+```bash
+# Run intermediate exercises
+cd intermediate/php
+php main.php
+```
+
+#### OOP with Docker
+```bash
+# Run tests for OOP exercises
+cd oop && ./vendor/bin/phpunit
 
 # Docker environment
-cd php && docker-compose up -d
+cd oop && docker-compose up -d
+```
 
-# Access MySQL container
-docker-compose exec mysql /bin/bash
-mysql -u root -p  # password: password
+#### Advanced Level
+```bash
+# Run advanced PHP exercises
+cd advanced/php
+php main.php
 ```
 
 ### Go Development
 ```bash
-# Run Go server
-cd go && go run .
+# Run Go web server
+cd lang-training/go && go run .
 
 # Server runs on http://localhost:8000
 # Endpoints: /api/hello, /api/categories, /api/calculator
 ```
 
-### JavaScript/React Development
+### Java Development
 ```bash
-# React app
-cd js/my-react-app
-npm run dev        # Development server
-npm run build      # Production build
-npm run lint       # ESLint
+# Compile and run Java algorithms
+cd advanced/java
+javac *.java
+java BinaryTree  # or other classes
+```
 
-# TypeScript compilation
-cd js/db-relation
+### TypeScript Development
+```bash
+# TypeScript training exercises
+cd lang-training/typescript
 npx tsc           # Compile TypeScript
 ```
 
 ### Python Development
 ```bash
-# Named pipe (FIFO) server/client example
-cd python/udp-test
+# Video compressor UDP networking
+cd video-compressor/python/udp-test
 
 # Terminal 1: Start the server
 python3 server.py
 # Server creates a named pipe and waits for input
-# Type messages to send to clients, type 'exit' to quit
 
 # Terminal 2: Start the client (in separate terminal)
 python3 client.py
 # Client reads from the named pipe and displays received data
 ```
 
+### C++ Development
+```bash
+# Database exercises
+cd database/c
+g++ -o db db.cpp
+./db
+```
+
 ## Key Architecture Patterns
 
 ### PHP Structure
-- Follows object-oriented patterns with proper class separation
-- Test-driven development with PHPUnit
-- Uses Composer for dependency management
-- Docker containerization with Nginx, PHP-FPM, and MySQL
+- **Beginner**: Basic PHP concepts and fundamental programming
+- **Intermediate**: Advanced algorithms with comprehensive testing
+- **OOP**: Object-oriented patterns with Docker containerization
+- **Advanced**: Binary tree implementations and complex data structures
+- Test-driven development with PHPUnit in relevant sections
+- Uses Composer for dependency management in OOP section
 
-### Go API Server
+### Go API Server (lang-training/go)
 - RESTful API design with standard library (`net/http`)
 - CORS-enabled for frontend integration
 - Structured with separate files: `main.go`, `handlers.go`, `models.go`
 - Frontend demo with vanilla JavaScript
 
-### React Application
-- Vite build tool with hot module replacement
-- Component-based architecture
-- Styled Components for CSS-in-JS
-- useState hooks for state management
+### Java Implementation (advanced/java)
+- Advanced algorithms and data structures
+- Binary trees, linked lists, sliding window algorithms
+- Object-oriented design patterns
+- Focus on algorithmic problem solving
+
+### Python Networking (video-compressor/python)
+- UDP client-server communication
+- Named pipe (FIFO) implementations
+- Network programming concepts
+- Real-time data transmission
 
 ### Testing Strategy
-- PHP: PHPUnit with test suites in `tests/` directories
-- JavaScript: ESLint for code quality
-- Go: Standard library testing patterns (implied)
+- PHP: PHPUnit with comprehensive test suites in `oop/tests/` and `intermediate/php/tests/`
+- Java: Standard algorithmic testing patterns
+- Go: Standard library testing patterns
+- Python: Integration testing for networking components
 
 ## Commit Convention
 
@@ -110,10 +155,25 @@ The repository follows a Japanese commit convention:
 
 ## Learning Focus Areas
 
-This curriculum emphasizes:
-- **Algorithm Implementation**: Binary trees, linked lists, sorting algorithms
-- **Web Development**: Full-stack applications with API design
-- **Database Relations**: Understanding data modeling
-- **Object-Oriented Programming**: Class design and inheritance
-- **Functional Programming**: Recursion and function composition
-- **Network Programming**: UDP client-server communication
+This curriculum emphasizes progressive learning through structured topics:
+
+### Beginner Level
+- **Basic Programming Concepts**: Variables, functions, control structures
+- **PHP Fundamentals**: Core language features and syntax
+
+### Intermediate Level  
+- **Algorithm Implementation**: Sorting, searching, mathematical algorithms
+- **Complex Problem Solving**: Multi-step algorithmic challenges
+- **Testing Methodology**: Comprehensive unit testing with PHPUnit
+
+### Advanced Level
+- **Data Structures**: Binary trees, linked lists, complex algorithms
+- **Java Programming**: Advanced object-oriented concepts
+- **Algorithm Optimization**: Time and space complexity considerations
+
+### Specialized Topics
+- **Object-Oriented Programming**: Class design, inheritance, encapsulation (OOP section)
+- **Web Development**: RESTful API design with Go (lang-training)
+- **Database Programming**: C++ database implementations
+- **Network Programming**: UDP client-server communication (video-compressor)
+- **Daily Learning**: Structured learning logs and progress tracking
