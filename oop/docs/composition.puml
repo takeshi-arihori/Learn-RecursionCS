@@ -1,0 +1,83 @@
+@startuml composition
+
+class Person {
+  - name : Name
+  - age : int
+  - bmi : BMI
+  - wallet : Wallet[0..1]
+  - address : Address
+  --
+  + Person()
+  + getCash() : int
+  + receiveBill() : int
+  + dropWallet() : Wallet
+  + addWallet() : void
+  + printState() : void
+}
+
+class Name {
+  - firstName : String
+  - lastName : String
+  --
+  + Name()
+  + toString() : String
+}
+
+class BMI {
+  - heightM : double
+  - weightKg : double
+  --
+  + BMI()
+  + getValue() : double
+  + toString() : String
+}
+
+class Wallet {
+  - bill1 : int
+  - bill5 : int
+  - bill10 : int
+  - bill20 : int
+  - bill50 : int
+  - bill100 : int
+  --
+  + Wallet()
+  + getTotalMoney() : int
+  + insertBill() : int
+}
+
+class Address {
+  - address : String
+  - city : String
+  - country : String
+  --
+  + Address()
+  + toString() : String
+}
+
+' コンポジション関係（塗りつぶしダイヤモンド）
+Person *-- Name : composition
+Person *-- BMI : composition
+
+' 集約関係（空のダイヤモンド）
+Person o-- Wallet : aggregation
+Person o-- Address : aggregation
+
+note right of Person
+  PersonはName、BMIとの
+  コンポジション関係を持つ
+  Personが削除されると、これらも
+  一緒に削除される
+end note
+
+note left of Wallet
+  WalletはPersonとの集約関係
+  Personが削除されてもWalletは
+  独立して存在可能
+end note
+
+note bottom of Address
+  Addressは複数のPersonで共有可能
+  同じ住所に住む家族など
+end note
+
+@enduml
