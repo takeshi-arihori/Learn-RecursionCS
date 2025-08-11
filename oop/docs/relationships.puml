@@ -1,0 +1,29 @@
+@startuml relationships
+title 関係の強さ比較 (依存関係 → 関連 → 集約 → コンポジション)
+
+' ===== クラス定義 =====
+class PlayerDep
+class MonsterDep
+class PlayerAssoc
+class MonsterAssoc
+class PlayerAgg
+class TeamAgg
+class PlayerComp
+class WalletComp
+
+' -------------------------------------------------
+' 1. 依存関係 (Dependency)
+PlayerDep ..> MonsterDep : 依存（引数で使用）
+
+' -------------------------------------------------
+' 2. 関連 (Association)
+PlayerAssoc --> MonsterAssoc : 関連（フィールド参照）
+
+' -------------------------------------------------
+' 3. 集約 (Aggregation)
+TeamAgg o-- PlayerAgg : 集約（全体と部分、部分は独立可能）
+
+' -------------------------------------------------
+' 4. コンポジション (Composition)
+PlayerComp *-- WalletComp : コンポジション（強い所有関係）
+@enduml
