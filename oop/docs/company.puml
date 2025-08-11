@@ -1,0 +1,61 @@
+@startuml company
+
+class Employee {
+  - mainJob : Company
+  - secondJob : Company[0..1]
+  --
+  + Employee()
+}
+
+class Company {
+  - employees : Employee[*]
+  - boardMembers : BoardMember[1..10]
+  - parentCompany : Company[0..1]
+  - subsidiaries : Company[*]
+  --
+  + addEmployee()
+  + setBoardMember()
+  + setParentCompany()
+  + addSubsidiary()
+}
+
+class BoardMember {
+  - companiesManaging : Company[1..5]
+  --
+  + setCompany()
+}
+
+' 従業員と会社の関係（従業員は1-2社に勤務）
+Employee "1" -- "1..2" Company : works for
+
+' 会社と従業員の関係（会社は多数の従業員を雇用可能）
+Company "1" -- "*" Employee : employs
+
+' 会社と役員の関係（会社は1-10名の役員で運営）
+Company "1" -- "1..10" BoardMember : managed by
+
+' 役員と会社の関係（役員は1-5社を管理）
+BoardMember "1" -- "1..5" Company : manages
+
+' 会社の親子関係（親会社は0-1、子会社は*）
+Company "0..1" ||-- "*" Company : parent/subsidiary
+
+note right of Employee
+  従業員は1-2社に勤務
+  mainJob: メインの勤務先
+  secondJob: セカンドジョブ（任意）
+end note
+
+note right of Company
+  企業は多数の従業員を雇用可能
+  役員は1-10名で運営
+  親会社は0または1社
+  子会社は複数可能
+end note
+
+note right of BoardMember
+  役員は1-5社の会社を管理
+  companiesManaging配列で管理
+end note
+
+@enduml
