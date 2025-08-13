@@ -38,6 +38,9 @@ This is a Recursion Curriculum learning repository containing programming exerci
 # Run beginner exercises
 cd beginner/php
 php main.php
+
+# Run tests (TDD approach)
+php tests/ConvertToCenturyTest.php
 ```
 
 #### Intermediate Level
@@ -45,6 +48,9 @@ php main.php
 # Run intermediate exercises
 cd intermediate/php
 php main.php
+
+# Run PHPUnit tests
+./vendor/bin/phpunit tests/
 ```
 
 #### OOP with Docker
@@ -61,6 +67,9 @@ cd oop && docker-compose up -d
 # Run advanced PHP exercises
 cd advanced/php
 php main.php
+
+# Run advanced tests
+./vendor/bin/phpunit tests/
 ```
 
 ### Go Development
@@ -177,3 +186,32 @@ This curriculum emphasizes progressive learning through structured topics:
 - **Database Programming**: C++ database implementations
 - **Network Programming**: UDP client-server communication (video-compressor)
 - **Daily Learning**: Structured learning logs and progress tracking
+
+## Development Rules & Tools
+
+### Test-Driven Development (TDD)
+This curriculum follows TDD methodology:
+1. **Red**: Write a failing test
+2. **Green**: Write minimal code to pass the test
+3. **Refactor**: Improve code quality
+
+### Required Tools
+- **PlantUML**: UML diagram creation (`brew install plantuml`)
+- **dbdiagram.io**: Database design and ER diagrams
+- **PHPUnit**: PHP testing framework
+- **Docker**: Unified development environment
+
+### Directory Standards
+```
+{level}/php/
+├── src/          # Implementation files
+├── tests/        # Test files (TDD)
+├── docs/         # Documentation
+└── main.php      # Entry point
+```
+
+### Coding Standards
+- **PSR-4**: Autoloading compliance
+- **PSR-12**: Coding style compliance
+- **Given-When-Then**: Test structure pattern
+- **DocBlock**: Comprehensive documentation
