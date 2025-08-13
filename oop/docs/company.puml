@@ -1,4 +1,5 @@
 @startuml company
+skinparam classAttributeIconSize 0
 
 class Employee {
   - mainJob : Company

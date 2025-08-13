@@ -1,4 +1,5 @@
 @startuml Person-Wallet Connection Diagram
+skinparam classAttributeIconSize 0
 
 class Person {
     - firstName: string

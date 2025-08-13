@@ -1,0 +1,24 @@
+@startuml card
+
+skinparam classAttributeIconSize 0
+
+class Card {
+  - rank: String
+  - suit: String
+  + Card(suit: String, rank: String)
+  + getRank(): String
+  + getSuit(): String
+}
+
+class Deck {
+    {static}SUITS: String[]
+    {static}RANKS: String[]
+    + {static}CreateDeck(): Card[]
+    + Deck()
+    + CreateDeck(): Card[]
+    + shuffleDeck()
+    + toString(): String
+}
+
+@enduml
+

@@ -1,4 +1,5 @@
 @startuml relationships
+
 title 関係の強さ比較 (依存関係 → 関連 → 集約 → コンポジション)
 
 ' ===== クラス定義 =====

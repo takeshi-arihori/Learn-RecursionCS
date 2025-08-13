@@ -1,4 +1,5 @@
 @startuml composition
+skinparam classAttributeIconSize 0
 
 class Person {
   - name : Name
