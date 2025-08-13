@@ -51,13 +51,114 @@ Recursion Curriculumでは、プログラミングの基礎から応用まで、
 - **Database**: C++によるデータベースプログラミング
 - **Video-compressor**: Pythonネットワーキングとリアルタイム通信
 
-## コミットルール
+## 🛠️ 開発ルールと手法
 
-- 変更した理由（内容、詳細）
+### 開発手法
+本プロジェクトでは **テスト駆動開発（TDD: Test-Driven Development）** を基本方針としています。
 
-```zsh
+#### TDD開発サイクル
+1. **Red** - 失敗するテストを書く
+2. **Green** - テストを通す最小限のコードを書く  
+3. **Refactor** - コードを改善する
+
+#### 実装手順
+```bash
+# 1. テストファイルを先に作成
+touch tests/NewFeatureTest.php
+
+# 2. テストケースを記述（この時点では失敗する）
+# 3. 実装コードを作成してテストを通す
+# 4. リファクタリングで品質向上
+```
+
+### 使用ツール
+
+#### 設計・ドキュメント作成
+- **PlantUML** - UML図作成（クラス図、シーケンス図、コンポーネント図）
+  ```bash
+  # インストール: brew install plantuml
+  # 使用例: plantuml diagram.puml
+  ```
+
+- **dbdiagram.io** - データベース設計とER図作成
+  - URL: https://dbdiagram.io/
+  - 使用言語: DBML (Database Markup Language)
+
+#### 品質管理
+- **PHPUnit** - PHPテスティングフレームワーク
+- **PHPStan** - 静的解析ツール
+- **Docker** - 開発環境の統一
+
+### ディレクトリ別開発ガイドライン
+
+#### beginner/ - 初級開発
+```
+beginner/php/
+├── src/          # 実装ファイル
+├── tests/        # テストファイル
+├── docs/         # ドキュメント
+└── main.php      # エントリーポイント
+```
+
+#### intermediate/ - 中級開発  
+```
+intermediate/php/
+├── src/          # アルゴリズム実装
+├── tests/        # 包括的テストスイート
+├── docs/         # 技術解説文書
+└── main.php      # 実行環境
+```
+
+#### advanced/ - 上級開発
+```
+advanced/
+├── php/          # PHP高度実装
+├── java/         # Java実装
+└── docs/         # 理論解説
+```
+
+### コーディング規約
+
+#### PHP Standards
+- **PSR-4** オートローディング準拠
+- **PSR-12** コーディングスタイル準拠
+- **DocBlock** による詳細なドキュメント
+
+#### テスト規約
+```php
+<?php
+// テストファイル命名: {ClassName}Test.php
+class CalculatorTest extends PHPUnit\Framework\TestCase 
+{
+    /**
+     * @test
+     * テストメソッド命名: test{機能名}_{条件}_{期待結果}
+     */
+    public function test_add_positiveNumbers_returnsSum() 
+    {
+        // Given (準備)
+        $calculator = new Calculator();
+        
+        // When (実行)
+        $result = $calculator->add(2, 3);
+        
+        // Then (検証)
+        $this->assertEquals(5, $result);
+    }
+}
+```
+
+## 📋 コミットルール
+
+### 基本ルール
+- 変更した理由（内容、詳細）を明確に記述
+- 各コミットは一つの論理的な変更単位とする
+- TDDサイクル完了後にコミットする
+
+### コミットタイプ
+```bash
 - fix：バグ修正
-- hotfix：クリティカルなバグ修正
+- hotfix：クリティカルなバグ修正  
 - add：新規（ファイル）機能追加
 - update：機能修正（バグではない）
 - change：仕様変更
@@ -66,4 +167,18 @@ Recursion Curriculumでは、プログラミングの基礎から応用まで、
 - remove：削除（ファイル）
 - upgrade：バージョンアップ
 - revert：変更取り消し
+- docs：ドキュメント更新
+- test：テスト追加・修正
+```
+
+### コミットメッセージ例
+```bash
+add: ✨ ユーザー登録機能を追加
+
+- ユーザー情報バリデーション実装
+- データベーステーブル設計（PlantUML）
+- TDDサイクルでテスト完全通過
+- PHPUnit テストカバレッジ95%達成
+
+Co-Authored-By: Claude <noreply@anthropic.com>
 ```
