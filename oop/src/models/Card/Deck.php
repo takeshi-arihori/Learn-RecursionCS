@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Deck
+class Deck implements DeckInterface
 {
     public const SUITS = ['♠', '♡', '♢', '♣'];
     public const RANKS = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
@@ -34,22 +34,33 @@ class Deck
         return $cards;
     }
 
-    public function shuffleDeck(): void
+    public function toString(): string
     {
-        $deckSize = count($this->cards);
+        return self::cardsToString($this->cards);
+    }
+
+    public static function shuffleDeckInPlace(array &$cards): void
+    {
+        $deckSize = count($cards);
 
         for ($i = $deckSize - 1; $i >= 0; $i--) {
             $j = mt_rand(0, $i);
 
-            $temp = $this->cards[$i];
-            $this->cards[$i] = $this->cards[$j];
-            $this->cards[$j] = $temp;
+            $temp = $cards[$i];
+            $cards[$i] = $cards[$j];
+            $cards[$j] = $temp;
         }
     }
 
-    public function toString(): string
+    public static function shuffleDeckOutOfPlace(array $cards): array
     {
-        return self::cardsToString($this->cards);
+        $newCards = [];
+        foreach ($cards as $card) {
+            $newCards[] = $card;
+        }
+
+        self::shuffleDeckInPlace($newCards);
+        return $newCards;
     }
 
     public static function cardsToString(array $inputCards): string
