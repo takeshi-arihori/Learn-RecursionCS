@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace App\Models;
+
 require_once __DIR__ . '/Wallet.php';
 
 class Person
@@ -65,11 +67,11 @@ class Person
     public function getPaid(int $amount): array
     {
         if ($this->wallet === null) return [];
-        
+
         // Convert amount to optimal bill combination
         $bills = [0, 0, 0, 0, 0, 0]; // [bill1, bill5, bill10, bill20, bill50, bill100]
         $denominations = [100, 50, 20, 10, 5, 1];
-        
+
         $remaining = $amount;
         foreach ($denominations as $i => $denom) {
             if ($remaining >= $denom) {
@@ -79,7 +81,7 @@ class Person
                 $remaining %= $denom;
             }
         }
-        
+
         return $bills;
     }
 
@@ -95,15 +97,21 @@ class Person
     public function spendMoney(int $amount): array
     {
         if ($this->wallet === null || $this->getCash() < $amount) return [];
-        
+
         // Calculate optimal bill combination to spend
         $bills = [0, 0, 0, 0, 0, 0]; // [bill1, bill5, bill10, bill20, bill50, bill100]
         $denominations = [100, 50, 20, 10, 5, 1];
-        $walletBills = [$this->wallet->bill100, $this->wallet->bill50, $this->wallet->bill20, 
-                       $this->wallet->bill10, $this->wallet->bill5, $this->wallet->bill1];
-        
+        $walletBills = [
+            $this->wallet->bill100,
+            $this->wallet->bill50,
+            $this->wallet->bill20,
+            $this->wallet->bill10,
+            $this->wallet->bill5,
+            $this->wallet->bill1
+        ];
+
         $remaining = $amount;
-        
+
         // Try to make exact change using largest bills first
         for ($i = 0; $i < count($denominations); $i++) {
             $denom = $denominations[$i];
@@ -116,7 +124,7 @@ class Person
                 }
             }
         }
-        
+
         // If we couldn't make exact change, restore wallet and return empty array
         if ($remaining > 0) {
             // Restore removed bills
@@ -127,7 +135,7 @@ class Person
             }
             return [];
         }
-        
+
         return $bills;
     }
 

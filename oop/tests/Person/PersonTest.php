@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Models\Person;
+use App\Models\Wallet;
 use PHPUnit\Framework\TestCase;
-
-require_once __DIR__ . '/../src/models/Person.php';
 
 class PersonTest extends TestCase
 {
