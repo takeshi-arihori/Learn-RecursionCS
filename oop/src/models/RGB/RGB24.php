@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Models\Rgb;
+namespace App\Models\RGB;
 
 class RGB24
 {
@@ -41,9 +41,9 @@ class RGB24
         if (strlen($hex) !== 6) {
             $this->setAsBlack();
         } else {
-            $this->red = hexdec(substr($hex, 0, 2));
-            $this->green = hexdec(substr($hex, 2, 2));
-            $this->blue = hexdec(substr($hex, 4, 2));
+            $this->red = intval(substr($hex, 0, 2), 16);
+            $this->green = intval(substr($hex, 2, 2), 16);
+            $this->blue = intval(substr($hex, 4, 2), 16);
         }
     }
 
@@ -52,9 +52,9 @@ class RGB24
         if (strlen($bin) !== 24) {
             $this->setAsBlack();
         } else {
-            $this->red = bindec(substr($bin, 0, 8));
-            $this->green = bindec(substr($bin, 8, 8));
-            $this->blue = bindec(substr($bin, 16, 8));
+            $this->red = intval(substr($bin, 0, 8), 2);
+            $this->green = intval(substr($bin, 8, 8), 2);
+            $this->blue = intval(substr($bin, 16, 8), 2);
         }
     }
 
@@ -76,7 +76,7 @@ class RGB24
 
     public function getBits(): string
     {
-        return decbin(hexdec($this->getHex()));
+        return decbin(intval($this->getHex(), 16));
     }
 
     public function getColorShade(): string
@@ -85,8 +85,19 @@ class RGB24
             return 'greyscale';
         }
 
-        $colors = ['red' => $this->red, 'green' => $this->green, 'blue' => $this->blue];
-        return array_keys($colors, max($colors))[0];
+        $stringTable = ['red', 'green', 'blue'];
+        $values = [$this->red, $this->green, $this->blue];
+
+        $max = $values[0];
+        $maxIndex = 0;
+        for ($i = 1; $i < count($values); $i++) {
+            if ($max <= $values[$i]) {
+                $max = $values[$i];
+                $maxIndex = $i;
+            }
+        }
+
+        return $stringTable[$maxIndex];
     }
 
     public function __toString(): string
@@ -99,20 +110,5 @@ class RGB24
             $this->getHex(),
             $this->getBits()
         );
-    }
-
-    public function getRed(): int
-    {
-        return $this->red;
-    }
-
-    public function getGreen(): int
-    {
-        return $this->green;
-    }
-
-    public function getBlue(): int
-    {
-        return $this->blue;
     }
 }
