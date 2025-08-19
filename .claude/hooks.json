@@ -4,13 +4,17 @@
       {
         "type": "script",
         "script": ".claude/scripts/generate_context.sh"
+      },
+      {
+        "type": "command",
+        "command": "current_branch=$(git branch --show-current 2>/dev/null || echo 'not-a-repo'); if [ \"$current_branch\" = \"main\" ]; then echo '⚠️ mainブランチで作業中です！\n🚀 新しい作業を始める場合は、まずfeatureブランチを作成してください：\ngit checkout -b feature/[学習レベル]-[機能名]\n\n例：\n• git checkout -b feature/oop-mutable-string\n• git checkout -b feature/intermediate-binary-tree\n• git checkout -b fix/rgb24-conversion\n\n📋 ブランチ戦略: .github/BRANCH_STRATEGY.md'; fi"
       }
     ],
     "PreToolUse": [
       {
         "type": "command",
         "condition": "test \"$1\" = \"Bash\" && echo \"$2\" | grep -E \"git (commit|checkout|branch|merge|rebase|push)\" >/dev/null 2>&1",
-        "command": "echo '🎓 Recursion Curriculum プロジェクト\n🚨 Git操作前の確認\n🌿 現在のブランチ: $(git branch --show-current 2>/dev/null)\n📋 コミット規約: .github/COMMIT_GUIDELINES.md\n🌳 ブランチ戦略: .github/BRANCH_STRATEGY.md\n🧪 TDD手法を重視してください\n💡 コミット形式: <type>: <emoji> <subject>'"
+        "command": "current_branch=$(git branch --show-current 2>/dev/null || echo 'not-a-repo'); echo '🎓 Recursion Curriculum プロジェクト\n🚨 Git操作前の確認\n🌿 現在のブランチ: '$current_branch'\n📋 コミット規約: .github/COMMIT_GUIDELINES.md\n🌳 ブランチ戦略: .github/BRANCH_STRATEGY.md\n🧪 TDD手法を重視してください\n💡 コミット形式: <type>: <emoji> <subject>'; if [ \"$current_branch\" = \"main\" ] && echo \"$2\" | grep -E \"git commit\" >/dev/null; then echo '\n⛔ 警告: mainブランチへの直接コミットは推奨されません！\n🌿 featureブランチを作成してから作業してください'; fi"
       }
     ]
   }
