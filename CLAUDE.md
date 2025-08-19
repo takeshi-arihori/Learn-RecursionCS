@@ -215,3 +215,49 @@ This curriculum follows TDD methodology:
 - **PSR-12**: Coding style compliance
 - **Given-When-Then**: Test structure pattern
 - **DocBlock**: Comprehensive documentation
+
+## Claude Code Integration Settings
+
+### Hook Configuration
+This project has Claude Code hooks configured in `.claude/hooks.json` for:
+- **UserPromptSubmit**: Automatically loads commit guidelines and branch strategy
+- **PreToolUse**: Shows warnings before Git operations to enforce proper workflow
+
+### Important Workflow Rules
+**⚠️ CRITICAL: Always create feature branches before making changes**
+
+#### Correct Git Workflow:
+```bash
+# 1. Create feature branch FIRST (hooks will remind you)
+git checkout -b feature/your-feature-name
+
+# 2. Make changes and commit
+git add .
+git commit -m "type: 🔥 description"
+
+# 3. Push branch
+git push origin feature/your-feature-name
+
+# 4. Create pull request
+gh pr create --title "Title" --body "Description"
+```
+
+#### Hook Warning Messages:
+When using Git commands (`commit`, `checkout`, `branch`, `merge`, `rebase`, `push`), Claude Code will show:
+- Current branch information
+- Reminder to check commit guidelines (.github/COMMIT_GUIDELINES.md)
+- Reminder to check branch strategy (.github/BRANCH_STRATEGY.md)
+- TDD methodology reminder
+
+### Agents Configuration
+Available specialized agents in `.claude/agents/`:
+- **code-reviewer.md**: Post-coding quality review
+- **debugger.md**: Error troubleshooting and bug fixing  
+- **test-runner.md**: Test execution and TDD workflows
+
+### Project Documentation
+Reference files in `.github/`:
+- **COMMIT_GUIDELINES.md**: Detailed commit message rules
+- **BRANCH_STRATEGY.md**: Git Flow-based branching strategy
+- **CONTRIBUTING.md**: Comprehensive contribution guide
+- **pull_request_template.md**: Standard PR template

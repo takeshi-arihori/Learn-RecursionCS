@@ -41,7 +41,7 @@ class RGB24Test extends TestCase
     {
         $color = new RGB24(0, 0, 0);
         $color->setColorsByHex("7b7b7b");
-        
+
         $expected = "The color is rgb(123,123,123). Hex: 7b7b7b, binary: 11110110111101101111011";
         $this->assertEquals($expected, (string)$color);
     }
@@ -50,7 +50,7 @@ class RGB24Test extends TestCase
     {
         $color = new RGB24(255, 255, 255);
         $color->setColorsByHex("fff");
-        
+
         $expected = "The color is rgb(0,0,0). Hex: 000, binary: 0";
         $this->assertEquals($expected, (string)$color);
     }
@@ -59,7 +59,7 @@ class RGB24Test extends TestCase
     {
         $color = new RGB24(0, 0, 0);
         $color->setColorsByBin("111111110000000011111111");
-        
+
         $expected = "The color is rgb(255,0,255). Hex: ff0ff, binary: 11111111000011111111";
         $this->assertEquals($expected, (string)$color);
     }
@@ -68,7 +68,7 @@ class RGB24Test extends TestCase
     {
         $color = new RGB24(255, 255, 255);
         $color->setColorsByBin("11111111");
-        
+
         $expected = "The color is rgb(0,0,0). Hex: 000, binary: 0";
         $this->assertEquals($expected, (string)$color);
     }
@@ -77,7 +77,7 @@ class RGB24Test extends TestCase
     {
         $color = new RGB24(255, 255, 255);
         $color->setAsBlack();
-        
+
         $expected = "The color is rgb(0,0,0). Hex: 000, binary: 0";
         $this->assertEquals($expected, (string)$color);
     }
