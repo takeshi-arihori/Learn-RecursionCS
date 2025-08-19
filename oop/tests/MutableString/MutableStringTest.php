@@ -177,8 +177,49 @@ class MutableStringTest extends TestCase
         $this->assertEquals("Version1", (string)$mutableString);
     }
 
-    /**
-     * start から最後までの部分文字列を持つ新しい mutableString オブジェクトを返します。
-     * 文字列のインデックス start から最後までの部分文字列を持つ新しい mutableString オブジェクトを返します。
-     */
+    public function testSubstringFromStart(): void {
+        // 新しいMutableStringオブジェクトを返す（immutable操作）
+        $mutableString = new MutableString("Hello World");
+
+        $result = $mutableString->substring(6);
+        $this->assertEquals("World", (string)$result);
+    }
+
+    public function testSubstringFromEnd(): void {
+        // 新しいMutableStringオブジェクトを返す（immutable操作）
+        $mutableString = new MutableString("Hello World");
+
+        $result = $mutableString->substring(6);
+        $this->assertEquals("World", (string)$result);
+    }
+
+    public function testSubstringBetween(): void {
+        // 新しいMutableStringオブジェクトを返す（immutable操作）
+        $mutableString = new MutableString("Hello World");
+
+        $result = $mutableString->substring(0, 5);
+        $this->assertEquals("Hello", (string)$result);
+    }
+
+    public function testConcatArray(): void {
+        // 新しいMutableStringオブジェクトを返す（immutable操作）
+        $mutableString = new MutableString("Hello");
+
+        $mutableString->concat([" World", "!"]);
+        $this->assertEquals("Hello World!", (string)$mutableString);
+    }
+
+    public function testConcatString(): void {
+        // このオブジェクトを変更（mutable操作）
+        $mutableString = new MutableString("Hello");
+
+        $mutableString->concat(" World");
+        $this->assertEquals("Hello World", (string)$mutableString);
+    }
+
+    public function testLength(): void {
+        // 状態を変更しない読み取り専用操作
+        $mutableString = new MutableString("Hello");
+        $this->assertEquals(5, $mutableString->length());
+    }
 }

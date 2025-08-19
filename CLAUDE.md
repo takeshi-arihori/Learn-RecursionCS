@@ -15,7 +15,7 @@ This is a Recursion Curriculum learning repository containing programming exerci
 ├── intermediate/          # Intermediate level algorithms and concepts
 │   └── php/              # PHP intermediate exercises with extensive testing
 ├── advanced/             # Advanced algorithms and data structures
-│   ├── php/             # PHP binary tree implementations
+│   ├── php/             # PHP binary tree implementations  
 │   └── java/            # Java advanced algorithms
 ├── oop/                 # Object-oriented programming with Docker
 │   └── src/models/      # Person and Wallet classes (PHP)

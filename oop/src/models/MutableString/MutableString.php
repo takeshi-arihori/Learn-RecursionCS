@@ -4,50 +4,11 @@ declare(strict_types=1);
 
 namespace App\Models\MutableString;
 
+use InvalidArgumentException;
+
 /**
  * MutableString クラス
  * 
- * このクラスは「可変（Mutable）」文字列を実装しますが、文字列の不変性（Immutability）の
- * 重要な概念とトレードオフを理解した上で設計されています。
- * 
- * == 不変オブジェクトの利点と重要性 ==
- * 
- * 1. **安全性の向上**
- *    - データが突然変化することを防ぐ
- *    - 意図しない副作用を避ける
- *    - 他のコードやスレッドに安心してオブジェクトを渡すことができる
- * 
- * 2. **並行プログラミングでの効果**
- *    - 複数のスレッドやプロセスが同時にアクセスしても安全
- *    - データ競合状態（Race Condition）を回避
- *    - デバッグが容易になる
- * 
- * 3. **メモリ効率**
- *    - 同じ内容の文字列は一つのメモリアドレスを共有可能
- *    - 例："hello"が何千回現れても、メモリ上では一つのインスタンス
- * 
- * == 不変性のパフォーマンス上の課題 ==
- * 
- * 1. **文字列結合のコスト**
- *    - 2つの文字列を結合する際、完全な新しいコピーが必要
- *    - 操作時間は文字列のサイズに比例（O(n)）
- *    - 例：20,000文字 + "hi" = 20,002ステップが必要
- * 
- * 2. **大きなテキストでの問題**
- *    - 数十万文字の大きなテキストでは処理速度が重要な問題
- *    - 連続した文字列操作では指数的にパフォーマンスが悪化
- * 
- * == MutableStringの設計判断 ==
- * 
- * このクラスは以下の状況で不変性よりもパフォーマンスを優先します：
- * - 大量の文字列操作が必要な場合
- * - 連続した追加・変更操作がパフォーマンス重要な場合
- * - 単一スレッド環境での使用が前提の場合
- * 
- * 使用時の注意点：
- * - マルチスレッド環境では適切な同期が必要
- * - オブジェクトの共有時は予期しない変更に注意
- * - デバッグ時は状態変化の追跡が困難になる可能性
  */
 class MutableString
 {
@@ -69,11 +30,11 @@ class MutableString
      * 
      * @param string|null $initialValue 初期文字列値（null許可）
      */
-    public function __construct(string $initialValue = '')
+    public function __construct(?string $initialValue = null)
     {
         // null の場合は空文字列を設定
         // これにより内部状態は常に string 型を保証
-        $this->value = $initialValue;
+        $this->value = $initialValue ?? '';
     }
 
     /**
@@ -126,30 +87,55 @@ class MutableString
         return $this->value;
     }
 
-    // 以下、今後実装予定のメソッド群
-    // 各メソッドの実装時にも不変性とのトレードオフを考慮する
+    public function substring(int $startIndex, ?int $endIndex = null): MutableString
+    {
+        $length = strlen($this->value);
 
-    // public function substring(int $start): MutableString {
-    //     // 新しいMutableStringオブジェクトを返す（immutable操作）
-    // }
+        // 開始インデックスの検証
+        if ($startIndex < 0 || $startIndex > $length) {
+            throw new InvalidArgumentException("Start index out of bounds: $startIndex");
+        }
 
-    // public function substring(int $startIndex, int $endIndex): MutableString {
-    //     // 新しいMutableStringオブジェクトを返す（immutable操作）
-    // }
+        if ($endIndex !== null) {
+            // 終了インデックスの検証
+            if ($endIndex < 0 || $endIndex > $length) {
+                throw new InvalidArgumentException("End index out of bounds: $endIndex");
+            }
+            if ($endIndex < $startIndex) {
+                throw new InvalidArgumentException("End index cannot be less than start index");
+            }
 
-    // public function concat(array $cArr): void {
-    //     // このオブジェクトを変更（mutable操作）
-    // }
+            $result = substr($this->value, $startIndex, $endIndex - $startIndex);
+        } else {
+            $result = substr($this->value, $startIndex);
+        }
 
-    // public function concat(string $stringInput): void {
-    //     // このオブジェクトを変更（mutable操作）
-    // }
+        // substr が false を返す場合の安全策
+        return new MutableString($result === false ? '' : $result);
+    }
 
-    // public function concat(MutableString $stringInput): void {
-    //     // このオブジェクトを変更（mutable操作）
-    // }
+    public function concat(array|string|MutableString $input): void
+    {
+        if (is_array($input)) {
+            // 配列の要素が全て文字列かどうか検証
+            foreach ($input as $item) {
+                if (!is_string($item)) {
+                    throw new InvalidArgumentException('Array must contain only strings');
+                }
+            }
+            $this->value .= implode('', $input);
+        } elseif (is_string($input)) {
+            // 文字列の場合：直接結合
+            $this->value .= $input;
+        } elseif ($input instanceof MutableString) {
+            // MutableStringの場合：valueプロパティを結合
+            $this->value .= $input->getValue();
+        }
+    }
 
-    // public function length(): int {
-    //     // 状態を変更しない読み取り専用操作
-    // }
+    public function length(): int
+    {
+        // 状態を変更しない読み取り専用操作
+        return strlen($this->value);
+    }
 }
