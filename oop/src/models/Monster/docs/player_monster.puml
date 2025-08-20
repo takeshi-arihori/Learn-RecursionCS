@@ -1,0 +1,63 @@
+@startuml player_monster
+
+!define PLAYER_COLOR #E3F2FD
+!define MONSTER_COLOR #FFF3E0
+
+class Player {
+    - string $username
+    - int $health
+    - int $attack
+    - int $defense
+    - float $height = 1.8
+    - int $gold
+    
+    + __construct(string $username, int $health, int $attack, int $defense, int $gold)
+    + getHeight(): float
+    + attack(Monster $monster): void
+    + __toString(): string
+}
+
+class Monster {
+    - string $monster
+    - int $health
+    - int $attack
+    - int $defense
+    - float $height = 300.0
+    
+    + __construct(string $monster, int $health, int $attack, int $defense)
+    + getName(): string
+    + getHeight(): float
+    + getAttack(): int
+    + getDefense(): int
+    + attacked(int $hp): void
+    + __toString(): string
+}
+
+Player ||--o{ Monster : attacks >
+
+note right of Player::$height
+  プレイヤーの身長は
+  メートル単位 (1.8m)
+end note
+
+note right of Monster::$height
+  モンスターの身長は
+  センチメートル単位 (300cm)
+  
+  **依存関係の問題:**
+  単位の違いにより
+  攻撃判定が常に無効になる
+end note
+
+note on link
+  attack() メソッドでの依存関係:
+  - monster.getHeight() >= player.height * 3
+  - player.attack <= monster.defense
+  
+  単位の不一致により攻撃が無効化される
+end note
+
+Player ..> Monster : depends on
+note on link : getHeight() method dependency
+
+@enduml
