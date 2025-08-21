@@ -1,0 +1,95 @@
+@startuml dependencyInjection
+
+!define PRIMARY_COLOR #2E86AB
+!define SECONDARY_COLOR #A23B72
+!define ACCENT_COLOR #F18F01
+!define LIGHT_COLOR #C73E1D
+
+skinparam class {
+    BackgroundColor PRIMARY_COLOR
+    BorderColor BLACK
+    FontColor WHITE
+    AttributeFontColor WHITE
+    FontSize 12
+}
+
+skinparam arrow {
+    Color BLACK
+    FontColor BLACK
+}
+
+package "DependencyInjection" {
+    
+    class Player {
+        - username: string
+        - health: int
+        - attack: int
+        - defense: int
+        - height: float = 1.8
+        - gold: int
+        
+        + __construct(username: string, health: int, attack: int, defense: int, gold: int)
+        + getName(): string
+        + getHeight(): float
+        + attack(monster: Monster): void
+        + __toString(): string
+    }
+    
+    class Monster {
+        - monster: string
+        - health: int
+        - attack: int
+        - defense: int
+        - height: float = 300.0
+        
+        + __construct(monster: string, health: int, attack: int, defense: int)
+        + getName(): string
+        + getHeight(): float
+        + getAttack(): int
+        + getDefense(): int
+        + attacked(hp: int): void
+        + __toString(): string
+    }
+    
+    class Coordinate {
+        + x: int
+        + y: int
+        + z: int
+        
+        + __construct(x: int, y: int, z: int)
+        + __toString(): string
+    }
+    
+    class Field {
+        - MAX_X: int = 100000
+        - MAX_Y: int = 40000
+        - MAX_Z: int = 1000
+        - creatures: array
+        - creatureCoordinates: array
+        
+        + __construct()
+        + randomlyAdd(monster: string, health: int, attack: int, defense: int): void
+        + randomlyAddWithDependency(creature: Monster): void
+        - internalRanAlgorithm(min: int, max: int): int
+        + __toString(): string
+    }
+}
+
+Player --> Monster : attacks
+Field --> Monster : contains
+Field --> Coordinate : manages
+Field ..> Monster : creates
+Field --> Monster : dependency injection
+
+note right of Field
+    randomlyAdd: 依存性が隠蔽
+    randomlyAddWithDependency: 依存性注入
+end note
+
+note top of Player
+    攻撃条件:
+    - モンスター高さ < 自分の3倍
+    - 攻撃力 > 相手の防御力
+end note
+
+@enduml
