@@ -13,9 +13,6 @@ oop/
 ├── tests/              # テストクラス
 │   ├── PersonTest.php  # Person クラステスト
 │   └── WalletTest.php  # Wallet クラステスト
-├── docker/             # Docker設定
-│   ├── nginx/          # Nginx設定
-│   └── php/            # PHP設定
 ├── public/             # Web公開ディレクトリ
 ├── vendor/             # Composer依存関係
 ├── compose.yaml        # Docker Compose設定

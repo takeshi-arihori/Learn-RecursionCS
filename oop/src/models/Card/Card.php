@@ -20,7 +20,7 @@ class Card
 
     public function getSuit(): string
     {
-        return $this->suit;
+    return $this->suit;
     }
 
     public function toString(): string
