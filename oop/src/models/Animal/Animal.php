@@ -6,21 +6,21 @@ namespace App\Models\Animal;
 class Animal
 {
     // 動物の種別
-    private string $species;
+    protected string $species;
     // BMIオブジェクト（身長・体重から計算）
-    private BMI $bmi;
+    protected BMI $bmi;
     // 寿命（日数）
-    private float $lifeSpanDays;
+    protected float $lifeSpanDays;
     // 生物学的性別
-    private string $biologicalSex;
+    protected string $biologicalSex;
     // 生まれた日時
-    private \DateTime $spawnTime;
+    protected \DateTime $spawnTime;
     // 死亡日時（生存中はnull）
-    private ?\DateTime $deathTime = null;
+    protected ?\DateTime $deathTime = null;
     // 空腹度（0:満腹, 100:空腹）
-    private int $hungerPercent = 100;
+    protected int $hungerPercent = 100;
     // 眠気度（0:十分睡眠, 100:眠い）
-    private int $sleepPercent = 100;
+    protected int $sleepPercent = 100;
 
     // コンストラクタ
     public function __construct(string $species, float $heightM, float $weightKg, float $lifeSpanDays, string $biologicalSex)
