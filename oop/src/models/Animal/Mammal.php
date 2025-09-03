@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models\Animal;
 
 // 哺乳類クラス：Animalクラスを継承し、哺乳類特有の属性と振る舞いを表現

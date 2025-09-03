@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models\Animal;
 
 // Animalクラス: 動物の基本的な属性と振る舞いを表現

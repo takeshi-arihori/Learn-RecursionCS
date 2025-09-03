@@ -1,0 +1,30 @@
+parameters:
+    level: 8
+    paths:
+        - src
+        - tests
+    
+    # 除外するパス
+    excludePaths:
+        - tests/bootstrap.php
+    
+    # PHPUnit関連の設定
+    bootstrapFiles:
+        - vendor/autoload.php
+    
+    # 厳密な型チェック
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    
+    # エラーを無視するパターン
+    ignoreErrors:
+        # テストファイルでの未使用変数を許可
+        - '#Variable \$\w+ is never read, only written#'
+        # テストファイルでのアサーション後の到達不可能コードを許可  
+        - '#Unreachable statement - code above always terminates#'
+    
+    # 型推論の改善
+    inferPrivatePropertyTypeFromConstructor: true
+    
+    # strict_types=1 の強制
+    treatPhpDocTypesAsCertain: false

@@ -1,0 +1,191 @@
+@startuml ExpandedFarmAnimalDiagram
+' --- スタイルとテーマの設定 ---
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam defaultFontName "Yu Gothic"
+skinparam class {
+    BackgroundColor LightBlue
+    ArrowColor RoyalBlue
+    BorderColor RoyalBlue
+}
+skinparam note {
+    BackgroundColor LightYellow
+    BorderColor Olive
+}
+hide empty members
+
+' --- クラス定義 (ベース) ---
+
+class Animal {
+  # species: string
+  # bmi: BMI
+  # lifeSpanDays: float
+  # biologicalSex: string
+  # spawnTime: \DateTime
+  # deathTime: ?\DateTime
+  # hungerPercent: int
+  # sleepPercent: int
+  + __construct(string, float, float, float, string)
+  + eat(): void
+  + setAsHungry(): void
+  + isHungry(): bool
+  + sleep(): void
+  + setAsSleepy(): void
+  + isSleepy(): bool
+  + die(): void
+  + isAlive(): bool
+  + move(): void
+  + __toString(): string
+  + status(): string
+  + dateCreated(): string
+}
+
+class Mammal extends Animal {
+  # furLengthCm: float
+  # furType: string
+  # toothCounter: int
+  # bodyTemperatureC: float
+  # avgBodyTemperatureC: float
+  # mammaryGland: bool
+  # sweatGland: bool
+  # isPregnant: bool
+  + __construct(string, float, float, float, string, float, string, float)
+  + sweat(): void
+  + produceMilk(): void
+  + mate(Mammal): void
+  + fertilize(): void
+  + isPregnant(): bool
+  + bite(): void
+  + replaceTeeth(): void
+  + increaseBodyHeat(float): void
+  + decreaseBodyHeat(float): void
+  + adjustBodyHeat(): void
+  + move(): void
+  + __toString(): string
+  + mammalInformation(): string
+  + eat(): void
+}
+
+' --- クラス定義 (拡張) ---
+
+class Bird extends Animal {
+  # wingSpan: float
+  + layEggs()
+  + fly()
+  + buildNest()
+  + chirp()
+}
+note right of Bird
+  翼長(wingSpan)や巣作り(buildNest)など、
+  鳥類共通の特性を追加。
+end note
+
+class Person extends Mammal {
+  + name: string
+  + money: double
+  + farm: Farm
+  + buyAnimal(animal: Animal, price: double)
+  + sellAnimal(animal: Animal): double
+  + feed(animal: Animal)
+  + collectRevenue()
+}
+note left of Person
+  農場の所有者として、名前(name)と所持金(money)を追加。
+  動物の売買(buy/sellAnimal)や
+  餌やり(feed)といった具体的なアクションを追加。
+end note
+
+class Cow extends Mammal {
+  + weight: double
+  + milkFatPercentage: float
+  + isMilkable: bool
+  + milk()
+  + getPrice(): double
+  + graze()
+}
+note right of Cow
+  乳脂肪率(milkFatPercentage)や搾乳可能か(isMilkable)の
+  状態を追加し、牛乳の品質や生産管理を表現。
+  `getMilk()` を状態を変更する `milk()` に変更。
+end note
+
+class Horse extends Mammal {
+  + runningSpeed: double
+  + breed: string
+  + stamina: int
+  + getPrice(): double
+  + train()
+  + ride()
+}
+note right of Horse
+  品種(breed)やスタミナ(stamina)を追加。
+  トレーニング(train)で能力を向上させたり、
+  騎乗(ride)したりするアクションを追加。
+end note
+
+class Chicken extends Bird {
+  + weight: double
+  + eggColor: string
+  + canLayEgg: bool
+  + layEgg(): Egg
+  + getPrice(): double
+  + peck()
+}
+note right of Chicken
+  卵の色(eggColor)や産卵可能か(canLayEgg)の状態を追加。
+  `layEgg`メソッドは`Egg`オブジェクトを返すように変更。
+  (Eggクラスの定義は省略)
+end note
+
+class Parrot extends Bird {
+  # vocabulary: string[]
+  + featherColor: string
+  + talk(): string
+  + learnWord(word: string)
+  + mimicSound(sound: string)
+}
+note left of Parrot
+  ペットとしての側面を強調。
+  覚えた言葉(vocabulary)のリストを持ち、
+  新しい言葉を学習(learnWord)する能力を追加。
+end note
+
+class Farm {
+  - name: string
+  - funds: double
+  - cows: Cow[]
+  - horses: Horse[]
+  - chickens: Chicken[]
+  + addAnimal(animal: Animal)
+  + removeAnimal(animal: Animal)
+  + calculateRevenue(): double
+  + dailyUpdate()
+}
+note right of Farm
+  農場の名前(name)と運営資金(funds)を追加。
+  動物を管理するメソッド(add/removeAnimal)や、
+  一日ごとの状態変化を処理する`dailyUpdate`を追加。
+  収益源はノートに記載。
+end note
+
+' --- 関連定義 ---
+
+Person "1" *-- "1" Farm : owns >
+
+Farm "1" *-- "0..*" Cow : has >
+Farm "1" *-- "0..*" Horse : has >
+Farm "1" *-- "0..*" Chicken : has >
+
+' --- ノート ---
+note as RevenueNote
+  **収益源 (Revenue Sources):**
+  * 牛乳 (Milk from Cows)
+  * 卵 (Eggs from Chickens)
+  * 動物の売却 (Selling Animals)
+    - 牛/鶏: 重さ(weight)に基づく
+    - 馬: 走行速度(runningSpeed)に基づく
+end note
+
+Farm .. RevenueNote
+
+@enduml
