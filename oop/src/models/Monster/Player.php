@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Player.php
- * 
+ *
  * プレイヤーキャラクターを表現するクラス
  * モンスターと戦闘を行う機能を持つ
- * 
+ *
  * 注意: 身長の単位はメートル（Monsterクラスはセンチメートル）
  * この単位の違いが攻撃判定で問題を引き起こす
- * 
+ *
  * @author   Recursion Curriculum
  * @version  1.0.0
  */
@@ -54,7 +56,7 @@ class Player
 
     /**
      * Playerコンストラクタ
-     * 
+     *
      * @param string $username プレイヤー名
      * @param int    $health   体力
      * @param int    $attack   攻撃力
@@ -72,7 +74,7 @@ class Player
 
     /**
      * プレイヤーの身長を取得（メートル単位）
-     * 
+     *
      * @return float 身長（メートル）
      */
     public function getHeight(): float
@@ -82,7 +84,7 @@ class Player
 
     /**
      * プレイヤーの攻撃力を取得（テスト用）
-     * 
+     *
      * @return int 攻撃力
      */
     public function getAttack(): int
@@ -92,26 +94,26 @@ class Player
 
     /**
      * モンスターを攻撃する
-     * 
+     *
      * 攻撃条件:
      * 1. モンスターの身長がプレイヤーの3倍未満
      * 2. プレイヤーの攻撃力がモンスターの防御力より大きい
-     * 
+     *
      * 問題: MonsterとPlayerで身長の単位が異なる
      * - Player: メートル (1.8m)
      * - Monster: センチメートル (300cm)
      * この違いにより攻撃判定が正常に動作しない
-     * 
+     *
      * @param Monster $monster 攻撃対象のモンスター
      * @return void
      */
     public function attack(Monster $monster): void
     {
-        echo $this->username . " ATTACKS " . $monster->getName() . PHP_EOL;
+        echo $this->username . ' ATTACKS ' . $monster->getName() . PHP_EOL;
 
         // 依存関係がある箇所：
         // Monsterの身長がPlayerの3倍以上の場合、またはMonsterの防御力がPlayerの攻撃力以上の場合、攻撃は無効
-        // 
+        //
         // 問題: monster->getHeight()はセンチメートル（300）、$this->heightはメートル（1.8）
         // 比較: 300 >= 1.8 * 3 = 5.4 → true となり、攻撃が常に無効になる
         if ($monster->getHeight() >= $this->height * 3 || $this->attack <= $monster->getDefense()) {
@@ -125,16 +127,16 @@ class Player
 
     /**
      * プレイヤーの文字列表現を取得
-     * 
+     *
      * @return string プレイヤーの情報を含む文字列
      */
     public function __toString(): string
     {
-        return "Player " . $this->username .
-            " - HP:" . $this->health .
-            "/Atk:" . $this->attack .
-            "/Def:" . $this->defense .
-            "/Gold:" . $this->gold .
-            "/height:" . $this->height . " meters";
+        return 'Player ' . $this->username .
+            ' - HP:' . $this->health .
+            '/Atk:' . $this->attack .
+            '/Def:' . $this->defense .
+            '/Gold:' . $this->gold .
+            '/height:' . $this->height . ' meters';
     }
 }

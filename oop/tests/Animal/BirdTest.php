@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Tests\Animal;
 
-use PHPUnit\Framework\TestCase;
-use App\Models\Animal\Bird;
 use App\Models\Animal\Animal;
+use App\Models\Animal\Bird;
+use PHPUnit\Framework\TestCase;
 
 class BirdTest extends TestCase
 {
@@ -20,6 +20,7 @@ class BirdTest extends TestCase
             'weightKg' => 0.03,
             'lifeSpanDays' => 1825.0,
             'biologicalSex' => 'female',
+            'age' => 1.0,
             'wingSpan' => 0.25,
         ];
     }
@@ -158,8 +159,8 @@ class BirdTest extends TestCase
     public function testBirdWithDifferentWingSpans(): void
     {
         // Given: 異なる翼幅の鳥たち
-        $smallBird = new Bird('Hummingbird', 0.08, 0.004, 1460, 'female', 0.1);
-        $largeBird = new Bird('Eagle', 0.75, 4.5, 7300, 'male', 2.3);
+        $smallBird = new Bird('Hummingbird', 0.08, 0.004, 1460, 'female', 1.0, 0.1);
+        $largeBird = new Bird('Eagle', 0.75, 4.5, 7300, 'male', 2.0, 2.3);
 
         // When: 翼幅を比較
         $smallWingSpan = $smallBird->getWingSpan();

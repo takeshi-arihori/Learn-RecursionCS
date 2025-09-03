@@ -12,7 +12,7 @@ class PersonTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->person = new Person("John", "Doe", 25, 1.75, 70.5);
+        $this->person = new Person('John', 'Doe', 25, 1.75, 70.5);
     }
 
     /**
@@ -22,10 +22,10 @@ class PersonTest extends TestCase
      */
     public function testConstructor(): void
     {
-        $person = new Person("Alice", "Smith", 30, 1.68, 60.0);
+        $person = new Person('Alice', 'Smith', 30, 1.68, 60.0);
 
-        $this->assertEquals("Alice", $person->firstName);
-        $this->assertEquals("Smith", $person->lastName);
+        $this->assertEquals('Alice', $person->firstName);
+        $this->assertEquals('Smith', $person->lastName);
         $this->assertEquals(30, $person->age);
         $this->assertEquals(1.68, $person->heightM);
         $this->assertEquals(60.0, $person->weightKg);
@@ -71,7 +71,7 @@ class PersonTest extends TestCase
      */
     public function testPrintState(): void
     {
-        $this->expectOutputString("John Doe 25 1.75 70.5 0");
+        $this->expectOutputString('John Doe 25 1.75 70.5 0');
         $this->person->printState();
     }
 
@@ -85,7 +85,7 @@ class PersonTest extends TestCase
         $wallet->insertBill(100, 1);
         $this->person->wallet = $wallet;
 
-        $this->expectOutputString("John Doe 25 1.75 70.5 100");
+        $this->expectOutputString('John Doe 25 1.75 70.5 100');
         $this->person->printState();
     }
 

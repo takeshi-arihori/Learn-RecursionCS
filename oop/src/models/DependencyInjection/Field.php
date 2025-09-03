@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models\DependencyInjection;
 
 /**
@@ -20,7 +22,7 @@ class Field
     /** @var array フィールド上に存在するモンスターのリスト */
     private array $creatures;
 
-    /** 
+    /**
      * @var array それぞれのモンスターの座標を保持するリスト
      * creaturesリストの各モンスターに対応しており、
      * creaturesリストのn番目のモンスターの座標は
@@ -44,7 +46,7 @@ class Field
      * その内部で新しいモンスターオブジェクトを作成します。
      * この場合、他のクラスからはこのメソッドがどのようにモンスターオブジェクトを
      * 作成しているか、また、このメソッドがMonsterクラスにどのように依存しているかがわかりません。
-     * 
+     *
      * @param string $monster モンスター名
      * @param int $health 体力
      * @param int $attack 攻撃力
@@ -59,7 +61,7 @@ class Field
         $c = new Coordinate(
             $this->internalRanAlgorithm(1, self::MAX_X),
             $this->internalRanAlgorithm(1, self::MAX_Y),
-            $this->internalRanAlgorithm(1, self::MAX_Z)
+            $this->internalRanAlgorithm(1, self::MAX_Z),
         );
 
         $this->creatures[] = $newMonster;
@@ -71,7 +73,7 @@ class Field
      * このメソッドではモンスターオブジェクト自体を直接受け取ります。
      * これによりこのメソッドがMonsterクラスに依存していることが明示的になります。
      * そしてこの依存性は外部（このメソッドを呼び出すクラスやメソッド）にも明らかとなります。
-     * 
+     *
      * @param Monster $creature 追加するモンスターオブジェクト
      */
     public function randomlyAddWithDependency(Monster $creature): void
@@ -80,7 +82,7 @@ class Field
         $c = new Coordinate(
             $this->internalRanAlgorithm(1, self::MAX_X),
             $this->internalRanAlgorithm(1, self::MAX_Y),
-            $this->internalRanAlgorithm(1, self::MAX_Z)
+            $this->internalRanAlgorithm(1, self::MAX_Z),
         );
 
         // 外部で作成されたMonsterオブジェクトを注入
@@ -91,7 +93,7 @@ class Field
     /**
      * 内部ランダム生成アルゴリズム
      * 指定された範囲内でランダムな整数を生成
-     * 
+     *
      * @param int $min 最小値
      * @param int $max 最大値
      * @return int ランダムな整数
@@ -103,17 +105,19 @@ class Field
 
     /**
      * フィールド上の全モンスターと座標情報を文字列として表現
-     * 
+     *
      * @return string フィールドの詳細情報
      */
     public function __toString(): string
     {
-        $s = "";
+        $s = '';
+
         // 各モンスターとその座標を文字列に追加
         for ($i = 0; $i < count($this->creatures); $i++) {
-            $s .= $this->creatures[$i] . " with coordinates: " . $this->creatureCoordinates[$i] . "
-";
+            $s .= $this->creatures[$i] . ' with coordinates: ' . $this->creatureCoordinates[$i] . '
+';
         }
+
         return $s;
     }
 }

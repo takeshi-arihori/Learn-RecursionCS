@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 class Deck implements DeckInterface
@@ -55,11 +57,13 @@ class Deck implements DeckInterface
     public static function shuffleDeckOutOfPlace(array $cards): array
     {
         $newCards = [];
+
         foreach ($cards as $card) {
             $newCards[] = $card;
         }
 
         self::shuffleDeckInPlace($newCards);
+
         return $newCards;
     }
 
@@ -69,6 +73,7 @@ class Deck implements DeckInterface
 
         for ($i = 0; $i < count($inputCards); $i++) {
             $s .= $inputCards[$i]->toString();
+
             if ($i % 5 == 4) {
                 $s .= ' ';
             }

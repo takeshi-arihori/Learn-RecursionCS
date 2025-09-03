@@ -90,6 +90,7 @@ class RGB24
 
         $max = $values[0];
         $maxIndex = 0;
+
         for ($i = 1; $i < count($values); $i++) {
             if ($max <= $values[$i]) {
                 $max = $values[$i];
@@ -108,7 +109,7 @@ class RGB24
             $this->green,
             $this->blue,
             $this->getHex(),
-            $this->getBits()
+            $this->getBits(),
         );
     }
 }

@@ -6,7 +6,7 @@ namespace App\Common\Logger;
 
 /**
  * ログレベルの定数クラス
- * 
+ *
  * @package App\Common\Logger
  */
 class LogLevel
@@ -19,7 +19,7 @@ class LogLevel
 
     /**
      * 有効なログレベルの配列を返す
-     * 
+     *
      * @return array<string>
      */
     public static function getValidLevels(): array
@@ -35,7 +35,7 @@ class LogLevel
 
     /**
      * 指定されたログレベルが有効かどうかを判定
-     * 
+     *
      * @param string $level
      * @return bool
      */

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 require_once 'vendor/autoload.php';
 require_once 'src/models/Card/Card.php';
 require_once 'src/models/Card/DeckInterface.php';

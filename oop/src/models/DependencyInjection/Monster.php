@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models\DependencyInjection;
 
 /**
@@ -25,7 +27,7 @@ class Monster
 
     /**
      * モンスターを初期化
-     * 
+     *
      * @param string $monster モンスター名
      * @param int $health 体力
      * @param int $attack 攻撃力
@@ -41,7 +43,7 @@ class Monster
 
     /**
      * モンスター名を取得
-     * 
+     *
      * @return string モンスター名
      */
     public function getName(): string
@@ -51,7 +53,7 @@ class Monster
 
     /**
      * 身長を取得
-     * 
+     *
      * @return float 身長（メートル）
      */
     public function getHeight(): float
@@ -61,7 +63,7 @@ class Monster
 
     /**
      * 攻撃力を取得
-     * 
+     *
      * @return int 攻撃力
      */
     public function getAttack(): int
@@ -71,7 +73,7 @@ class Monster
 
     /**
      * 防御力を取得
-     * 
+     *
      * @return int 防御力
      */
     public function getDefense(): int
@@ -82,12 +84,13 @@ class Monster
     /**
      * 攻撃を受けてダメージを受ける
      * 体力が0を下回った場合は0に設定
-     * 
+     *
      * @param int $hp 受けるダメージ量
      */
     public function attacked(int $hp): void
     {
         $this->health -= $hp;
+
         // 体力は0を下回らない
         if ($this->health < 0) {
             $this->health = 0;
@@ -96,11 +99,11 @@ class Monster
 
     /**
      * モンスター情報を文字列として表現
-     * 
+     *
      * @return string モンスターの詳細情報
      */
     public function __toString(): string
     {
-        return $this->monster . " - HP:" . $this->health . "/Atk:" . $this->attack . "/Def:" . $this->defense . "/height:" . $this->height . " meters";
+        return $this->monster . ' - HP:' . $this->health . '/Atk:' . $this->attack . '/Def:' . $this->defense . '/height:' . $this->height . ' meters';
     }
 }

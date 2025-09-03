@@ -1,295 +1,359 @@
-# OOP - オブジェクト指向プログラミング
+# 🏞️ 農場シミュレーションゲーム（OOP Implementation）
 
-## 概要
-PHP を使用したオブジェクト指向プログラミングの実践学習です。Docker環境でテスト駆動開発（TDD）を行い、クラス設計、継承、カプセル化などのOOPの核心概念を学習します。
+## 📋 プロジェクト概要
 
-## プロジェクト構成
+このプロジェクトは、オブジェクト指向プログラミング（OOP）の「継承」概念を実用的にモデル化した農場経営シミュレーションゲームです。TDD（Test-Driven Development）手法により段階的に実装されており、プレイヤーは農場を経営し、動物を飼育して収益を上げることを目指します。
+
+## 🎯 学習目的
+
+- **継承の実践**: Animal → Mammal/Bird → Cow/Horse/Chicken の継承関係
+- **TDD手法**: Red → Green → Refactor サイクルの体験
+- **PSR-12準拠**: 業界標準のコーディングスタイル
+- **静的解析**: PHPStanによる品質管理
+- **ログシステム**: 共通ログ機能の実装
+
+## 📁 プロジェクト構成
 
 ```
 oop/
-├── src/models/          # モデルクラス
-│   ├── Person.php      # 人物クラス
-│   └── Wallet.php      # 財布クラス
-├── tests/              # テストクラス
-│   ├── PersonTest.php  # Person クラステスト
-│   └── WalletTest.php  # Wallet クラステスト
-├── public/             # Web公開ディレクトリ
-├── vendor/             # Composer依存関係
-├── compose.yaml        # Docker Compose設定
-├── composer.json       # Composer設定
-└── phpunit.xml         # PHPUnit設定
+├── src/                           # ソースコード
+│   ├── Common/                    # 共通機能
+│   │   └── Logger/               # ログシステム
+│   ├── Models/
+│   │   ├── Animal/               # 動物クラス群
+│   │   │   ├── Animal.php        # 基底クラス
+│   │   │   ├── Mammal.php        # 哺乳類
+│   │   │   ├── Bird.php          # 鳥類 ✅
+│   │   │   ├── Person.php        # 人物（農場主）✅
+│   │   │   ├── Cow.php           # 牛 🚧
+│   │   │   ├── Horse.php         # 馬 🚧
+│   │   │   └── Chicken.php       # 鶏 🚧
+│   │   ├── Farm/                 # 農場管理
+│   │   │   └── Farm.php          # 農場クラス ✅
+│   │   └── Product/              # 生産物
+│   │       └── Egg.php           # 卵 🚧
+├── tests/                        # テストファイル
+│   ├── Common/Logger/            # ログテスト ✅
+│   ├── Animal/                   # 動物テスト
+│   ├── Farm/                     # 農場テスト ✅
+│   └── Product/                  # 生産物テスト 🚧
+├── docs/                         # ドキュメント
+│   ├── logs/                     # ログ設計書
+│   └── rules/                    # コーディング規約
+├── logs/                         # ログファイル出力先
+├── composer.json                 # 依存関係設定
+├── phpstan.neon                 # 静的解析設定
+└── pint.json                    # コードフォーマット設定
 ```
 
-## セットアップと実行
+## 🚀 クイックスタート
 
-### Docker環境の起動
+### 1. 環境セットアップ
+
 ```bash
+# プロジェクトディレクトリに移動
 cd oop
-docker-compose up -d
+
+# 依存関係をインストール
+composer install
 ```
 
-### テスト実行
+### 2. 開発コマンド
+
 ```bash
-# 全テスト実行
-./vendor/bin/phpunit
+# 🧪 テスト実行
+composer test
 
-# 特定テストクラス実行
-./vendor/bin/phpunit tests/PersonTest.php
-./vendor/bin/phpunit tests/WalletTest.php
+# 🎨 コードフォーマット
+composer format
 
-# テスト詳細表示
+# 🔍 静的解析
+composer analyze
+
+# ✨ 全品質チェック（フォーマット + 解析 + テスト）
+composer quality
+```
+
+### 3. 個別テスト実行
+
+```bash
+# 特定のテストクラスを実行
+./vendor/bin/phpunit tests/Common/Logger/LoggerTest.php
+./vendor/bin/phpunit tests/Animal/BirdTest.php
+./vendor/bin/phpunit tests/Animal/PersonTest.php
+./vendor/bin/phpunit tests/Farm/FarmTest.php
+
+# テストカバレッジ付き実行（要Xdebug）
+./vendor/bin/phpunit --coverage-html coverage/
+```
+
+## 📊 現在の実装状況
+
+### ✅ 完了済み（Green状態）
+
+| クラス | テスト数 | 状態 | 説明 |
+|--------|---------|------|------|
+| **Logger** | 9/9 | ✅ | 共通ログシステム完全実装 |
+| **Bird** | 12/12 | ✅ | 鳥類基底クラス完全実装 |
+| **Person** | 5/12 | ⚠️ | 基本機能完了、動物関連は依存待ち |
+| **Farm** | 4/14 | ⚠️ | 基本機能完了、動物関連は依存待ち |
+
+### 🚧 実装中/予定
+
+| クラス | 優先度 | 説明 |
+|--------|--------|------|
+| **Cow** | 🔥 High | 牛クラス（搾乳機能） |
+| **Horse** | 🔥 High | 馬クラス（調教機能） |
+| **Chicken** | 🔥 High | 鶏クラス（産卵機能） |
+| **Egg** | 🔥 High | 卵クラス（生産物） |
+
+## 🎮 使用方法
+
+### 基本的な農場シミュレーション
+
+```php
+<?php
+require_once 'vendor/autoload.php';
+
+use App\Models\Animal\Person;
+use App\Models\Farm\Farm;
+use App\Models\Animal\Cow;
+
+// 1. 農場主を作成
+$farmer = new Person(
+    'human',           // species
+    1.75,             // heightM
+    70.0,             // weightKg
+    30000.0,          // lifeSpanDays
+    'male',           // biologicalSex
+    0.5,              // furLengthCm
+    'straight',       // furType
+    36.5,             // avgBodyTemperatureC
+    'John Doe',       // name
+    10000.0           // money
+);
+
+// 2. 農場を作成
+$farm = new Farm('Green Valley Farm');
+$farmer->setFarm($farm);
+
+// 3. 動物を購入（実装完了後）
+// $cow = new Cow('Holstein', 1.5, 600.0, 7300.0, 'female', ...);
+// $farmer->buyAnimal($cow, 2000.0);
+
+// 4. 日々の管理
+// $farmer->feedAnimal($cow);
+// $farm->dailyUpdate();
+// $revenue = $farm->calculateRevenue();
+// $farmer->collectRevenue();
+
+echo $farmer . "\n";
+echo $farm . "\n";
+```
+
+### ログ機能の使用
+
+```php
+use App\Common\Logger\Logger;
+use App\Common\Logger\LogLevel;
+
+$logger = new Logger();
+
+$logger->info('Farm operation started');
+$logger->warning('Low food supply');
+$logger->error('Animal health issue detected');
+
+// コンテキスト付きログ
+$logger->log(LogLevel::INFO, 'Animal purchased', [
+    'type' => 'cow',
+    'price' => 2000.0,
+    'farm' => 'Green Valley Farm'
+]);
+```
+
+## 🔧 開発ツール
+
+### PHPStan（静的解析）
+
+```bash
+# レベル8（最高）で解析
+./vendor/bin/phpstan analyse
+
+# 設定ファイル: phpstan.neon
+# - 厳密な型チェック
+# - 未使用変数検出  
+# - 型推論の改善
+```
+
+### Laravel Pint（コードフォーマッター）
+
+```bash
+# PSR-12準拠でフォーマット
+./vendor/bin/pint
+
+# チェックのみ（修正しない）
+./vendor/bin/pint --test
+
+# 設定ファイル: pint.json
+# - 短縮記法配列 []
+# - 単一引用符使用
+# - 末尾カンマ追加
+```
+
+## 📝 TDD開発フロー
+
+### Red → Green → Refactor サイクル
+
+```bash
+# 1. Red: テスト作成（失敗させる）
+./vendor/bin/phpunit tests/Animal/CowTest.php
+# → Tests: 10, Failures: 10 ❌
+
+# 2. Green: 最小実装（テスト通す）
+# src/Models/Animal/Cow.php を実装
+./vendor/bin/phpunit tests/Animal/CowTest.php  
+# → Tests: 10, Failures: 0 ✅
+
+# 3. Refactor: コード改善
+composer format    # フォーマット
+composer analyze   # 静的解析
+```
+
+## 📚 設計パターン
+
+### 継承階層
+
+```
+Animal (基底クラス)
+├── Mammal (哺乳類)
+│   ├── Person (人物) ✅
+│   ├── Cow (牛) 🚧
+│   └── Horse (馬) 🚧
+└── Bird (鳥類) ✅
+    ├── Chicken (鶏) 🚧
+    └── Parrot (オウム) 💡
+```
+
+### 集約関係
+
+```
+Person "1" ━━ "0..1" Farm "1" ━━ "0..*" Animal
+```
+
+## 🧪 テスト戦略
+
+### Given-When-Then パターン
+
+```php
+public function testCowCanProduceMilk(): void
+{
+    // Given: 健康な乳牛がいる
+    $cow = new Cow('Holstein', 1.5, 600.0, 7300.0, 'female', ...);
+    
+    // When: 搾乳する
+    $milk = $cow->produceMilk();
+    
+    // Then: 牛乳が生産される
+    $this->assertInstanceOf(Milk::class, $milk);
+    $this->assertGreaterThan(0, $milk->getVolume());
+}
+```
+
+### テストカテゴリ
+
+- **Unit Tests**: 各クラスの単体機能
+- **Integration Tests**: クラス間の連携
+- **Behavior Tests**: ビジネスロジック検証
+
+## 🐛 トラブルシューティング
+
+### よくある問題
+
+**1. クラスが見つからない**
+```bash
+# オートローダーを再生成
+composer dump-autoload
+```
+
+**2. テストが失敗する**
+```bash
+# 依存関係を確認
+composer install
 ./vendor/bin/phpunit --verbose
 ```
 
-### Composer依存関係管理
+**3. PHPStanエラー**
 ```bash
-# 依存関係インストール
-composer install
-
-# 依存関係更新
-composer update
+# 型注釈を追加
+public function someMethod(): void
+// または設定を調整（phpstan.neon）
 ```
 
-### Web アクセス
-- URL: http://localhost:8080 (Nginx経由)
-- 直接アクセス: public/index.php
-
-## クラス構造
-
-### Walletクラス（完全実装済み）
-財布を表すクラス。各種紙幣（1, 5, 10, 20, 50, 100ドル）を管理します。
-
-**プロパティ:**
-- `bill1`, `bill5`, `bill10`, `bill20`, `bill50`, `bill100`: 各紙幣の枚数
-
-**メソッド:**
-- `__construct()`: 全紙幣を0で初期化
-- `getTotalMoney()`: 財布内の総額を計算
-- `insertBill(int $bill, int $amount)`: 指定した紙幣を追加
-
-### Personクラス（一部実装済み）
-人を表すクラス。基本情報と財布を持ちます。
-
-**プロパティ:**
-- `firstName`, `lastName`: 名前
-- `age`: 年齢
-- `heightM`: 身長（メートル）
-- `weightKg`: 体重（キログラム）
-- `wallet`: 財布（Walletオブジェクトまたはnull）
-
-**実装済みメソッド:**
-- `__construct()`: 基本情報を設定、財布はnullで初期化
-- `getCash()`: 財布内の総額を取得（財布がない場合は0）
-- `printState()`: 人の状態を出力
-- `addWallet(Wallet $wallet)`: 財布を設定（TDD実装済み）
-
-**未実装メソッド（TDD対象）:**
-- `getPaid(int $amount)`: 指定額を受け取り、財布に適切な紙幣で格納
-- `spendMoney(int $amount)`: 指定額を支払い、財布から紙幣を取り出す
-- `dropWallet()`: 財布を手放す
-
-## TDD（テスト駆動開発）の進め方
-
-### TDDの基本サイクル：Red-Green-Refactor
-
-#### 1. Red（失敗）- テストを書いて失敗させる
-
-未実装メソッドのテストを有効化します：
-
-```php
-// tests/PersonTest.php で以下の行を削除
-$this->markTestIncomplete('メソッド名 method is not implemented yet');
-```
-
-例：`getPaid`メソッドの場合
-```php
-public function testGetPaid(): void
-{
-    // $this->markTestIncomplete('getPaid method is not implemented yet'); // この行を削除
-    
-    $wallet = new Wallet();
-    $this->person->wallet = $wallet;
-    
-    $result = $this->person->getPaid(186);
-    
-    // 186 = 1x100 + 1x50 + 1x20 + 1x10 + 1x5 + 1x1
-    $expected = [1, 1, 1, 1, 1, 1]; // [bill1, bill5, bill10, bill20, bill50, bill100]
-    $this->assertEquals($expected, $result);
-    $this->assertEquals(186, $this->person->getCash());
-}
-```
-
-テストを実行して失敗を確認：
+**4. コードフォーマットエラー**
 ```bash
-./vendor/bin/phpunit --filter testGetPaid
+# 自動修正
+composer format
+# 手動確認
+composer format:check
 ```
 
-#### 2. Green（成功）- 最小限の実装でテストを通す
+## 📈 今後の拡張予定
 
-`index.php`の該当メソッドを実装します：
+### Phase 2: 動物クラス完成
+- [ ] Cow, Horse, Chicken クラス実装
+- [ ] Egg 生産物クラス実装
+- [ ] 全テストGreen状態達成
 
-```php
-public function getPaid(int $amount): array
-{
-    if ($this->wallet === null) {
-        return [];
-    }
-    
-    // 最小限の実装（まず動くようにする）
-    $bills = [0, 0, 0, 0, 0, 0]; // [bill1, bill5, bill10, bill20, bill50, bill100]
-    
-    // 大きい紙幣から順に計算
-    $remaining = $amount;
-    
-    if ($remaining >= 100) {
-        $bills[5] = intval($remaining / 100);
-        $remaining = $remaining % 100;
-        $this->wallet->insertBill(100, $bills[5]);
-    }
-    
-    if ($remaining >= 50) {
-        $bills[4] = intval($remaining / 50);
-        $remaining = $remaining % 50;
-        $this->wallet->insertBill(50, $bills[4]);
-    }
-    
-    // 以下、20, 10, 5, 1の順で処理...
-    
-    return $bills;
-}
-```
+### Phase 3: ゲーム機能拡張
+- [ ] 季節システム
+- [ ] 動物の病気システム
+- [ ] マーケット価格変動
+- [ ] 新しい動物種追加
 
-テストを実行して成功を確認：
+### Phase 4: UI/UX
+- [ ] CLI インターフェース
+- [ ] ゲーム進行管理
+- [ ] セーブ/ロード機能
+
+## 🤝 コントリビューション
+
+このプロジェクトはTDD学習用です。以下の手順で開発に参加できます：
+
 ```bash
-./vendor/bin/phpunit --filter testGetPaid
+# 1. フィーチャーブランチ作成
+git checkout -b feature/new-animal-class
+
+# 2. TDDサイクルで開発
+# Red → Green → Refactor
+
+# 3. 品質チェック
+composer quality
+
+# 4. コミット
+git commit -m "feat: Add new animal class with TDD"
+
+# 5. プルリクエスト作成
+gh pr create --title "Add new animal class" --body "TDD implementation"
 ```
 
-#### 3. Refactor（リファクタリング）- コードを改善する
+## 📞 サポート
 
-テストが通ったら、コードをより読みやすく、保守しやすくリファクタリングします：
-
-```php
-public function getPaid(int $amount): array
-{
-    if ($this->wallet === null) {
-        return [];
-    }
-    
-    $denominations = [100, 50, 20, 10, 5, 1];
-    $bills = [0, 0, 0, 0, 0, 0];
-    $remaining = $amount;
-    
-    foreach ($denominations as $index => $denomination) {
-        if ($remaining >= $denomination) {
-            $count = intval($remaining / $denomination);
-            $bills[5 - $index] = $count; // 配列の順序を調整
-            $remaining = $remaining % $denomination;
-            $this->wallet->insertBill($denomination, $count);
-        }
-    }
-    
-    return $bills;
-}
-```
-
-再度テストを実行して、リファクタリング後も動作することを確認。
-
-### TDD実装手順の例
-
-#### 実装済み例：`addWallet`メソッド
-
-1. **Red**: テストを有効化 → `TypeError: Return value must be of type Wallet, none returned`
-2. **Green**: 最小実装
-   ```php
-   public function addWallet(Wallet $wallet): Wallet
-   {
-       $this->wallet = $wallet;
-       return $wallet;
-   }
-   ```
-3. **Refactor**: 今回はシンプルなのでそのまま
-
-#### 未実装メソッドのテスト状況
-
-現在の未実装メソッドと対応するテスト：
-
-| メソッド | テストメソッド | 状態 |
-|---------|---------------|------|
-| `getPaid` | `testGetPaidShouldFail`, `testGetPaidWithoutWalletShouldFail` | 未実装（markTestIncomplete） |
-| `spendMoney` | `testSpendMoneyShouldFail`, `testSpendMoneyInsufficientFundsShouldFail`, `testSpendMoneyWithoutWalletShouldFail` | 未実装（markTestIncomplete） |
-| `dropWallet` | `testDropWalletShouldFail`, `testDropWalletWhenNoWalletShouldFail` | 未実装（markTestIncomplete） |
-
-## テストの実行結果の読み方
-
-```
-PHPUnit 12.3.0 by Sebastian Bergmann and contributors.
-
-......IIIII.II............                                        26 / 26 (100%)
-
-Time: 00:00.014, Memory: 14.00 MB
-
-OK, but there were issues!
-Tests: 26, Assertions: 42, Incomplete: 7.
-```
-
-- `.`: 成功したテスト
-- `I`: 未完了（markTestIncomplete）のテスト
-- `E`: エラー
-- `F`: 失敗
-- `Tests: 26`: 総テスト数
-- `Assertions: 42`: 総アサーション数
-- `Incomplete: 7`: 未完了テスト数
-
-## おすすめの学習順序
-
-1. **Walletクラスの理解**: 既に実装済みなので、テストを見て動作を理解
-2. **Personクラスの既存メソッド**: `getCash()`, `printState()`などの動作確認
-3. **TDD実践**:
-   1. `addWallet` → 実装済み（参考例）
-   2. `dropWallet` → シンプルな実装
-   3. `getPaid` → 少し複雑な実装
-   4. `spendMoney` → 最も複雑な実装
-
-## ヒント
-
-### `getPaid`メソッドの実装ヒント
-- 大きい紙幣から順に計算
-- 各紙幣の枚数を配列で返す
-- 財布がない場合は空配列を返す
-
-### `spendMoney`メソッドの実装ヒント
-- まず十分な資金があるかチェック
-- 大きい紙幣から順に使用
-- 不足している場合は何もしない（空配列を返す）
-- 財布から実際に紙幣を減らす処理が必要
-
-### `dropWallet`メソッドの実装ヒント
-- 現在の財布を保存
-- 財布をnullに設定
-- 保存した財布を返す
-- 財布がない場合はnullを返す
+- **ドキュメント**: `docs/` ディレクトリ参照
+- **要件定義**: `src/Models/Animal/README.md`
+- **コーディング規約**: `docs/rules/psr12-coding-style.md`
+- **ログ設計**: `docs/logs/logging.md`
 
 ---
 
-## トラブルシューティング
+## 🏷️ メタ情報
 
-### よくあるエラー
+- **言語**: PHP 8.3+
+- **フレームワーク**: なし（Pure PHP）
+- **テスト**: PHPUnit 12.3+
+- **静的解析**: PHPStan 1.12+
+- **フォーマッター**: Laravel Pint 1.24+
+- **標準**: PSR-12準拠
+- **ライセンス**: 学習用
+- **作成者**: Claude Code + TDD methodology
 
-1. **`Class 'PHPUnit\Framework\TestCase' not found`**
-   ```bash
-   composer install
-   ```
-
-2. **`Cannot declare class Wallet, because the name is already in use`**
-   - `require_once`を使用しているか確認
-   - ファイルが複数回読み込まれていないか確認
-
-3. **`TypeError: Return value must be of type ...`**
-   - メソッドの戻り値の型宣言と実際の戻り値が一致しているか確認
-   - `return`文が抜けていないか確認
-
-Happy TDD Learning! 🚀
-
-## 関連ドキュメント
-
-- [PlantUML クラス図構文リファレンス](docs/plantuml-reference.md) - クラス図作成時の構文やコマンドまとめ
+**🎯 学習効果**: 継承・ポリモーフィズム・カプセル化・TDD手法・品質管理ツール

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Tests\Common\Logger;
 
-use PHPUnit\Framework\TestCase;
 use App\Common\Logger\Logger;
-use App\Common\Logger\LogLevel;
 use App\Common\Logger\LoggerInterface;
+use App\Common\Logger\LogLevel;
+use PHPUnit\Framework\TestCase;
 
 class LoggerTest extends TestCase
 {

@@ -6,7 +6,7 @@ namespace App\Models;
 
 /**
  * 財布クラス
- * 
+ *
  * 様々な額面の紙幣を管理し、総金額の計算や紙幣の挿入操作を提供する
  */
 class Wallet
@@ -20,7 +20,7 @@ class Wallet
 
     /**
      * Walletクラスのコンストラクタ
-     * 
+     *
      * すべての紙幣の枚数を0に初期化する
      */
     public function __construct()
@@ -35,7 +35,7 @@ class Wallet
 
     /**
      * 財布内の総金額を計算
-     * 
+     *
      * @return int 総金額（円）
      */
     public function getTotalMoney(): int
@@ -45,7 +45,7 @@ class Wallet
 
     /**
      * 指定された額面の紙幣を財布に挿入
-     * 
+     *
      * @param int $bill 紙幣の額面 (1, 5, 10, 20, 50, 100)
      * @param int $amount 挿入する枚数
      * @return int 挿入後の総金額
@@ -80,7 +80,7 @@ class Wallet
 
     /**
      * 指定された額面の紙幣を財布から取り出し
-     * 
+     *
      * @param int $bill 紙幣の額面 (1, 5, 10, 20, 50, 100)
      * @param int $amount 取り出す枚数
      * @return int 取り出し後の総金額

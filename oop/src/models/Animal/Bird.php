@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace App\Models\Animal;
 
 use App\Common\Logger\Logger;
-use App\Common\Logger\LogLevel;
 
 /**
  * Birdクラス - 鳥類の基底クラス
  * Animalクラスを継承し、鳥類特有の属性と振る舞いを表現
- * 
+ *
  * @package App\Models\Animal
  */
 class Bird extends Animal
@@ -20,7 +19,7 @@ class Bird extends Animal
 
     /**
      * コンストラクタ
-     * 
+     *
      * @param string $species 種名
      * @param float $heightM 身長（メートル）
      * @param float $weightKg 体重（キログラム）
@@ -34,16 +33,17 @@ class Bird extends Animal
         float $weightKg,
         float $lifeSpanDays,
         string $biologicalSex,
-        float $wingSpan
+        float $age,
+        float $wingSpan,
     ) {
-        parent::__construct($species, $heightM, $weightKg, $lifeSpanDays, $biologicalSex);
+        parent::__construct($species, $heightM, $weightKg, $lifeSpanDays, $biologicalSex, $age);
         $this->wingSpan = $wingSpan;
         $this->logger = new Logger();
     }
 
     /**
      * 翼幅を取得
-     * 
+     *
      * @return float 翼幅（メートル）
      */
     public function getWingSpan(): float
@@ -53,28 +53,31 @@ class Bird extends Animal
 
     /**
      * 産卵する
-     * 
+     *
      * @return void
      */
     public function layEggs(): void
     {
         if (!$this->isAlive()) {
             $this->logger->warning("Dead {$this->species} cannot lay eggs");
+
             return;
         }
 
+        echo "{$this->species} laid an egg\n";
         $this->logger->info("{$this->species} laid an egg");
     }
 
     /**
      * 飛行する
-     * 
+     *
      * @return void
      */
     public function fly(): void
     {
         if (!$this->isAlive()) {
             $this->logger->warning("Dead {$this->species} cannot fly");
+
             return;
         }
 
@@ -83,13 +86,14 @@ class Bird extends Animal
 
     /**
      * 巣作りをする
-     * 
+     *
      * @return void
      */
     public function buildNest(): void
     {
         if (!$this->isAlive()) {
             $this->logger->warning("Dead {$this->species} cannot build nest");
+
             return;
         }
 
@@ -98,7 +102,7 @@ class Bird extends Animal
 
     /**
      * 移動する（Animalクラスのmoveメソッドをオーバーライド）
-     * 
+     *
      * @return void
      */
     public function move(): void
@@ -107,13 +111,13 @@ class Bird extends Animal
             return;
         }
 
-        echo "This bird is moving by flying..." . PHP_EOL;
+        echo 'This bird is moving by flying...' . PHP_EOL;
         $this->logger->debug("{$this->species} moved by flying");
     }
 
     /**
      * 文字列表現を返す（Animalクラスの__toStringメソッドを拡張）
-     * 
+     *
      * @return string
      */
     public function __toString(): string
@@ -123,7 +127,7 @@ class Bird extends Animal
 
     /**
      * 鳥類特有の情報を文字列で返す
-     * 
+     *
      * @return string
      */
     protected function getBirdInformation(): string

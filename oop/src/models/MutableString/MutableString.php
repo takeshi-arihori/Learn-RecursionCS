@@ -8,7 +8,7 @@ use InvalidArgumentException;
 
 /**
  * MutableString クラス
- * 
+ *
  */
 class MutableString
 {
@@ -20,14 +20,14 @@ class MutableString
 
     /**
      * コンストラクタ
-     * 
+     *
      * 初期文字列を設定します。nullの場合は空文字列を設定。
-     * 
+     *
      * 設計上の考慮：
      * - nullable string を受け取ることで柔軟性を提供
      * - 内部状態は常に valid な string を保証
      * - null coalescing operator (??) で安全にデフォルト値を設定
-     * 
+     *
      * @param string|null $initialValue 初期文字列値（null許可）
      */
     public function __construct(?string $initialValue = null)
@@ -39,17 +39,17 @@ class MutableString
 
     /**
      * 文字列の末尾に文字を追加
-     * 
+     *
      * 不変性とのトレードオフを考慮した実装：
      * - 新しいオブジェクトを作成せず、内部状態を直接変更
      * - パフォーマンス優先：O(1) の時間複雑度で追加
      * - メモリ効率：既存の文字列バッファを再利用
-     * 
+     *
      * 注意事項：
      * - このオブジェクトを他のコードで参照している場合、
      *   そのコードからも変更が見える（副作用）
      * - マルチスレッド環境では競合状態の可能性
-     * 
+     *
      * @param string $c 追加する文字
      * @return void オブジェクト自体を変更（mutate）
      */
@@ -63,10 +63,10 @@ class MutableString
 
     /**
      * 文字列表現を取得
-     * 
+     *
      * __toString() マジックメソッドにより、オブジェクトを
      * 文字列として扱えるようになる
-     * 
+     *
      * @return string 現在の文字列値
      */
     public function __toString(): string
@@ -76,10 +76,10 @@ class MutableString
 
     /**
      * 現在の文字列値を取得（明示的メソッド）
-     * 
+     *
      * __toString() とは別に、明示的に文字列値を取得するメソッド
      * IDE の型推論やドキュメント生成で有用
-     * 
+     *
      * @return string 現在の文字列値
      */
     public function getValue(): string
@@ -101,8 +101,9 @@ class MutableString
             if ($endIndex < 0 || $endIndex > $length) {
                 throw new InvalidArgumentException("End index out of bounds: $endIndex");
             }
+
             if ($endIndex < $startIndex) {
-                throw new InvalidArgumentException("End index cannot be less than start index");
+                throw new InvalidArgumentException('End index cannot be less than start index');
             }
 
             $result = substr($this->value, $startIndex, $endIndex - $startIndex);

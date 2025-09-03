@@ -1,17 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * MonsterTest.php
- * 
+ *
  * MonsterクラスのTDD（Test-Driven Development）テストケース
  * Given-When-Then パターンに従ってテストケースを構成
- * 
+ *
  * テスト対象：
  * - コンストラクタによる初期化
  * - ゲッターメソッドの動作
  * - attacked()メソッドによる体力減少処理
  * - toString()メソッドの文字列表現
- * 
+ *
  * @author   Recursion Curriculum
  * @version  1.0.0
  */
@@ -29,10 +31,10 @@ class MonsterTest extends TestCase
      * When: Monsterインスタンスを作成する
      * Then: すべてのプロパティが正しく初期化される
      */
-    public function testMonsterConstructorInitializesAllPropertiesCorrectly()
+    public function testMonsterCreation(): void
     {
         // Given: 有効なMonsterの初期化パラメータ
-        $monsterName = "Gorilla";
+        $monsterName = 'Gorilla';
         $health = 4000;
         $attack = 40;
         $defense = 100;
@@ -72,10 +74,10 @@ class MonsterTest extends TestCase
      * When: getName()メソッドを呼び出す
      * Then: 正しいモンスター名が返される
      */
-    public function testGetNameReturnsCorrectMonsterName()
+    public function testGetName(): void
     {
         // Given: Monsterインスタンス
-        $expectedName = "DragonKing";
+        $expectedName = 'DragonKing';
         $monster = new Monster($expectedName, 5000, 200, 150);
 
         // When: getName()を呼び出す
@@ -83,7 +85,7 @@ class MonsterTest extends TestCase
 
         // Then: 正しいモンスター名が返される
         $this->assertEquals($expectedName, $actualName);
-        $this->assertIsString($actualName, "モンスター名は文字列で返される必要がある");
+        $this->assertIsString($actualName, 'モンスター名は文字列で返される必要がある');
     }
 
     /**
@@ -92,17 +94,17 @@ class MonsterTest extends TestCase
      * When: getHeight()メソッドを呼び出す
      * Then: デフォルトの身長（300.0センチメートル）が返される
      */
-    public function testGetHeightReturnsDefaultHeightInCentimeters()
+    public function testGetHeight(): void
     {
         // Given: Monsterインスタンス
-        $monster = new Monster("TestMonster", 1000, 50, 30);
+        $monster = new Monster('TestMonster', 1000, 50, 30);
 
         // When: getHeight()を呼び出す
         $height = $monster->getHeight();
 
         // Then: デフォルトの身長300.0センチメートルが返される
         $this->assertEquals(300.0, $height);
-        $this->assertIsFloat($height, "身長はfloat型で返される必要がある");
+        $this->assertIsFloat($height, '身長はfloat型で返される必要がある');
     }
 
     /**
@@ -111,18 +113,18 @@ class MonsterTest extends TestCase
      * When: getAttack()メソッドを呼び出す
      * Then: 正しい攻撃力が返される
      */
-    public function testGetAttackReturnsCorrectAttackValue()
+    public function testGetAttack(): void
     {
         // Given: 特定の攻撃力を持つMonster
         $expectedAttack = 175;
-        $monster = new Monster("Warrior", 2000, $expectedAttack, 80);
+        $monster = new Monster('Warrior', 2000, $expectedAttack, 80);
 
         // When: getAttack()を呼び出す
         $actualAttack = $monster->getAttack();
 
         // Then: 正しい攻撃力が返される
         $this->assertEquals($expectedAttack, $actualAttack);
-        $this->assertIsInt($actualAttack, "攻撃力はint型で返される必要がある");
+        $this->assertIsInt($actualAttack, '攻撃力はint型で返される必要がある');
     }
 
     /**
@@ -131,18 +133,18 @@ class MonsterTest extends TestCase
      * When: getDefense()メソッドを呼び出す
      * Then: 正しい防御力が返される
      */
-    public function testGetDefenseReturnsCorrectDefenseValue()
+    public function testGetDefense(): void
     {
         // Given: 特定の防御力を持つMonster
         $expectedDefense = 120;
-        $monster = new Monster("Guardian", 3000, 90, $expectedDefense);
+        $monster = new Monster('Guardian', 3000, 90, $expectedDefense);
 
         // When: getDefense()を呼び出す
         $actualDefense = $monster->getDefense();
 
         // Then: 正しい防御力が返される
         $this->assertEquals($expectedDefense, $actualDefense);
-        $this->assertIsInt($actualDefense, "防御力はint型で返される必要がある");
+        $this->assertIsInt($actualDefense, '防御力はint型で返される必要がある');
     }
 
     /**
@@ -151,11 +153,11 @@ class MonsterTest extends TestCase
      * When: attacked()メソッドで通常のダメージを与える
      * Then: 体力が正しく減少する
      */
-    public function testAttackedReducesHealthByCorrectAmount()
+    public function testAttackedNormalDamage(): void
     {
         // Given: 体力1000のMonster
         $initialHealth = 1000;
-        $monster = new Monster("TestTarget", $initialHealth, 50, 30);
+        $monster = new Monster('TestTarget', $initialHealth, 50, 30);
 
         // 初期体力を確認
         $reflection = new ReflectionClass($monster);
@@ -173,7 +175,7 @@ class MonsterTest extends TestCase
         $this->assertEquals(
             $expectedHealth,
             $actualHealth,
-            "体力が{$damage}ダメージ分減少する"
+            "体力が{$damage}ダメージ分減少する",
         );
     }
 
@@ -183,11 +185,11 @@ class MonsterTest extends TestCase
      * When: attacked()メソッドで大ダメージを与える（体力を超える）
      * Then: 体力が0になる（負の値にならない）
      */
-    public function testAttackedPreventsNegativeHealth()
+    public function testAttackedOverkillDamage(): void
     {
         // Given: 体力100のMonster
         $initialHealth = 100;
-        $monster = new Monster("WeakTarget", $initialHealth, 25, 15);
+        $monster = new Monster('WeakTarget', $initialHealth, 25, 15);
 
         // When: 300ダメージを与える（体力を大幅に超える）
         $hugeDamage = 300;
@@ -199,8 +201,8 @@ class MonsterTest extends TestCase
         $healthProperty->setAccessible(true);
         $actualHealth = $healthProperty->getValue($monster);
 
-        $this->assertEquals(0, $actualHealth, "体力は0が最小値");
-        $this->assertGreaterThanOrEqual(0, $actualHealth, "体力は負の値にならない");
+        $this->assertEquals(0, $actualHealth, '体力は0が最小値');
+        $this->assertGreaterThanOrEqual(0, $actualHealth, '体力は負の値にならない');
     }
 
     /**
@@ -209,11 +211,11 @@ class MonsterTest extends TestCase
      * When: 複数回attacked()メソッドを呼び出す
      * Then: ダメージが累積して正しく体力が減る
      */
-    public function testMultipleAttackedCallsAccumulateDamage()
+    public function testMultipleAttacks(): void
     {
         // Given: 体力2000のMonster
         $initialHealth = 2000;
-        $monster = new Monster("DurableEnemy", $initialHealth, 80, 60);
+        $monster = new Monster('DurableEnemy', $initialHealth, 80, 60);
 
         $reflection = new ReflectionClass($monster);
         $healthProperty = $reflection->getProperty('health');
@@ -237,17 +239,17 @@ class MonsterTest extends TestCase
         $this->assertEquals(
             $initialHealth - $firstDamage,
             $healthAfterFirst,
-            "1回目の攻撃後の体力"
+            '1回目の攻撃後の体力',
         );
         $this->assertEquals(
             $initialHealth - $firstDamage - $secondDamage,
             $healthAfterSecond,
-            "2回目の攻撃後の体力"
+            '2回目の攻撃後の体力',
         );
         $this->assertEquals(
             $initialHealth - $firstDamage - $secondDamage - $thirdDamage,
             $healthAfterThird,
-            "3回目の攻撃後の体力"
+            '3回目の攻撃後の体力',
         );
     }
 
@@ -257,11 +259,11 @@ class MonsterTest extends TestCase
      * When: attacked(0)メソッドを呼び出す
      * Then: 体力が変わらない
      */
-    public function testAttackedWithZeroDamageDoesNotChangeHealth()
+    public function testAttackedZeroDamage(): void
     {
         // Given: Monsterインスタンス
         $initialHealth = 1500;
-        $monster = new Monster("TestMonster", $initialHealth, 70, 40);
+        $monster = new Monster('TestMonster', $initialHealth, 70, 40);
 
         // When: 0ダメージを与える
         $monster->attacked(0);
@@ -272,7 +274,7 @@ class MonsterTest extends TestCase
         $healthProperty->setAccessible(true);
         $actualHealth = $healthProperty->getValue($monster);
 
-        $this->assertEquals($initialHealth, $actualHealth, "0ダメージでは体力は変わらない");
+        $this->assertEquals($initialHealth, $actualHealth, '0ダメージでは体力は変わらない');
     }
 
     /**
@@ -281,16 +283,16 @@ class MonsterTest extends TestCase
      * When: __toString()メソッドを呼び出す
      * Then: 期待される文字列表現が返される（センチメートル単位で）
      */
-    public function testToStringReturnsCorrectFormat()
+    public function testToString(): void
     {
         // Given: Monsterインスタンス
-        $monster = new Monster("FireDragon", 8000, 250, 180);
+        $monster = new Monster('FireDragon', 8000, 250, 180);
 
         // When: __toString()を呼び出す
         $result = $monster->__toString();
 
         // Then: 正しいフォーマットの文字列が返される
-        $expected = "FireDragon - HP:8000/Atk:250/Def:180/height:300 centimeters";
+        $expected = 'FireDragon - HP:8000/Atk:250/Def:180/height:300 centimeters';
         $this->assertEquals($expected, $result);
 
         // 文字列キャストでも同じ結果になることを確認
@@ -303,18 +305,18 @@ class MonsterTest extends TestCase
      * When: __toString()メソッドを呼び出す
      * Then: 現在の体力が正しく表示される
      */
-    public function testToStringReflectsCurrentHealth()
+    public function testToStringWithDamage(): void
     {
         // Given: Monsterがダメージを受けている
-        $monster = new Monster("BattledOrc", 1000, 100, 50);
+        $monster = new Monster('BattledOrc', 1000, 100, 50);
         $monster->attacked(300);  // 300ダメージを与える
 
         // When: __toString()を呼び出す
         $result = $monster->__toString();
 
         // Then: 現在の体力（700）が表示される
-        $expected = "BattledOrc - HP:700/Atk:100/Def:50/height:300 centimeters";
-        $this->assertEquals($expected, $result, "現在の体力が正しく表示される");
+        $expected = 'BattledOrc - HP:700/Atk:100/Def:50/height:300 centimeters';
+        $this->assertEquals($expected, $result, '現在の体力が正しく表示される');
     }
 
     /**
@@ -323,18 +325,18 @@ class MonsterTest extends TestCase
      * When: __toString()メソッドを呼び出す
      * Then: 体力が0と表示される
      */
-    public function testToStringShowsZeroHealthWhenDefeated()
+    public function testToStringDefeated(): void
     {
         // Given: 体力が0になったMonster
-        $monster = new Monster("DefeatedBeast", 500, 80, 40);
+        $monster = new Monster('DefeatedBeast', 500, 80, 40);
         $monster->attacked(1000);  // 体力を0にする大ダメージ
 
         // When: __toString()を呼び出す
         $result = $monster->__toString();
 
         // Then: 体力0が表示される
-        $expected = "DefeatedBeast - HP:0/Atk:80/Def:40/height:300 centimeters";
-        $this->assertEquals($expected, $result, "倒れたモンスターの体力は0と表示");
+        $expected = 'DefeatedBeast - HP:0/Atk:80/Def:40/height:300 centimeters';
+        $this->assertEquals($expected, $result, '倒れたモンスターの体力は0と表示');
     }
 
     /**
@@ -343,26 +345,26 @@ class MonsterTest extends TestCase
      * When: デフォルトMonsterの身長を確認
      * Then: センチメートル単位であることが明確
      */
-    public function testHeightIsInCentimetersAsExpected()
+    public function testHeightUnitValidation(): void
     {
         // Given: デフォルトのMonster
-        $monster = new Monster("HeightTestMonster", 1000, 50, 30);
+        $monster = new Monster('HeightTestMonster', 1000, 50, 30);
 
         // When: 身長を取得
         $height = $monster->getHeight();
 
         // Then: センチメートル単位の値である
-        $this->assertEquals(300.0, $height, "Monsterの身長は300センチメートル");
+        $this->assertEquals(300.0, $height, 'Monsterの身長は300センチメートル');
 
         // メートルに変換すると3メートル
         $heightInMeters = $height / 100;
-        $this->assertEquals(3.0, $heightInMeters, "メートル換算では3メートル");
+        $this->assertEquals(3.0, $heightInMeters, 'メートル換算では3メートル');
 
         // 単位問題のドキュメント化
         $this->assertNotEquals(
             3.0,
             $height,
-            "身長の値(300)はセンチメートル単位であり、メートル単位(3.0)ではない"
+            '身長の値(300)はセンチメートル単位であり、メートル単位(3.0)ではない',
         );
     }
 }

@@ -1,7 +1,9 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+declare(strict_types=1);
+
 use App\Models\Animal\Animal;
+use PHPUnit\Framework\TestCase;
 
 class AnimalTest extends TestCase
 {
@@ -9,7 +11,7 @@ class AnimalTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->animal = new Animal("Lion", 1.2, 190, 15 * 365, "Male");
+        $this->animal = new Animal('Lion', 1.2, 190, 15 * 365, 'Male', 5.0);
     }
 
     public function testInitialState(): void
@@ -57,17 +59,17 @@ class AnimalTest extends TestCase
 
     public function testToString(): void
     {
-        $this->assertStringContainsString("Lion", $this->animal->__toString());
-        $this->assertStringContainsString("1.2 meters, 190kg, BMI:131.94", $this->animal->__toString());
-        $this->assertStringContainsString("lives 5475 days", $this->animal->__toString());
-        $this->assertStringContainsString("gender:Male", $this->animal->__toString());
+        $this->assertStringContainsString('Lion', $this->animal->__toString());
+        $this->assertStringContainsString('1.2 meters, 190kg, BMI:131.94', $this->animal->__toString());
+        $this->assertStringContainsString('lives 5475 days', $this->animal->__toString());
+        $this->assertStringContainsString('gender:Male', $this->animal->__toString());
     }
 
     public function testStatus(): void
     {
-        $this->assertStringContainsString("Lion status:", $this->animal->status());
-        $this->assertStringContainsString("Hunger - 100%", $this->animal->status());
-        $this->assertStringContainsString("sleepiness:100%", $this->animal->status());
-        $this->assertStringContainsString("Alive - true", $this->animal->status());
+        $this->assertStringContainsString('Lion status:', $this->animal->status());
+        $this->assertStringContainsString('Hunger - 100%', $this->animal->status());
+        $this->assertStringContainsString('sleepiness:100%', $this->animal->status());
+        $this->assertStringContainsString('Alive - true', $this->animal->status());
     }
 }

@@ -1,49 +1,51 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+declare(strict_types=1);
+
 use App\Models\Card;
+use PHPUnit\Framework\TestCase;
 
 class CardTest extends TestCase
 {
-    public function testCardConstruction()
+    public function testCardConstruction(): void
     {
-        $card = new Card("A", "♠");
+        $card = new Card('A', '♠');
 
-        $this->assertEquals("A", $card->getRank());
-        $this->assertEquals("♠", $card->getSuit());
+        $this->assertEquals('A', $card->getRank());
+        $this->assertEquals('♠', $card->getSuit());
     }
 
-    public function testToString()
+    public function testToString(): void
     {
-        $card = new Card("K", "♡");
+        $card = new Card('K', '♡');
 
-        $this->assertEquals("K♡", $card->toString());
+        $this->assertEquals('K♡', $card->toString());
     }
 
-    public function testCardWithNumberRank()
+    public function testCardWithNumberRank(): void
     {
-        $card = new Card("10", "♢");
+        $card = new Card('10', '♢');
 
-        $this->assertEquals("10♢", $card->toString());
+        $this->assertEquals('10♢', $card->toString());
     }
 
-    public function testAllSuits()
+    public function testAllSuits(): void
     {
-        $suits = ["♠", "♡", "♢", "♣"];
+        $suits = ['♠', '♡', '♢', '♣'];
 
         foreach ($suits as $suit) {
-            $card = new Card("A", $suit);
-            $this->assertEquals("A" . $suit, $card->toString());
+            $card = new Card('A', $suit);
+            $this->assertEquals('A' . $suit, $card->toString());
         }
     }
 
-    public function testAllRanks()
+    public function testAllRanks(): void
     {
-        $ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+        $ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
         foreach ($ranks as $rank) {
-            $card = new Card($rank, "♠");
-            $this->assertEquals($rank . "♠", $card->toString());
+            $card = new Card($rank, '♠');
+            $this->assertEquals($rank . '♠', $card->toString());
         }
     }
 }

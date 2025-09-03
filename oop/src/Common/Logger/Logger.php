@@ -9,7 +9,7 @@ use DateTime;
 /**
  * ログ出力クラス
  * ファイルベースのシンプルなログ出力機能を提供
- * 
+ *
  * @package App\Common\Logger
  */
 class Logger implements LoggerInterface
@@ -18,7 +18,7 @@ class Logger implements LoggerInterface
 
     /**
      * コンストラクタ
-     * 
+     *
      * @param string|null $logFilePath ログファイルのパス（nullの場合はデフォルトパスを使用）
      */
     public function __construct(?string $logFilePath = null)
@@ -29,7 +29,7 @@ class Logger implements LoggerInterface
 
     /**
      * 任意のレベルでログ出力
-     * 
+     *
      * @param string $level ログレベル
      * @param string $message ログメッセージ
      * @param array<string, mixed> $context コンテキスト情報
@@ -53,7 +53,7 @@ class Logger implements LoggerInterface
 
     /**
      * DEBUG レベルでログ出力
-     * 
+     *
      * @param string $message ログメッセージ
      * @param array<string, mixed> $context コンテキスト情報
      * @return void
@@ -65,7 +65,7 @@ class Logger implements LoggerInterface
 
     /**
      * INFO レベルでログ出力
-     * 
+     *
      * @param string $message ログメッセージ
      * @param array<string, mixed> $context コンテキスト情報
      * @return void
@@ -77,7 +77,7 @@ class Logger implements LoggerInterface
 
     /**
      * WARNING レベルでログ出力
-     * 
+     *
      * @param string $message ログメッセージ
      * @param array<string, mixed> $context コンテキスト情報
      * @return void
@@ -89,7 +89,7 @@ class Logger implements LoggerInterface
 
     /**
      * ERROR レベルでログ出力
-     * 
+     *
      * @param string $message ログメッセージ
      * @param array<string, mixed> $context コンテキスト情報
      * @return void
@@ -101,7 +101,7 @@ class Logger implements LoggerInterface
 
     /**
      * CRITICAL レベルでログ出力
-     * 
+     *
      * @param string $message ログメッセージ
      * @param array<string, mixed> $context コンテキスト情報
      * @return void
@@ -113,23 +113,25 @@ class Logger implements LoggerInterface
 
     /**
      * デフォルトのログファイルパスを取得
-     * 
+     *
      * @return string
      */
     private function getDefaultLogPath(): string
     {
         $logDir = dirname(__DIR__, 4) . '/logs';
+
         return $logDir . '/app.log';
     }
 
     /**
      * ログディレクトリが存在することを確認（存在しない場合は作成）
-     * 
+     *
      * @return void
      */
     private function ensureLogDirectoryExists(): void
     {
         $logDir = dirname($this->logFilePath);
+
         if (!is_dir($logDir)) {
             mkdir($logDir, 0755, true);
         }
@@ -137,7 +139,7 @@ class Logger implements LoggerInterface
 
     /**
      * ログメッセージをフォーマット
-     * 
+     *
      * @param string $level ログレベル
      * @param string $message メッセージ
      * @param array<string, mixed> $context コンテキスト
@@ -153,7 +155,7 @@ class Logger implements LoggerInterface
 
     /**
      * ログファイルに書き込み
-     * 
+     *
      * @param string $message フォーマット済みメッセージ
      * @return void
      */

@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace App\Tests\Animal;
 
-use PHPUnit\Framework\TestCase;
+use App\Models\Animal\Cow;
 use App\Models\Animal\Mammal;
 use App\Models\Animal\Person;
 use App\Models\Farm\Farm;
-use App\Models\Animal\Cow;
-use App\Models\Animal\Horse;
-use App\Models\Animal\Chicken;
+use PHPUnit\Framework\TestCase;
 
 class PersonTest extends TestCase
 {
@@ -23,8 +21,9 @@ class PersonTest extends TestCase
             'species' => 'human',
             'heightM' => 1.75,
             'weightKg' => 70.0,
-            'lifeSpanDays' => 30000.0,
+            'lifeSpanDays' => 30000,
             'biologicalSex' => 'male',
+            'age' => 25.0,
             'furLengthCm' => 0.5,
             'furType' => 'straight',
             'avgBodyTemperatureC' => 36.5,
@@ -79,8 +78,8 @@ class PersonTest extends TestCase
         $person = new Person(...array_values($args));
         $farm = new Farm('Test Farm');
         $person->setFarm($farm);
-        
-        $cow = new Cow('Holstein', 1.5, 600.0, 7300.0, 'female', 0.5, 'black', 37.0, 4.2, true);
+
+        $cow = new Cow('Holstein', 1.5, 600.0, 7300.0, 'female', 2.0, 0.5, 'black', 37.0);
 
         // When: 動物を購入
         $result = $person->buyAnimal($cow, 2000.0);
@@ -98,8 +97,8 @@ class PersonTest extends TestCase
         $person = new Person(...array_values($args));
         $farm = new Farm('Test Farm');
         $person->setFarm($farm);
-        
-        $cow = new Cow('Holstein', 1.5, 600.0, 7300.0, 'female', 0.5, 'black', 37.0, 4.2, true);
+
+        $cow = new Cow('Holstein', 1.5, 600.0, 7300.0, 'female', 2.0, 0.5, 'black', 37.0);
 
         // When: 高価な動物の購入を試みる
         $result = $person->buyAnimal($cow, 2000.0);
@@ -115,8 +114,8 @@ class PersonTest extends TestCase
         $person = new Person(...array_values($this->defaultPersonArgs));
         $farm = new Farm('Test Farm');
         $person->setFarm($farm);
-        
-        $cow = new Cow('Holstein', 1.5, 600.0, 7300.0, 'female', 0.5, 'black', 37.0, 4.2, true);
+
+        $cow = new Cow('Holstein', 1.5, 600.0, 7300.0, 'female', 2.0, 0.5, 'black', 37.0);
         $farm->addAnimal($cow);
 
         // When: 動物を売却
@@ -133,8 +132,8 @@ class PersonTest extends TestCase
         $person = new Person(...array_values($this->defaultPersonArgs));
         $farm = new Farm('Test Farm');
         $person->setFarm($farm);
-        
-        $cow = new Cow('Holstein', 1.5, 600.0, 7300.0, 'female', 0.5, 'black', 37.0, 4.2, true);
+
+        $cow = new Cow('Holstein', 1.5, 600.0, 7300.0, 'female', 2.0, 0.5, 'black', 37.0);
         $cow->setAsHungry();
         $farm->addAnimal($cow);
 
@@ -165,7 +164,7 @@ class PersonTest extends TestCase
     {
         // Given: 農場を持たない人物
         $person = new Person(...array_values($this->defaultPersonArgs));
-        $cow = new Cow('Holstein', 1.5, 600.0, 7300.0, 'female', 0.5, 'black', 37.0, 4.2, true);
+        $cow = new Cow('Holstein', 1.5, 600.0, 7300.0, 'female', 2.0, 0.5, 'black', 37.0);
 
         // When: 農場が必要なアクションを試みる
         $buyResult = $person->buyAnimal($cow, 1000.0);
@@ -182,11 +181,11 @@ class PersonTest extends TestCase
         $richArgs = $this->defaultPersonArgs;
         $richArgs['name'] = 'Rich Person';
         $richArgs['money'] = 10000.0;
-        
+
         $poorArgs = $this->defaultPersonArgs;
         $poorArgs['name'] = 'Poor Person';
         $poorArgs['money'] = 100.0;
-        
+
         $richPerson = new Person(...array_values($richArgs));
         $poorPerson = new Person(...array_values($poorArgs));
 

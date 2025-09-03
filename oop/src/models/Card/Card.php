@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 class Card
@@ -20,7 +22,7 @@ class Card
 
     public function getSuit(): string
     {
-    return $this->suit;
+        return $this->suit;
     }
 
     public function toString(): string

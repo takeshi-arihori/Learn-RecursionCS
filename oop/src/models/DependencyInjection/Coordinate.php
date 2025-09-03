@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models\DependencyInjection;
 
 /**
@@ -19,7 +21,7 @@ class Coordinate
 
     /**
      * 座標を初期化
-     * 
+     *
      * @param int $x X座標
      * @param int $y Y座標
      * @param int $z Z座標
@@ -33,11 +35,11 @@ class Coordinate
 
     /**
      * 座標を文字列として表現
-     * 
+     *
      * @return string 座標の文字列表現
      */
     public function __toString(): string
     {
-        return "{x:" . $this->x . ",y:" . $this->y . ",z:" . $this->z . "}";
+        return '{x:' . $this->x . ',y:' . $this->y . ',z:' . $this->z . '}';
     }
 }

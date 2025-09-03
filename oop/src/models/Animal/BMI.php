@@ -20,6 +20,11 @@ class BMI
         return $this->weightKg;
     }
 
+    public function getHeightM(): float
+    {
+        return $this->heightM;
+    }
+
     public function getValue(): float
     {
         return round($this->weightKg / ($this->heightM ** 2), 2);
@@ -27,6 +32,6 @@ class BMI
 
     public function toString(): string
     {
-        return $this->heightM . " meters, " . $this->weightKg . "kg, BMI:" . $this->getValue();
+        return $this->heightM . ' meters, ' . $this->weightKg . 'kg, BMI:' . $this->getValue();
     }
 }

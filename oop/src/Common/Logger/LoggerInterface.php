@@ -7,14 +7,14 @@ namespace App\Common\Logger;
 /**
  * ログ出力インターフェース
  * PSR-3 LoggerInterfaceに類似した簡易版
- * 
+ *
  * @package App\Common\Logger
  */
 interface LoggerInterface
 {
     /**
      * 任意のレベルでログ出力
-     * 
+     *
      * @param string $level ログレベル
      * @param string $message ログメッセージ
      * @param array<string, mixed> $context コンテキスト情報
@@ -24,7 +24,7 @@ interface LoggerInterface
 
     /**
      * DEBUG レベルでログ出力
-     * 
+     *
      * @param string $message ログメッセージ
      * @param array<string, mixed> $context コンテキスト情報
      * @return void
@@ -33,7 +33,7 @@ interface LoggerInterface
 
     /**
      * INFO レベルでログ出力
-     * 
+     *
      * @param string $message ログメッセージ
      * @param array<string, mixed> $context コンテキスト情報
      * @return void
@@ -42,7 +42,7 @@ interface LoggerInterface
 
     /**
      * WARNING レベルでログ出力
-     * 
+     *
      * @param string $message ログメッセージ
      * @param array<string, mixed> $context コンテキスト情報
      * @return void
@@ -51,7 +51,7 @@ interface LoggerInterface
 
     /**
      * ERROR レベルでログ出力
-     * 
+     *
      * @param string $message ログメッセージ
      * @param array<string, mixed> $context コンテキスト情報
      * @return void
@@ -60,7 +60,7 @@ interface LoggerInterface
 
     /**
      * CRITICAL レベルでログ出力
-     * 
+     *
      * @param string $message ログメッセージ
      * @param array<string, mixed> $context コンテキスト情報
      * @return void

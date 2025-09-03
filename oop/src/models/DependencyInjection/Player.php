@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models\DependencyInjection;
 
 /**
@@ -28,7 +30,7 @@ class Player
 
     /**
      * プレイヤーを初期化
-     * 
+     *
      * @param string $username プレイヤー名
      * @param int $health 体力
      * @param int $attack 攻撃力
@@ -47,7 +49,7 @@ class Player
 
     /**
      * プレイヤー名を取得
-     * 
+     *
      * @return string プレイヤー名
      */
     public function getName(): string
@@ -57,7 +59,7 @@ class Player
 
     /**
      * 身長を取得
-     * 
+     *
      * @return float 身長（メートル）
      */
     public function getHeight(): float
@@ -68,13 +70,13 @@ class Player
     /**
      * モンスターを攻撃
      * モンスターの高さが自分の3倍以上、または攻撃力が相手の防御力以下の場合は攻撃無効
-     * 
+     *
      * @param Monster $monster 攻撃対象のモンスター
      */
     public function attack(Monster $monster): void
     {
-        echo $this->username . " ATTACKS " . $monster->getName() . "
-";
+        echo $this->username . ' ATTACKS ' . $monster->getName() . '
+';
 
         // 攻撃条件チェック：モンスターが大きすぎるか、攻撃が通らない場合
         if ($monster->getHeight() >= $this->height * 3 || $this->attack <= $monster->getDefense()) {
@@ -87,11 +89,11 @@ class Player
 
     /**
      * プレイヤー情報を文字列として表現
-     * 
+     *
      * @return string プレイヤーの詳細情報
      */
     public function __toString(): string
     {
-        return "Player " . $this->username . " - HP:" . $this->health . "/Atk:" . $this->attack . "/Def:" . $this->defense . "/Gold:" . $this->gold . "/height:" . $this->height . " meters";
+        return 'Player ' . $this->username . ' - HP:' . $this->health . '/Atk:' . $this->attack . '/Def:' . $this->defense . '/Gold:' . $this->gold . '/height:' . $this->height . ' meters';
     }
 }
