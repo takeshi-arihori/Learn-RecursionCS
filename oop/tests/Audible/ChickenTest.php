@@ -9,32 +9,32 @@ class ChickenTest extends TestCase
 {
     /**
      * 軽い鶏のインスタンス（子鶏相当）
-     * 
+     *
      * @var Chicken
      */
     private Chicken $lightChicken;
 
     /**
      * 重い鶏のインスタンス（成鶏相当）
-     * 
+     *
      * @var Chicken
      */
     private Chicken $heavyChicken;
 
     /**
      * 平均的な鶏のインスタンス
-     * 
+     *
      * @var Chicken
      */
     private Chicken $averageChicken;
 
     /**
      * テスト実行前の初期設定
-     * 
+     *
      * 各テストで使用するChickenオブジェクトを作成します。
      * 軽い鶏、重い鶏、平均的な鶏の3つのパターンを用意し、
      * 様々な重量での動作を確認できるようにしています。
-     * 
+     *
      * @return void
      */
     protected function setUp(): void
@@ -46,10 +46,10 @@ class ChickenTest extends TestCase
 
     /**
      * コンストラクタとプロパティの初期化をテスト
-     * 
+     *
      * Chickenオブジェクトが正しく作成され、適切なクラスのインスタンスであることを確認します。
      * 重量パラメータが適切に設定されることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -67,10 +67,10 @@ class ChickenTest extends TestCase
 
     /**
      * __toString()メソッドのテスト
-     * 
+     *
      * 鶏の情報が正しい形式で文字列として返されることを確認します。
      * 重量情報が適切にフォーマットされて表示されることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -89,10 +89,10 @@ class ChickenTest extends TestCase
 
     /**
      * 小数点を含む重量の__toString()メソッドのテスト
-     * 
+     *
      * 浮動小数点数が正しく表示されることを確認します。
      * 小数点以下の精度が保たれることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -111,17 +111,17 @@ class ChickenTest extends TestCase
 
     /**
      * howToPrepare()メソッドのテスト（EdibleInterface実装）
-     * 
+     *
      * 鶏肉の調理方法説明が正しく返されることを確認します。
      * EdibleInterfaceで定義された料理方法の取得機能をテストします。
-     * 
+     *
      * @test
      * @return void
      */
     public function testHowToPrepare(): void
     {
         // Given: 期待される調理方法
-        $expectedPreparation = "焼くか揚げてください。";
+        $expectedPreparation = '焼くか揚げてください。';
 
         // When & Then: 全ての鶏で同じ調理方法が返されることを確認
         $this->assertEquals($expectedPreparation, $this->lightChicken->howToPrepare());
@@ -131,10 +131,10 @@ class ChickenTest extends TestCase
 
     /**
      * calories()メソッドのテスト（EdibleInterface実装）
-     * 
+     *
      * 重量に基づいたカロリー計算が正しく行われることを確認します。
      * 重量 × 239.0の計算式でカロリーが算出されることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -154,11 +154,11 @@ class ChickenTest extends TestCase
 
     /**
      * makeNoise()メソッドのテスト（AudibleInterface実装）
-     * 
+     *
      * "コケコッコー！"が標準出力に正しく出力されることを確認します。
      * AudibleInterfaceで定義された音を出す機能をテストします。
      * 鶏の特徴的な鳴き声をシミュレートします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -171,11 +171,11 @@ class ChickenTest extends TestCase
 
     /**
      * makeNoise()メソッドの複数回実行テスト
-     * 
+     *
      * 複数のChickenオブジェクトが連続して音を出すことをテストします。
      * 出力のバッファリングが正しく動作することを確認します。
      * 複数の鶏が同時に鳴くシナリオをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -192,11 +192,11 @@ class ChickenTest extends TestCase
 
     /**
      * soundFrequency()メソッドのテスト（AudibleInterface実装）
-     * 
+     *
      * 全てのChickenインスタンスで一定の周波数500.0Hzが返されることを確認します。
      * 鶏の鳴き声の周波数特性が一定であることをテストします。
      * 家禽特有の中高音域をテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -210,11 +210,11 @@ class ChickenTest extends TestCase
 
     /**
      * soundLevel()メソッドのテスト（AudibleInterface実装）
-     * 
+     *
      * 全てのChickenインスタンスで一定の音量60.0dBが返されることを確認します。
      * 鶏の鳴き声の音量レベルが一定であることをテストします。
      * 家禽特有の中程度の音量レベルをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -228,10 +228,10 @@ class ChickenTest extends TestCase
 
     /**
      * AudibleInterfaceとEdibleInterfaceの実装確認テスト
-     * 
+     *
      * Chickenクラスが食べ物としても音を出す動物としても必要な全てのメソッドを持っていることを確認します。
      * 両方のインターフェースで定義されたメソッドの存在をテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -256,10 +256,10 @@ class ChickenTest extends TestCase
 
     /**
      * 鶏の音響特性比較テスト
-     * 
+     *
      * 他の動物と比較して鶏の音響特性が適切であることを確認します。
      * 鶏は中高音域で中程度の音量を持つべきです。
-     * 
+     *
      * @test
      * @return void
      */
@@ -287,10 +287,10 @@ class ChickenTest extends TestCase
 
     /**
      * 文字列表現に全データが含まれることのテスト
-     * 
+     *
      * __toString()メソッドが必要な情報を全て含んでいることを確認します。
      * 文字列に期待される要素が全て含まれていることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -310,10 +310,10 @@ class ChickenTest extends TestCase
 
     /**
      * エッジケース値のテスト
-     * 
+     *
      * 極端な値でのChickenクラスの動作を確認します。
      * 最小値、最大値、負の値などの境界値でのテストを実行します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -334,10 +334,10 @@ class ChickenTest extends TestCase
 
     /**
      * 負の重量値のテスト
-     * 
+     *
      * 負の値でも動作することを確認します。
      * 実用性は低いですが、技術的な動作の堅牢性をテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -356,10 +356,10 @@ class ChickenTest extends TestCase
 
     /**
      * 非常に小さい小数点値のテスト
-     * 
+     *
      * 精度の高い浮動小数点数の処理を確認します。
      * 小数点以下の精度が保たれることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -378,10 +378,10 @@ class ChickenTest extends TestCase
 
     /**
      * カロリー計算の精度テスト
-     * 
+     *
      * 浮動小数点数の計算精度を確認します。
      * 重量とカロリーの関係が正確に計算されることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -401,7 +401,7 @@ class ChickenTest extends TestCase
 
     /**
      * カロリー計算用のデータプロバイダー
-     * 
+     *
      * @return array<array<float>> テストデータの配列
      */
     public static function caloriesDataProvider(): array

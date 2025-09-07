@@ -7,15 +7,15 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * TruckPhysicsTest - TruckクラスのPhysicsObjectInterface実装テスト
- * 
+ *
  * TruckクラスがPhysicsObjectInterfaceを正しく実装していることを確認します。
  * トラックの物理的特性（エネルギー計算、密度、重量）をテストします。
- * 
+ *
  * テスト対象メソッド：
  * - workToMove(float $meters): 指定距離を移動するのに必要なエネルギーを計算
  * - density(): トラックの密度を返す
  * - weight(float $gravity): 指定重力下での重量を計算
- * 
+ *
  * @package App\Tests\Models\Audible
  * @author Claude Code
  * @version 1.0.0
@@ -25,31 +25,31 @@ class TruckPhysicsTest extends TestCase
 {
     /**
      * 軽量トラックのインスタンス（小型トラック相当）
-     * 
+     *
      * @var Truck
      */
     private Truck $lightTruck;
 
     /**
      * 中重量トラックのインスタンス（中型トラック相当）
-     * 
+     *
      * @var Truck
      */
     private Truck $mediumTruck;
 
     /**
      * 重量トラックのインスタンス（大型トラック相当）
-     * 
+     *
      * @var Truck
      */
     private Truck $heavyTruck;
 
     /**
      * テスト実行前の初期設定
-     * 
+     *
      * 異なる重量のTruckオブジェクトを作成し、
      * 様々な条件での物理計算をテストできるように準備します。
-     * 
+     *
      * @return void
      */
     protected function setUp(): void
@@ -61,11 +61,11 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * workToMove()メソッドの基本機能テスト
-     * 
+     *
      * トラックが指定された距離を移動するのに必要なエネルギーが
      * 正しく計算されることをテストします。
      * エネルギー = 力 × 距離 = (質量 × 重力 × 摩擦係数) × 距離
-     * 
+     *
      * @test
      * @return void
      */
@@ -80,7 +80,7 @@ class TruckPhysicsTest extends TestCase
         // Then: 適切なエネルギー値が返される
         $this->assertIsFloat($workRequired, '戻り値は浮動小数点数である必要があります');
         $this->assertGreaterThan(0, $workRequired, 'エネルギーは正の値である必要があります');
-        
+
         // 重量に比例してエネルギーが増加することを確認
         $heavyWorkRequired = $this->heavyTruck->workToMove($distance);
         $this->assertGreaterThan($workRequired, $heavyWorkRequired, '重いトラックはより多くのエネルギーを必要とします');
@@ -88,10 +88,10 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * workToMove()メソッドの距離依存性テスト
-     * 
+     *
      * エネルギー計算が移動距離に正比例することをテストします。
      * 距離が2倍になれば、必要エネルギーも2倍になることを確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -112,10 +112,10 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * workToMove()メソッドの重量依存性テスト
-     * 
+     *
      * エネルギー計算が車両重量に正比例することをテストします。
      * 質量が大きいほど必要エネルギーが増加することを確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -132,7 +132,7 @@ class TruckPhysicsTest extends TestCase
         // Then: 重量順にエネルギーが増加
         $this->assertLessThan($mediumWork, $lightWork, '軽いトラックは中型より少ないエネルギー');
         $this->assertLessThan($heavyWork, $mediumWork, '中型トラックは大型より少ないエネルギー');
-        
+
         // 重量比とエネルギー比の関係を確認
         $weightRatio = $this->mediumTruck->workToMove(1) / $this->lightTruck->workToMove(1);
         $expectedWeightRatio = 8000.0 / 3000.0; // 重量比
@@ -141,9 +141,9 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * workToMove()メソッドのゼロ距離テスト
-     * 
+     *
      * 距離がゼロの場合、必要エネルギーもゼロになることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -160,10 +160,10 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * density()メソッドの基本機能テスト
-     * 
+     *
      * トラックの密度が適切な値を返すことをテストします。
      * トラックは主に鋼鉄製なので、鋼鉄の密度（約7850 kg/m³）に近い値を返すことを確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -186,10 +186,10 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * density()メソッドの鋼鉄密度一致テスト
-     * 
+     *
      * トラックの密度が実際の鋼鉄の密度に近いことをテストします。
      * 鋼鉄の標準密度は約7850 kg/m³です。
-     * 
+     *
      * @test
      * @return void
      */
@@ -207,10 +207,10 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * weight()メソッドの地球重力テスト
-     * 
+     *
      * 地球の標準重力（9.8 m/s²）でのトラックの重量計算をテストします。
      * 重量 = 質量 × 重力加速度
-     * 
+     *
      * @test
      * @return void
      */
@@ -232,10 +232,10 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * weight()メソッドの月面重力テスト
-     * 
+     *
      * 月面の重力（約1.6 m/s²）でのトラックの重量計算をテストします。
      * 異なる重力環境での動作を確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -250,7 +250,7 @@ class TruckPhysicsTest extends TestCase
         // Then: 月面重量 = 質量 × 月重力
         $expectedMoonWeight = 8000.0 * 1.6;
         $this->assertEqualsWithDelta($expectedMoonWeight, $moonWeight, 0.1, '月面でのトラック重量計算');
-        
+
         // 地球重量と比較
         $earthWeight = $this->mediumTruck->weight(9.8);
         $this->assertLessThan($earthWeight, $moonWeight, '月面では地球より軽い');
@@ -258,9 +258,9 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * weight()メソッドの重力比例性テスト
-     * 
+     *
      * 重力が変化したときに重量が正比例で変化することをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -281,9 +281,9 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * weight()メソッドのゼロ重力テスト
-     * 
+     *
      * 重力がゼロの場合（無重力状態）での重量計算をテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -301,10 +301,10 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * PhysicsObjectInterface実装の完全性テスト
-     * 
+     *
      * TruckクラスがPhysicsObjectInterfaceで要求される全メソッドを
      * 正しく実装していることを確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -313,17 +313,17 @@ class TruckPhysicsTest extends TestCase
         // Given & When & Then: 必要なメソッドが存在することを確認
         $this->assertTrue(
             method_exists($this->lightTruck, 'workToMove'),
-            'workToMove()メソッドが実装されている必要があります'
+            'workToMove()メソッドが実装されている必要があります',
         );
-        
+
         $this->assertTrue(
             method_exists($this->lightTruck, 'density'),
-            'density()メソッドが実装されている必要があります'
+            'density()メソッドが実装されている必要があります',
         );
-        
+
         $this->assertTrue(
             method_exists($this->lightTruck, 'weight'),
-            'weight()メソッドが実装されている必要があります'
+            'weight()メソッドが実装されている必要があります',
         );
 
         // メソッドがcallableであることを確認
@@ -334,9 +334,9 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * 負の値に対するエラーハンドリングテスト
-     * 
+     *
      * 負の距離や重力に対して適切に処理されることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -357,9 +357,9 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * 大きな値での計算精度テスト
-     * 
+     *
      * 非常に大きな距離や重力値での計算精度をテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -378,7 +378,7 @@ class TruckPhysicsTest extends TestCase
         $this->assertIsFloat($largeWeight);
         $this->assertGreaterThan(0, $largeWork);
         $this->assertGreaterThan(0, $largeWeight);
-        
+
         // オーバーフローしていないことを確認
         $this->assertTrue(is_finite($largeWork), '計算結果は有限値である必要があります');
         $this->assertTrue(is_finite($largeWeight), '計算結果は有限値である必要があります');
@@ -386,9 +386,9 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * 小数点精度テスト
-     * 
+     *
      * 小数点を含む値での計算精度をテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -405,7 +405,7 @@ class TruckPhysicsTest extends TestCase
         // Then: 精度が保たれている
         $this->assertIsFloat($preciseWork);
         $this->assertIsFloat($preciseWeight);
-        
+
         // 期待される値との比較（小数点以下の精度を確認）
         $expectedWeight = 3000.0 * 9.80665;
         $this->assertEqualsWithDelta($expectedWeight, $preciseWeight, 0.001, '小数点精度が保たれている必要があります');
@@ -413,10 +413,10 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * 一貫性テスト - 複数回呼び出しでの結果一致
-     * 
+     *
      * 同じパラメータで複数回メソッドを呼び出したときに、
      * 同じ結果が返されることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -433,7 +433,7 @@ class TruckPhysicsTest extends TestCase
 
         $density1 = $this->mediumTruck->density();
         $density2 = $this->mediumTruck->density();
-        
+
         $weight1 = $this->mediumTruck->weight($gravity);
         $weight2 = $this->mediumTruck->weight($gravity);
 
@@ -446,9 +446,9 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * 現実的な使用ケーステスト
-     * 
+     *
      * 実際のトラックの使用場面を想定したテストを実行します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -471,9 +471,9 @@ class TruckPhysicsTest extends TestCase
 
     /**
      * テスト後のクリーンアップ
-     * 
+     *
      * テスト実行後にリソースの解放を行います。
-     * 
+     *
      * @return void
      */
     protected function tearDown(): void

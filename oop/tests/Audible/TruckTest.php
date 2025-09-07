@@ -7,11 +7,11 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Truckクラスのユニットテスト
- * 
+ *
  * TruckクラスはAudibleInterfaceを実装しており、
  * 音を出す車両としての機能をテストします。
  * トラックは工業車両として高い音量と特定の周波数を持ちます。
- * 
+ *
  * @package App\Tests\Models\Audible
  * @author Claude Code
  * @version 1.0.0
@@ -20,32 +20,32 @@ class TruckTest extends TestCase
 {
     /**
      * 軽いトラックのインスタンス（小型トラック相当）
-     * 
+     *
      * @var Truck
      */
     private Truck $lightTruck;
 
     /**
      * 重いトラックのインスタンス（大型トラック相当）
-     * 
+     *
      * @var Truck
      */
     private Truck $heavyTruck;
 
     /**
      * 平均的なトラックのインスタンス（中型トラック相当）
-     * 
+     *
      * @var Truck
      */
     private Truck $averageTruck;
 
     /**
      * テスト実行前の初期設定
-     * 
+     *
      * 各テストで使用するTruckオブジェクトを作成します。
      * 軽いトラック、重いトラック、平均的なトラックの3つのパターンを用意し、
      * 様々な重量での動作を確認できるようにしています。
-     * 
+     *
      * @return void
      */
     protected function setUp(): void
@@ -57,10 +57,10 @@ class TruckTest extends TestCase
 
     /**
      * コンストラクタとプロパティの初期化をテスト
-     * 
+     *
      * Truckオブジェクトが正しく作成され、適切なクラスのインスタンスであることを確認します。
      * 重量パラメータが適切に設定されることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -78,10 +78,10 @@ class TruckTest extends TestCase
 
     /**
      * __toString()メソッドのテスト
-     * 
+     *
      * トラックの情報が正しい形式で文字列として返されることを確認します。
      * 重量情報が適切にフォーマットされて表示されることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -100,10 +100,10 @@ class TruckTest extends TestCase
 
     /**
      * 小数点を含む重量の__toString()メソッドのテスト
-     * 
+     *
      * 浮動小数点数が正しく表示されることを確認します。
      * 小数点以下の精度が保たれることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -122,11 +122,11 @@ class TruckTest extends TestCase
 
     /**
      * makeNoise()メソッドのテスト（AudibleInterface実装）
-     * 
+     *
      * "Beep Beep!!"が標準出力に正しく出力されることを確認します。
      * AudibleInterfaceで定義された音を出す機能をテストします。
      * トラックの警笛音をシミュレートします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -139,11 +139,11 @@ class TruckTest extends TestCase
 
     /**
      * makeNoise()メソッドの複数回実行テスト
-     * 
+     *
      * 複数のTruckオブジェクトが連続して音を出すことをテストします。
      * 出力のバッファリングが正しく動作することを確認します。
      * 複数のトラックが同時に警笛を鳴らすシナリオをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -160,11 +160,11 @@ class TruckTest extends TestCase
 
     /**
      * soundFrequency()メソッドのテスト（AudibleInterface実装）
-     * 
+     *
      * 全てのTruckインスタンスで一定の周波数165.0Hzが返されることを確認します。
      * トラックの警笛音の周波数特性が一定であることをテストします。
      * 工業車両特有の低めの周波数をテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -178,11 +178,11 @@ class TruckTest extends TestCase
 
     /**
      * soundLevel()メソッドのテスト（AudibleInterface実装）
-     * 
+     *
      * 全てのTruckインスタンスで一定の音量120.0dBが返されることを確認します。
      * トラックの警笛音の音量レベルが一定であることをテストします。
      * 工業車両特有の高い音量レベルをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -196,10 +196,10 @@ class TruckTest extends TestCase
 
     /**
      * AudibleInterfaceの実装確認テスト
-     * 
+     *
      * Truckクラスが音を出すために必要な全てのメソッドを持っていることを確認します。
      * インターフェースで定義されたメソッドの存在をテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -213,10 +213,10 @@ class TruckTest extends TestCase
 
     /**
      * 文字列表現に全データが含まれることのテスト
-     * 
+     *
      * __toString()メソッドが必要な情報を全て含んでいることを確認します。
      * 文字列に期待される要素が全て含まれていることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -236,10 +236,10 @@ class TruckTest extends TestCase
 
     /**
      * エッジケース値のテスト
-     * 
+     *
      * 極端な値でのTruckクラスの動作を確認します。
      * 最小値、最大値などの境界値でのテストを実行します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -262,10 +262,10 @@ class TruckTest extends TestCase
 
     /**
      * 負の重量値のテスト
-     * 
+     *
      * 負の値でも動作することを確認します。
      * 実用性は低いですが、技術的な動作の堅牢性をテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -285,10 +285,10 @@ class TruckTest extends TestCase
 
     /**
      * 非常に小さい小数点値のテスト
-     * 
+     *
      * 精度の高い浮動小数点数の処理を確認します。
      * 小数点以下の精度が保たれることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -304,10 +304,10 @@ class TruckTest extends TestCase
 
     /**
      * 実用的な重量範囲のテスト
-     * 
+     *
      * 実際のトラックで使用される重量範囲での動作を確認します。
      * 軽トラックから大型トラックまでの実用的な重量でのテストです。
-     * 
+     *
      * @test
      * @return void
      */
@@ -334,10 +334,10 @@ class TruckTest extends TestCase
 
     /**
      * トラックの音響特性比較テスト
-     * 
+     *
      * 他の乗り物と比較してトラックの音響特性が適切であることを確認します。
      * トラックは高い音量と中程度の周波数を持つべきです。
-     * 
+     *
      * @test
      * @return void
      */
@@ -365,10 +365,10 @@ class TruckTest extends TestCase
 
     /**
      * 連続運転シミュレーションテスト
-     * 
+     *
      * トラックが連続して動作する場面をシミュレートします。
      * 複数回の操作でも一貫した結果を返すことを確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -387,7 +387,7 @@ class TruckTest extends TestCase
 
     /**
      * 実世界の重量データプロバイダー
-     * 
+     *
      * @return array<string, array<int, float|string>> テストデータの配列
      */
     public static function realWorldWeightProvider(): array

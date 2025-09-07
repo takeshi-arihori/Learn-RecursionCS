@@ -7,11 +7,11 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Violinクラスのユニットテスト
- * 
+ *
  * ViolinクラスはAudibleInterfaceを実装しており、
  * 音を出す楽器としての機能をテストします。
  * バイオリンは美しい音色を持つ弦楽器として表現されます。
- * 
+ *
  * @package App\Tests\Models\Audible
  * @author Claude Code
  * @version 1.0.0
@@ -20,18 +20,18 @@ class ViolinTest extends TestCase
 {
     /**
      * テスト用のViolinインスタンス
-     * 
+     *
      * @var Violin
      */
     private Violin $violin;
 
     /**
      * テスト実行前の初期設定
-     * 
+     *
      * 各テストで使用するViolinオブジェクトを作成します。
      * バイオリンはコンストラクタパラメータを持たないため、
      * 単純にインスタンス化します。
-     * 
+     *
      * @return void
      */
     protected function setUp(): void
@@ -41,10 +41,10 @@ class ViolinTest extends TestCase
 
     /**
      * コンストラクタとプロパティの初期化をテスト
-     * 
+     *
      * Violinオブジェクトが正しく作成され、適切なクラスのインスタンスであることを確認します。
      * デフォルトの音響特性が正しく設定されることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -62,10 +62,10 @@ class ViolinTest extends TestCase
 
     /**
      * __toString()メソッドのテスト
-     * 
+     *
      * バイオリンの情報が正しい形式で文字列として返されることを確認します。
      * 楽器の説明文が適切にフォーマットされて表示されることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -81,13 +81,13 @@ class ViolinTest extends TestCase
 
     /**
      * makeNoise()メソッドのテスト（AudibleInterface実装）
-     * 
+     *
      * "Beep Beep!!"が標準出力に正しく出力されることを確認します。
      * AudibleInterfaceで定義された音を出す機能をテストします。
-     * 
+     *
      * Note: 実際のバイオリンは美しい音色を奏でますが、
      * このクラスでは簡単な音として実装されています。
-     * 
+     *
      * @test
      * @return void
      */
@@ -100,10 +100,10 @@ class ViolinTest extends TestCase
 
     /**
      * makeNoise()メソッドの複数回実行テスト
-     * 
+     *
      * 複数のViolinオブジェクトが連続して音を出すことをテストします。
      * アンサンブル演奏や複数のバイオリンが同時に演奏するシナリオをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -124,10 +124,10 @@ class ViolinTest extends TestCase
 
     /**
      * soundFrequency()メソッドのテスト（AudibleInterface実装）
-     * 
+     *
      * バイオリンの音の周波数659.3Hzが返されることを確認します。
      * この周波数はE5音程（ミ）に対応する美しい音域をテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -142,10 +142,10 @@ class ViolinTest extends TestCase
 
     /**
      * soundLevel()メソッドのテスト（AudibleInterface実装）
-     * 
+     *
      * バイオリンの音量95.0dBが返されることを確認します。
      * 楽器らしい適度な音量レベルをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -160,10 +160,10 @@ class ViolinTest extends TestCase
 
     /**
      * AudibleInterfaceの実装確認テスト
-     * 
+     *
      * Violinクラスが音を出すために必要な全てのメソッドを持っていることを確認します。
      * インターフェースで定義されたメソッドの存在をテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -177,10 +177,10 @@ class ViolinTest extends TestCase
 
     /**
      * 文字列表現に全データが含まれることのテスト
-     * 
+     *
      * __toString()メソッドが必要な情報を全て含んでいることを確認します。
      * 文字列に期待される要素が全て含まれていることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -196,10 +196,10 @@ class ViolinTest extends TestCase
 
     /**
      * バイオリンの音響特性テスト
-     * 
+     *
      * バイオリンが楽器らしい音響特性を持っていることを確認します。
      * 他の楽器と比較して適切な周波数と音量を持つことをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -224,10 +224,10 @@ class ViolinTest extends TestCase
 
     /**
      * 音楽的特性の一貫性テスト
-     * 
+     *
      * バイオリンの音響特性が複数回の呼び出しで一貫していることを確認します。
      * 楽器として安定した音程と音量を維持することをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -250,10 +250,10 @@ class ViolinTest extends TestCase
 
     /**
      * 楽器としての分類テスト
-     * 
+     *
      * バイオリンが適切な楽器カテゴリに属することを確認します。
      * 弦楽器としての特性を間接的にテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -270,10 +270,10 @@ class ViolinTest extends TestCase
 
     /**
      * 連続演奏シミュレーションテスト
-     * 
+     *
      * バイオリンが連続して演奏される場面をシミュレートします。
      * コンサートや練習での連続使用に対する動作を確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -292,10 +292,10 @@ class ViolinTest extends TestCase
 
     /**
      * バイオリンの音程精度テスト
-     * 
+     *
      * バイオリンの音程が正確であることを確認します。
      * 659.3HzがE5音程に正確に対応していることをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -313,7 +313,7 @@ class ViolinTest extends TestCase
             $standardE5Frequency,
             $violinFrequency,
             $tolerance,
-            'バイオリンの音程がE5に近い'
+            'バイオリンの音程がE5に近い',
         );
     }
 }

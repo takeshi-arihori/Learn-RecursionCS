@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-use App\Models\Audible\Person;
-use App\Models\Audible\Horse;
 use App\Models\Audible\Cow;
+use App\Models\Audible\Horse;
+use App\Models\Audible\Person;
 use App\Models\Audible\Truck;
 use App\Models\Audible\Violin;
 use PHPUnit\Framework\TestCase;
 
 /**
  * PersonLensesTest - PersonクラスのLensesInterface実装テスト
- * 
+ *
  * PersonクラスがLensesInterfaceを正しく実装していることを確認します。
  * 人間の視覚システムとしての機能（可視光範囲の検出と視覚的認識）をテストします。
- * 
+ *
  * テスト対象メソッド：
  * - lightRange(): 人間の可視光範囲を返す
  * - see(object $object): オブジェクトを見たときの視覚的描写を返す
- * 
+ *
  * @package App\Tests\Models\Audible
  * @author Claude Code
  * @version 1.0.0
@@ -28,31 +28,31 @@ class PersonLensesTest extends TestCase
 {
     /**
      * テスト用のPersonインスタンス（成人）
-     * 
+     *
      * @var Person
      */
     private Person $adultPerson;
 
     /**
      * テスト用のPersonインスタンス（子供）
-     * 
+     *
      * @var Person
      */
     private Person $childPerson;
 
     /**
      * テスト用のPersonインスタンス（高齢者）
-     * 
+     *
      * @var Person
      */
     private Person $elderlyPerson;
 
     /**
      * テスト実行前の初期設定
-     * 
+     *
      * 異なる年齢層のPersonオブジェクトを作成し、
      * 年齢による視覚機能の違いをテストできるように準備します。
-     * 
+     *
      * @return void
      */
     protected function setUp(): void
@@ -64,10 +64,10 @@ class PersonLensesTest extends TestCase
 
     /**
      * lightRange()メソッドの基本機能テスト
-     * 
+     *
      * 人間の標準的な可視光範囲（380nm-700nm）が正しく返されることを確認します。
      * すべての年齢の人間で同じ可視光範囲を持つことをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -84,10 +84,10 @@ class PersonLensesTest extends TestCase
 
     /**
      * lightRange()の返り値構造テスト
-     * 
+     *
      * lightRange()が正確に2要素の配列を返し、
      * 最小値と最大値が正しい順序で格納されていることを確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -112,10 +112,10 @@ class PersonLensesTest extends TestCase
 
     /**
      * see()メソッド - Personオブジェクト認識テスト
-     * 
+     *
      * Personが別のPersonオブジェクトを見たときの視覚的描写をテストします。
      * 人間らしい観察と記述ができることを確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -136,10 +136,10 @@ class PersonLensesTest extends TestCase
 
     /**
      * see()メソッド - 動物オブジェクト認識テスト
-     * 
+     *
      * Personが動物（Horse, Cow）を見たときの視覚的描写をテストします。
      * 動物の特徴を適切に認識できることを確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -168,10 +168,10 @@ class PersonLensesTest extends TestCase
 
     /**
      * see()メソッド - 無機物オブジェクト認識テスト
-     * 
+     *
      * Personが無機物（Truck, Violin）を見たときの視覚的描写をテストします。
      * 物体の種類を適切に識別できることを確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -200,10 +200,10 @@ class PersonLensesTest extends TestCase
 
     /**
      * see()メソッド - 複数オブジェクト認識の一貫性テスト
-     * 
+     *
      * 同じPersonが同じオブジェクトを複数回見たときに、
      * 一貫した描写を返すことをテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -224,11 +224,11 @@ class PersonLensesTest extends TestCase
 
     /**
      * see()メソッド - 年齢による観察の違いテスト
-     * 
+     *
      * 異なる年齢のPersonが同じオブジェクトを見たときに、
      * それぞれ適切な描写を返すことをテストします。
      * 年齢による視点の違いが反映されることを確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -259,10 +259,10 @@ class PersonLensesTest extends TestCase
 
     /**
      * see()メソッド - stdClassオブジェクト認識テスト
-     * 
+     *
      * 標準的なオブジェクト（stdClass）を見たときの処理をテストします。
      * 未知のオブジェクトに対しても適切に対応できることを確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -283,10 +283,10 @@ class PersonLensesTest extends TestCase
 
     /**
      * LensesInterface実装の完全性テスト
-     * 
+     *
      * PersonクラスがLensesInterfaceで要求される全メソッドを
      * 正しく実装していることを確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -295,12 +295,12 @@ class PersonLensesTest extends TestCase
         // Given & When & Then: 必要なメソッドが存在することを確認
         $this->assertTrue(
             method_exists($this->adultPerson, 'lightRange'),
-            'lightRange()メソッドが実装されている必要があります'
+            'lightRange()メソッドが実装されている必要があります',
         );
 
         $this->assertTrue(
             method_exists($this->adultPerson, 'see'),
-            'see()メソッドが実装されている必要があります'
+            'see()メソッドが実装されている必要があります',
         );
 
         // メソッドが callable であることを確認
@@ -310,10 +310,10 @@ class PersonLensesTest extends TestCase
 
     /**
      * 境界値テスト - 可視光範囲の境界
-     * 
+     *
      * 人間の可視光範囲が科学的に正確な値であることを確認します。
      * 380nm（紫外線境界）と700nm（赤外線境界）の境界値をテストします。
-     * 
+     *
      * @test
      * @return void
      */
@@ -333,10 +333,10 @@ class PersonLensesTest extends TestCase
 
     /**
      * see()メソッドの返り値詳細テスト
-     * 
+     *
      * see()メソッドが返す文字列の品質と内容の豊富さをテストします。
      * 意味のある描写が返されることを確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -348,7 +348,7 @@ class PersonLensesTest extends TestCase
             new Horse(400.0),
             new Cow(600.0),
             new Truck(8000.0),
-            new Violin()
+            new Violin(),
         ];
 
         foreach ($objects as $object) {
@@ -367,10 +367,10 @@ class PersonLensesTest extends TestCase
 
     /**
      * パフォーマンステスト
-     * 
+     *
      * lightRange()とsee()メソッドが適切なパフォーマンスで動作することをテストします。
      * 大量の呼び出しでもレスポンシブであることを確認します。
-     * 
+     *
      * @test
      * @return void
      */
@@ -396,9 +396,9 @@ class PersonLensesTest extends TestCase
 
     /**
      * テスト後のクリーンアップ
-     * 
+     *
      * テスト実行後にリソースの解放を行います。
-     * 
+     *
      * @return void
      */
     protected function tearDown(): void
