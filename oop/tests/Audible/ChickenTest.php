@@ -153,19 +153,136 @@ class ChickenTest extends TestCase
     }
 
     /**
-     * EdibleInterfaceの実装確認テスト
+     * makeNoise()メソッドのテスト（AudibleInterface実装）
      * 
-     * Chickenクラスが食べ物として必要な全てのメソッドを持っていることを確認します。
-     * インターフェースで定義されたメソッドの存在をテストします。
+     * "コケコッコー！"が標準出力に正しく出力されることを確認します。
+     * AudibleInterfaceで定義された音を出す機能をテストします。
+     * 鶏の特徴的な鳴き声をシミュレートします。
      * 
      * @test
      * @return void
      */
-    public function testEdibleInterfaceImplementation(): void
+    public function testMakeNoise(): void
+    {
+        // Given & When & Then: 鶏の鳴き声が正しく出力されることを確認
+        $this->expectOutputString('コケコッコー！' . PHP_EOL);
+        $this->lightChicken->makeNoise();
+    }
+
+    /**
+     * makeNoise()メソッドの複数回実行テスト
+     * 
+     * 複数のChickenオブジェクトが連続して音を出すことをテストします。
+     * 出力のバッファリングが正しく動作することを確認します。
+     * 複数の鶏が同時に鳴くシナリオをテストします。
+     * 
+     * @test
+     * @return void
+     */
+    public function testMakeNoiseMultipleTimes(): void
+    {
+        // Given: 期待される出力を定義
+        $expectedOutput = 'コケコッコー！' . PHP_EOL . 'コケコッコー！' . PHP_EOL;
+
+        // When & Then: 複数の鶏が連続して鳴くことを確認
+        $this->expectOutputString($expectedOutput);
+        $this->lightChicken->makeNoise();
+        $this->heavyChicken->makeNoise();
+    }
+
+    /**
+     * soundFrequency()メソッドのテスト（AudibleInterface実装）
+     * 
+     * 全てのChickenインスタンスで一定の周波数500.0Hzが返されることを確認します。
+     * 鶏の鳴き声の周波数特性が一定であることをテストします。
+     * 家禽特有の中高音域をテストします。
+     * 
+     * @test
+     * @return void
+     */
+    public function testSoundFrequency(): void
+    {
+        // Given & When & Then: 全ての鶏で同じ周波数500.0Hzを返すことを確認
+        $this->assertEquals(500.0, $this->lightChicken->soundFrequency());
+        $this->assertEquals(500.0, $this->heavyChicken->soundFrequency());
+        $this->assertEquals(500.0, $this->averageChicken->soundFrequency());
+    }
+
+    /**
+     * soundLevel()メソッドのテスト（AudibleInterface実装）
+     * 
+     * 全てのChickenインスタンスで一定の音量60.0dBが返されることを確認します。
+     * 鶏の鳴き声の音量レベルが一定であることをテストします。
+     * 家禽特有の中程度の音量レベルをテストします。
+     * 
+     * @test
+     * @return void
+     */
+    public function testSoundLevel(): void
+    {
+        // Given & When & Then: 全ての鶏で同じ音量60.0dBを返すことを確認
+        $this->assertEquals(60.0, $this->lightChicken->soundLevel());
+        $this->assertEquals(60.0, $this->heavyChicken->soundLevel());
+        $this->assertEquals(60.0, $this->averageChicken->soundLevel());
+    }
+
+    /**
+     * AudibleInterfaceとEdibleInterfaceの実装確認テスト
+     * 
+     * Chickenクラスが食べ物としても音を出す動物としても必要な全てのメソッドを持っていることを確認します。
+     * 両方のインターフェースで定義されたメソッドの存在をテストします。
+     * 
+     * @test
+     * @return void
+     */
+    public function testBothInterfacesImplementation(): void
     {
         // Given & When & Then: EdibleInterfaceで要求されるメソッドが存在することを確認
         $this->assertTrue(method_exists($this->lightChicken, 'howToPrepare'));
         $this->assertTrue(method_exists($this->lightChicken, 'calories'));
+
+        // And: AudibleInterfaceで要求されるメソッドが存在することを確認
+        $this->assertTrue(method_exists($this->lightChicken, 'makeNoise'));
+        $this->assertTrue(method_exists($this->lightChicken, 'soundFrequency'));
+        $this->assertTrue(method_exists($this->lightChicken, 'soundLevel'));
+
+        // And: メソッドが callable であることを確認
+        $this->assertIsCallable([$this->lightChicken, 'howToPrepare']);
+        $this->assertIsCallable([$this->lightChicken, 'calories']);
+        $this->assertIsCallable([$this->lightChicken, 'makeNoise']);
+        $this->assertIsCallable([$this->lightChicken, 'soundFrequency']);
+        $this->assertIsCallable([$this->lightChicken, 'soundLevel']);
+    }
+
+    /**
+     * 鶏の音響特性比較テスト
+     * 
+     * 他の動物と比較して鶏の音響特性が適切であることを確認します。
+     * 鶏は中高音域で中程度の音量を持つべきです。
+     * 
+     * @test
+     * @return void
+     */
+    public function testSoundCharacteristics(): void
+    {
+        // Given: テスト用の鶏
+        $chicken = new Chicken(2.0);
+
+        // When: 音響特性を取得
+        $frequency = $chicken->soundFrequency();
+        $soundLevel = $chicken->soundLevel();
+
+        // Then: 鶏らしい音響特性を確認
+
+        // 周波数: 500Hz（家禽らしい中高音域）
+        $this->assertEquals(500.0, $frequency);
+        $this->assertGreaterThan(300.0, $frequency, '鶏の周波数は中音域にある');
+        $this->assertLessThan(1000.0, $frequency, '鶏の周波数は極端に高くない');
+
+        // 音量: 60dB（家禽らしい中程度の音量）
+        $this->assertEquals(60.0, $soundLevel);
+        $this->assertGreaterThan(40.0, $soundLevel, '鶏は適度な音量である');
+        $this->assertLessThan(80.0, $soundLevel, '鶏の音量は過度に大きくない');
     }
 
     /**
