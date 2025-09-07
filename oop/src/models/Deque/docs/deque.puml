@@ -1,0 +1,31 @@
+@startuml deque
+!define INTERFACE interface
+
+interface Stack {
+    +peekLast(): ?int
+    +pop(): ?int
+    +push(int value): void
+}
+
+interface Queue {
+    +peekFirst(): ?int
+    +poll(): ?int
+    +push(int value): void
+}
+
+interface Deque {
+    +addFirst(int value): void
+}
+
+' 継承関係（破線の矢印）∂
+Deque --|> Stack : extends
+Deque --|> Queue : extends
+
+' 具象クラス
+class DequeImpl implements Deque
+
+note right of Stack : LIFO (Last-In First-Out)
+note right of Queue : FIFO (First-In First-Out)
+note right of Deque : 両端キュー (Double-ended queue)
+
+@enduml

@@ -1,0 +1,13 @@
+parameters:
+    level: 9
+    paths:
+        - .
+        - ../../../tests/Deque
+    bootstrapFiles:
+        - ../../../vendor/autoload.php
+    
+    # 型推論の改善
+    inferPrivatePropertyTypeFromConstructor: true
+    
+    # strict_types=1 の強制
+    treatPhpDocTypesAsCertain: false

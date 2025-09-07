@@ -357,3 +357,47 @@ Reference files in `.github/`:
 - **BRANCH_STRATEGY.md**: Git Flow-based branching strategy
 - **CONTRIBUTING.md**: Comprehensive contribution guide
 - **pull_request_template.md**: Standard PR template
+
+## Workspace Documentation Standards
+
+### README Requirements for Each Workspace
+**CRITICAL**: Every workspace (functional directory/module) MUST have a dedicated README.md file with clear execution procedures.
+
+#### Required README Sections:
+1. **概要 (Overview)**: Module purpose and functionality description
+2. **実装要件 (Implementation Requirements)**: Technical specifications and constraints
+3. **実行方法 (Execution Instructions)**: Step-by-step commands for:
+   - Test execution (`./vendor/bin/phpunit tests/ModuleName/`)
+   - Static analysis (`./vendor/bin/phpstan analyse -c src/Models/ModuleName/phpstan.neon`)
+   - Code quality checks (`composer quality`)
+4. **ディレクトリ構成 (Directory Structure)**: File organization and purpose
+5. **使用例 (Usage Examples)**: Code examples demonstrating functionality
+
+#### PHPStan Configuration Strategy:
+Each workspace SHOULD have its own `phpstan.neon` configuration file to:
+- **ALWAYS use level 9** for maximum strictness and code quality
+- Define module-specific ignore patterns  
+- Avoid cross-module error contamination
+- Enable precise quality control
+
+#### Example Workspace Structure:
+```
+src/Models/ModuleName/
+├── Interface.php
+├── Implementation.php  
+├── phpstan.neon          # Module-specific PHPStan config (level 9)
+├── README.md             # REQUIRED: Complete execution guide
+└── docs/
+    └── diagram.puml
+
+tests/ModuleName/
+├── InterfaceTest.php
+├── ImplementationTest.php
+└── IntegrationTest.php
+```
+
+#### Enforcement:
+- Claude Code MUST create README.md with execution procedures for every new workspace
+- Existing workspaces without README.md should be flagged for documentation updates
+- All README files must include working command examples that can be copy-pasted
+- PHPStan analysis MUST always use level 9 for highest code quality standards
