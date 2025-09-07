@@ -3,5 +3,6 @@
         "python": "python3"
     },
     "code-runner.runInTerminal": true,
-    "code-runner.saveFileBeforeRun": true
+    "code-runner.saveFileBeforeRun": true,
+    "files.autoSave": "onFocusChange"
 }

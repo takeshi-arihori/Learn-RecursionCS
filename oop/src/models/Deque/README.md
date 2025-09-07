@@ -35,6 +35,16 @@ Deque インターフェースは、Stack と Queue の両方から拡張され�
 - Queue のすべてのメソッドを継承
 - `addFirst(int $value): void` - 要素をリストの最初に追加します
 
+### AbstractListInteger インターフェース
+
+整数を扱うリスト構造の抽象的な操作を定義します。
+
+**メソッド:**
+- `getSize(): int` - リストのサイズ（要素数）を取得
+- `get(int $index): ?int` - 指定されたインデックスの要素を取得
+- `toArray(): array` - リストの全要素を配列として取得
+- `isEmpty(): bool` - リストが空かどうかを確認
+
 ## PHP実装における特徴
 
 ```php
@@ -42,6 +52,39 @@ Deque インターフェースは、Stack と Queue の両方から拡張され�
 interface Deque extends Stack, Queue {
     public function addFirst(int $value): void;
 }
+```
+
+## 実装クラス
+
+### IntegerLinkedList クラス
+
+連結リストによる実装で、**すべてのインターフェース**を実装します：
+- **Stack** - LIFO動作
+- **Queue** - FIFO動作  
+- **Deque** - 両端操作
+- **AbstractListInteger** - リスト操作
+
+**特徴:**
+- 双方向連結リスト構造
+- すべての両端操作がO(1)
+- ポリモーフィズム対応（単一インスタンスを異なる型として扱える）
+
+### Print関数群 (PrintFunctions)
+
+ポリモーフィズムを活用した出力関数群：
+
+```php
+// Queue として出力（FIFO順序）
+PrintFunctions::queuePrint($list);  // 1 2 3
+
+// Stack として出力（LIFO順序）  
+PrintFunctions::stackPrint($list);  // 3 2 1
+
+// Deque として出力（前後交互）
+PrintFunctions::dequePrint($list);  // 1 4 2 3
+
+// AbstractListInteger として出力（全要素）
+PrintFunctions::abstractListIntegerPrint($list); // [1, 2, 3]
 ```
 
 ## UML図
@@ -57,6 +100,7 @@ UML図は `docs/deque.puml` ファイルに記載されています。インタ�
 ## 使用例
 
 ```php
+// DequeImpl（配列ベース実装）
 $deque = new DequeImpl();
 
 // Stack として使用（LIFO）
@@ -73,6 +117,26 @@ echo $deque->poll();      // 1
 
 // Deque として使用
 $deque->addFirst(0);     // 先頭に追加
+
+// IntegerLinkedList（連結リストベース実装）でポリモーフィズム
+$list = new IntegerLinkedList();
+
+// 同一インスタンスを異なる型として扱う
+$stack = $list;        // Stack型として扱う
+$queue = $list;        // Queue型として扱う  
+$deque = $list;        // Deque型として扱う
+$abstractList = $list; // AbstractListInteger型として扱う
+
+// 各インターフェースの操作
+$deque->addFirst(1);
+$deque->push(2);
+$deque->push(3);
+
+// 各Print関数で異なる出力
+PrintFunctions::stackPrint($list);          // Stack (LIFO): 3 2 1
+PrintFunctions::queuePrint($list);          // Queue (FIFO): 1 2 3  
+PrintFunctions::dequePrint($list);          // Deque (alternating): 1 3 2
+PrintFunctions::abstractListIntegerPrint($list); // AbstractList: [1, 2, 3]
 ```
 
 ## 実行方法
@@ -89,6 +153,11 @@ cd oop
 ./vendor/bin/phpunit tests/Deque/StackTest.php
 ./vendor/bin/phpunit tests/Deque/QueueTest.php
 ./vendor/bin/phpunit tests/Deque/DequeTest.php
+
+# 新しい実装のテスト
+./vendor/bin/phpunit tests/Deque/IntegerLinkedListTest.php
+./vendor/bin/phpunit tests/Deque/PrintFunctionsTest.php
+./vendor/bin/phpunit tests/Deque/PolymorphismTest.php
 ```
 
 ### 静的解析実行
@@ -115,17 +184,31 @@ composer format
 ## ディレクトリ構成
 ```
 src/Models/Deque/
-├── Stack.php              # Stack インターフェース
-├── Queue.php              # Queue インターフェース  
-├── Deque.php              # Deque インターフェース
-├── DequeImpl.php          # Deque 具象実装クラス
-├── phpstan.neon           # PHPStan 設定（Deque専用）
-├── README.md              # このファイル
+├── Stack.php                    # Stack インターフェース
+├── Queue.php                    # Queue インターフェース  
+├── Deque.php                    # Deque インターフェース
+├── AbstractListInteger.php      # AbstractListInteger インターフェース
+├── DequeImpl.php                # Deque 配列ベース実装
+├── IntegerLinkedList.php        # 連結リスト実装（全インターフェース対応）
+├── PrintFunctions.php           # Print関数群（ポリモーフィズム活用）
+├── phpstan.neon                 # PHPStan 設定（Deque専用）
+├── README.md                    # このファイル
 └── docs/
-    └── deque.puml         # UML図（PlantUML形式）
+    └── deque.puml               # UML図（PlantUML形式）
 
 tests/Deque/
-├── StackTest.php          # Stack動作テスト
-├── QueueTest.php          # Queue動作テスト
-└── DequeTest.php          # Deque統合テスト
+├── StackTest.php                # Stack動作テスト
+├── QueueTest.php                # Queue動作テスト
+├── DequeTest.php                # Deque統合テスト
+├── IntegerLinkedListTest.php    # IntegerLinkedList テスト
+├── PrintFunctionsTest.php       # Print関数群テスト
+└── PolymorphismTest.php         # ポリモーフィズムテスト
 ```
+
+## テスト結果サマリー
+- **総テスト数**: 40テスト、178アサーション
+- **基本インターフェース**: 20テスト（Stack, Queue, Deque）
+- **連結リスト実装**: 8テスト（IntegerLinkedList）
+- **Print関数群**: 7テスト（PrintFunctions）
+- **ポリモーフィズム**: 5テスト（型の相互運用性）
+- **静的解析**: PHPStan Level 9 - エラーなし
