@@ -8,6 +8,6 @@ namespace App\Models\Audible;
 // 食べられるオブジェクトが持つべきメソッドを定義します。
 interface EdibleInterface
 {
-    public function howToPrepare(): string;
-    public function calories(): float;
+    public function howToPrepare(): string; // 調理方法を返す
+    public function calories(): float; // カロリーを返す
 }
