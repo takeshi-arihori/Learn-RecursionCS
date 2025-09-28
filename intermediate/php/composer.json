@@ -1,0 +1,66 @@
+{
+    "name": "recursion/intermediate-php",
+    "description": "RecursionCurriculum - Intermediate PHP Algorithms and Data Structures",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^8.4"
+    },
+    "require-dev": {
+        "pestphp/pest": "^3.0",
+        "phpunit/phpunit": "^11.0",
+        "phpstan/phpstan": "^2.0",
+        "laravel/pint": "^1.18"
+    },
+    "autoload": {
+        "psr-4": {
+            "Intermediate\\": "src/",
+            "Intermediate\\BlackJack\\": "blackjack/"
+        },
+        "files": [
+            "RGB.php",
+            "MathSplit.php",
+            "Sort.php",
+            "sqrt.php",
+            "SieveOfElastoTenes.php",
+            "RoundRobin.php",
+            "QuadrilateralShape.php",
+            "RoomChange.php",
+            "Files.php",
+            "Complement.php",
+            "TabulationAndMemo.php",
+            "DivideAndConquerMethod.php",
+            "gcd.php",
+            "forloop.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "test:phpunit": "phpunit",
+        "test:unit": "pest --testsuite=Unit",
+        "test:coverage": "pest --coverage",
+        "analyze": "phpstan analyse . --level=9 --exclude-pattern=vendor",
+        "format": "pint",
+        "format:check": "pint --test",
+        "quality": [
+            "@format:check",
+            "@analyze",
+            "@test"
+        ],
+        "legacy:test": "php tests/RGBTest.php && php tests/QuadrilateralShapeTest.php && php tests/SortTest.php"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        },
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

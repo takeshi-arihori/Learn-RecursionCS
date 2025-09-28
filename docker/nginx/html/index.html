@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RecursionCurriculum PHP統合環境</title>
+    <meta charset="UTF-8">
+    <style>
+        body { 
+            font-family: "Helvetica Neue", Arial, sans-serif; 
+            margin: 0; 
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 40px;
+        }
+        h1 { 
+            text-align: center; 
+            color: #333; 
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .project { 
+            padding: 25px; 
+            border: 2px solid #e0e0e0; 
+            border-radius: 10px; 
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+        .project:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+        .project h3 { 
+            margin-top: 0; 
+            color: #333; 
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        .project p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .project a { 
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        .project a:hover { 
+            background: #5a67d8;
+            transform: scale(1.05);
+        }
+        .port-info {
+            background: #e8f4fd;
+            border: 1px solid #bee5eb;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 30px;
+        }
+        .port-info h3 {
+            margin-top: 0;
+            color: #155724;
+        }
+        .port-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .port-item {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 4px solid #17a2b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 RecursionCurriculum PHP統合開発環境</h1>
+        <p class="subtitle">Docker + Nginx リバースプロキシによるマルチプロジェクト環境</p>
+
+        <div class="projects">
+            <div class="project">
+                <h3>📚 Beginner PHP</h3>
+                <p>基礎的なPHPプログラミング演習<br>変数、関数、制御構造の学習</p>
+                <a href="http://localhost:8081" target="_blank">→ アクセス (Port 8081)</a>
+            </div>
+
+            <div class="project">
+                <h3>🔬 Intermediate PHP</h3>
+                <p>中級アルゴリズムとデータ構造<br>複雑な問題解決とTDD実践</p>
+                <a href="http://localhost:8082" target="_blank">→ アクセス (Port 8082)</a>
+            </div>
+
+            <div class="project">
+                <h3>🎯 Advanced PHP</h3>
+                <p>高度なアルゴリズムと二分木実装<br>計算量最適化と高度データ構造</p>
+                <a href="http://localhost:8083" target="_blank">→ アクセス (Port 8083)</a>
+            </div>
+
+            <div class="project">
+                <h3>🏗️ OOP PHP</h3>
+                <p>オブジェクト指向プログラミング<br>クラス設計とデザインパターン</p>
+                <a href="http://localhost:8084" target="_blank">→ アクセス (Port 8084)</a>
+            </div>
+
+            <div class="project">
+                <h3>🌐 Dynamic Web Server</h3>
+                <p>Webサーバー実装とEngine系クラス<br>HTTP処理とルーティング</p>
+                <a href="http://localhost:8085" target="_blank">→ アクセス (Port 8085)</a>
+            </div>
+
+            <div class="project">
+                <h3>🗄️ Database Management</h3>
+                <p>MySQL管理とデータベース操作<br>phpMyAdminによるGUI管理</p>
+                <a href="http://localhost:8090" target="_blank">→ phpMyAdmin (Port 8090)</a>
+            </div>
+        </div>
+
+        <div class="port-info">
+            <h3>🔗 ポート構成</h3>
+            <div class="port-list">
+                <div class="port-item"><strong>8080:</strong> メインダッシュボード</div>
+                <div class="port-item"><strong>8081:</strong> Beginner PHP</div>
+                <div class="port-item"><strong>8082:</strong> Intermediate PHP</div>
+                <div class="port-item"><strong>8083:</strong> Advanced PHP</div>
+                <div class="port-item"><strong>8084:</strong> OOP PHP</div>
+                <div class="port-item"><strong>8085:</strong> Dynamic Web Server</div>
+                <div class="port-item"><strong>8090:</strong> phpMyAdmin</div>
+                <div class="port-item"><strong>3306:</strong> MySQL Database</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

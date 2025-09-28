@@ -1,0 +1,91 @@
+# Git関連
+.git
+.gitignore
+.github/
+
+# IDE設定
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS固有ファイル
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# 一時ファイル
+*.tmp
+*.temp
+*.log
+*.cache
+
+# ドキュメント（ビルド不要）
+README.md
+*.md
+docs/
+daily/
+
+# 非PHP言語プロジェクト
+lang-training/go/
+lang-training/typescript/
+video-compressor/
+database/c/
+advanced/java/
+
+# Claude設定
+.claude/
+CLAUDE.md
+GEMINI.md
+
+# 環境固有設定
+.env
+.env.local
+.env.production
+
+# 依存関係（Dockerビルド時に再インストール）
+*/vendor/
+node_modules/
+
+# ログファイル
+*/logs/*.log
+oop/logs/
+
+# テスト関連の一時ファイル
+*/tests/coverage/
+*/phpunit.xml
+*/.phpunit.result.cache
+
+# Composer関連キャッシュ
+*/composer.lock
+*/composer.phar
+
+# PHPStan関連
+*/phpstan-baseline.neon
+*/.phpstan-cache/
+
+# Pest関連
+*/.pest/
+
+# アップロードファイル
+uploads/
+storage/
+
+# キャッシュディレクトリ
+cache/
+tmp/
+
+# バックアップファイル
+*.backup
+*.bak
+
+# セキュリティファイル
+private_key*
+*.pem
+*.key
+credentials.json
+
+# 開発用設定
+docker-compose.override.yml
+Dockerfile.dev

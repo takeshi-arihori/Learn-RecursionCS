@@ -1,0 +1,36 @@
+parameters:
+    level: 9
+    paths:
+        - .
+
+    # 除外するパス
+    excludePaths:
+        - vendor
+
+    # PHPUnit/Pest関連の設定
+    bootstrapFiles:
+        - vendor/autoload.php
+
+    # エラーを無視するパターン
+    ignoreErrors:
+        # テストファイルでの未使用変数を許可
+        - '#Variable \$\w+ is never read, only written#'
+        # テストファイルでのアサーション後の到達不可能コードを許可
+        - '#Unreachable statement - code above always terminates#'
+        # 二分木実装での型関連エラーを一時的に無視
+        - '#Property .* is never read, only written#'
+        # Pest関連のエラーを無視
+        -
+            identifier: missingType.iterableValue
+        -
+            identifier: missingType.generics
+
+    # 型推論の改善
+    inferPrivatePropertyTypeFromConstructor: true
+
+    # strict_types=1 の強制
+    treatPhpDocTypesAsCertain: false
+
+    # Pest設定
+    stubFiles:
+        - vendor/pestphp/pest/stubs/Laravel.php

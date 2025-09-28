@@ -5,7 +5,6 @@
 
 // ファイル名のリスト
 $files = [
-    'Test.php',
     'Newton.php',
     'Newton2.php',
     'QuadraticEquation.php',

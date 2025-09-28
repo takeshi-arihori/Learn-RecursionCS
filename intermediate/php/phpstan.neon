@@ -1,0 +1,39 @@
+parameters:
+    level: 9
+    paths:
+        - .
+
+    # 除外するパス
+    excludePaths:
+        - vendor
+        - docs
+
+    # PHPUnit/Pest関連の設定
+    bootstrapFiles:
+        - vendor/autoload.php
+
+    # エラーを無視するパターン
+    ignoreErrors:
+        # テストファイルでの未使用変数を許可
+        - '#Variable \$\w+ is never read, only written#'
+        # テストファイルでのアサーション後の到達不可能コードを許可
+        - '#Unreachable statement - code above always terminates#'
+        # 既存のファイル読み込み関連のエラーを一時的に無視
+        - '#Function \w+ not found#'
+        # Pest関連のエラーを無視
+        -
+            identifier: missingType.iterableValue
+        -
+            identifier: missingType.generics
+        # 動的ファイル読み込み関連
+        - '#Cannot call function .* on .* \(autoloaded\)#'
+
+    # 型推論の改善
+    inferPrivatePropertyTypeFromConstructor: true
+
+    # strict_types=1 の強制
+    treatPhpDocTypesAsCertain: false
+
+    # Pest設定
+    stubFiles:
+        - vendor/pestphp/pest/stubs/Laravel.php
