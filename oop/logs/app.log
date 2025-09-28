@@ -1,0 +1,676 @@
+[2025-09-03 14:29:30] [INFO] Sparrow laid an egg
+[2025-09-03 14:29:30] [WARNING] Dead Sparrow cannot lay eggs
+[2025-09-03 14:29:30] [INFO] Sparrow is flying with wingspan 0.25m
+[2025-09-03 14:29:30] [WARNING] Dead Sparrow cannot fly
+[2025-09-03 14:29:30] [INFO] Sparrow is building a nest
+[2025-09-03 14:29:30] [WARNING] Dead Sparrow cannot build nest
+[2025-09-03 14:29:30] [DEBUG] Sparrow moved by flying
+[2025-09-03 14:29:42] [INFO] Sparrow laid an egg
+[2025-09-03 14:29:42] [WARNING] Dead Sparrow cannot lay eggs
+[2025-09-03 14:29:42] [INFO] Sparrow is flying with wingspan 0.25m
+[2025-09-03 14:29:42] [WARNING] Dead Sparrow cannot fly
+[2025-09-03 14:29:42] [INFO] Sparrow is building a nest
+[2025-09-03 14:29:42] [WARNING] Dead Sparrow cannot build nest
+[2025-09-03 14:29:42] [DEBUG] Sparrow moved by flying
+[2025-09-03 14:29:55] [INFO] Sparrow laid an egg
+[2025-09-03 14:29:55] [WARNING] Dead Sparrow cannot lay eggs
+[2025-09-03 14:29:55] [INFO] Sparrow is flying with wingspan 0.25m
+[2025-09-03 14:29:56] [WARNING] Dead Sparrow cannot fly
+[2025-09-03 14:29:56] [INFO] Sparrow is building a nest
+[2025-09-03 14:29:56] [WARNING] Dead Sparrow cannot build nest
+[2025-09-03 14:29:56] [DEBUG] Sparrow moved by flying
+[2025-09-03 14:35:33] [DEBUG] John Doe spent 200. Remaining: 800
+[2025-09-03 14:35:33] [DEBUG] John Doe earned 500. New total: 1300
+[2025-09-03 14:36:02] [DEBUG] John Doe spent 200. Remaining: 800
+[2025-09-03 14:36:02] [DEBUG] John Doe earned 500. New total: 1300
+[2025-09-03 14:44:55] [INFO] New farm created: Green Valley Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Sunny Hill Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Green Valley Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Test Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Green Valley Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Green Valley Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Green Valley Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Green Valley Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Green Valley Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Green Valley Farm
+[2025-09-03 14:44:55] [DEBUG] Revenue set to 1500 for farm Green Valley Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Green Valley Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Green Valley Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Green Valley Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Green Valley Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Green Valley Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Green Valley Farm
+[2025-09-03 14:44:55] [INFO] New farm created: Empty Farm
+[2025-09-03 14:44:55] [DEBUG] Revenue set to 0 for farm Empty Farm
+[2025-09-03 14:44:55] [INFO] Revenue calculated for farm Empty Farm: 0
+[2025-09-03 15:01:22] [INFO] Sparrow laid an egg
+[2025-09-03 15:01:22] [WARNING] Dead Sparrow cannot lay eggs
+[2025-09-03 15:01:22] [INFO] Sparrow is flying with wingspan 0.25m
+[2025-09-03 15:01:22] [WARNING] Dead Sparrow cannot fly
+[2025-09-03 15:01:22] [INFO] Sparrow is building a nest
+[2025-09-03 15:01:22] [WARNING] Dead Sparrow cannot build nest
+[2025-09-03 15:01:22] [DEBUG] Sparrow moved by flying
+[2025-09-03 15:01:22] [INFO] Leghorn laid an egg
+[2025-09-03 15:01:23] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:01:23] [INFO] John Doe now owns farm: Green Valley Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Test Farm
+[2025-09-03 15:01:23] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Test Farm
+[2025-09-03 15:01:23] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Test Farm
+[2025-09-03 15:01:23] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Test Farm
+[2025-09-03 15:01:23] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Test Farm
+[2025-09-03 15:01:23] [DEBUG] Revenue set to 500 for farm Test Farm
+[2025-09-03 15:01:23] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:01:23] [DEBUG] Revenue set to 0 for farm Test Farm
+[2025-09-03 15:01:23] [INFO] John Doe collected revenue: 500. New money: 1500
+[2025-09-03 15:01:23] [DEBUG] John Doe spent 200. Remaining: 800
+[2025-09-03 15:01:23] [DEBUG] John Doe earned 500. New total: 1300
+[2025-09-03 15:01:23] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Sunny Hill Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Test Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:01:23] [DEBUG] Revenue set to 1500 for farm Green Valley Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:01:23] [INFO] New farm created: Empty Farm
+[2025-09-03 15:01:23] [DEBUG] Revenue set to 0 for farm Empty Farm
+[2025-09-03 15:01:23] [INFO] Revenue calculated for farm Empty Farm: 0
+[2025-09-03 15:05:15] [INFO] Sparrow laid an egg
+[2025-09-03 15:05:15] [WARNING] Dead Sparrow cannot lay eggs
+[2025-09-03 15:05:15] [INFO] Sparrow is flying with wingspan 0.25m
+[2025-09-03 15:05:15] [WARNING] Dead Sparrow cannot fly
+[2025-09-03 15:05:15] [INFO] Sparrow is building a nest
+[2025-09-03 15:05:15] [WARNING] Dead Sparrow cannot build nest
+[2025-09-03 15:05:15] [DEBUG] Sparrow moved by flying
+[2025-09-03 15:05:15] [INFO] Leghorn laid an egg
+[2025-09-03 15:05:15] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:15] [INFO] John Doe now owns farm: Green Valley Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Test Farm
+[2025-09-03 15:05:15] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Test Farm
+[2025-09-03 15:05:15] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Test Farm
+[2025-09-03 15:05:15] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Test Farm
+[2025-09-03 15:05:15] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Test Farm
+[2025-09-03 15:05:15] [DEBUG] Revenue set to 500 for farm Test Farm
+[2025-09-03 15:05:15] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:05:15] [DEBUG] Revenue set to 0 for farm Test Farm
+[2025-09-03 15:05:15] [INFO] John Doe collected revenue: 500. New money: 1500
+[2025-09-03 15:05:15] [DEBUG] John Doe spent 200. Remaining: 800
+[2025-09-03 15:05:15] [DEBUG] John Doe earned 500. New total: 1300
+[2025-09-03 15:05:15] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Sunny Hill Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Test Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:15] [DEBUG] Revenue set to 1500 for farm Green Valley Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:15] [INFO] New farm created: Empty Farm
+[2025-09-03 15:05:15] [DEBUG] Revenue set to 0 for farm Empty Farm
+[2025-09-03 15:05:15] [INFO] Revenue calculated for farm Empty Farm: 0
+[2025-09-03 15:05:53] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:53] [INFO] New farm created: Sunny Hill Farm
+[2025-09-03 15:05:53] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:53] [INFO] New farm created: Test Farm
+[2025-09-03 15:05:53] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:53] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:53] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:53] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:53] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:53] [WARNING] Failed to remove animal from farm Green Valley Farm - animal not found
+[2025-09-03 15:05:53] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:53] [DEBUG] Revenue set to 1500 for farm Green Valley Farm
+[2025-09-03 15:05:53] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:53] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:53] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:53] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:53] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:53] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:05:53] [INFO] New farm created: Empty Farm
+[2025-09-03 15:05:53] [DEBUG] Revenue set to 0 for farm Empty Farm
+[2025-09-03 15:05:53] [INFO] Revenue calculated for farm Empty Farm: 0
+[2025-09-03 15:07:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:11] [INFO] New farm created: Sunny Hill Farm
+[2025-09-03 15:07:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:11] [INFO] New farm created: Test Farm
+[2025-09-03 15:07:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:11] [WARNING] Failed to remove animal from farm Green Valley Farm - animal not found
+[2025-09-03 15:07:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:11] [DEBUG] Revenue set to 1500 for farm Green Valley Farm
+[2025-09-03 15:07:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:11] [INFO] New farm created: Empty Farm
+[2025-09-03 15:07:11] [DEBUG] Revenue set to 0 for farm Empty Farm
+[2025-09-03 15:07:11] [INFO] Revenue calculated for farm Empty Farm: 0
+[2025-09-03 15:07:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:42] [INFO] New farm created: Sunny Hill Farm
+[2025-09-03 15:07:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:42] [INFO] New farm created: Test Farm
+[2025-09-03 15:07:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:42] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:07:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:42] [INFO] Added horse Arabian to farm Green Valley Farm
+[2025-09-03 15:07:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:42] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:07:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:42] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:07:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:42] [WARNING] Failed to remove animal from farm Green Valley Farm - animal not found
+[2025-09-03 15:07:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:42] [DEBUG] Revenue set to 1500 for farm Green Valley Farm
+[2025-09-03 15:07:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:42] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:07:42] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:07:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:42] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:07:42] [INFO] Daily update completed for farm Green Valley Farm with 1 animals
+[2025-09-03 15:07:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:42] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:07:42] [INFO] Added cow Angus to farm Green Valley Farm
+[2025-09-03 15:07:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:42] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:07:42] [INFO] Added horse Arabian to farm Green Valley Farm
+[2025-09-03 15:07:42] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:07:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:42] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:07:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:07:42] [INFO] New farm created: Empty Farm
+[2025-09-03 15:07:42] [DEBUG] Revenue set to 0 for farm Empty Farm
+[2025-09-03 15:07:42] [INFO] Revenue calculated for farm Empty Farm: 0
+[2025-09-03 15:08:39] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:08:39] [INFO] New farm created: Sunny Hill Farm
+[2025-09-03 15:08:39] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:08:39] [INFO] New farm created: Test Farm
+[2025-09-03 15:08:39] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:08:39] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Added horse Arabian to farm Green Valley Farm
+[2025-09-03 15:08:39] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:08:39] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Removed cow Holstein from farm Green Valley Farm
+[2025-09-03 15:08:39] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:08:39] [WARNING] Failed to remove animal from farm Green Valley Farm - animal not found
+[2025-09-03 15:08:39] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:08:39] [DEBUG] Revenue set to 1500 for farm Green Valley Farm
+[2025-09-03 15:08:39] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:08:39] [DEBUG] Revenue set to 0 for farm Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Revenue calculated for farm Green Valley Farm: 0
+[2025-09-03 15:08:39] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Daily update completed for farm Green Valley Farm with 1 animals
+[2025-09-03 15:08:39] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Added cow Angus to farm Green Valley Farm
+[2025-09-03 15:08:39] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Added horse Arabian to farm Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:08:39] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:08:39] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:08:39] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:08:39] [INFO] New farm created: Empty Farm
+[2025-09-03 15:08:39] [DEBUG] Revenue set to 0 for farm Empty Farm
+[2025-09-03 15:08:39] [INFO] Revenue calculated for farm Empty Farm: 0
+[2025-09-03 15:08:39] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:08:39] [INFO] John Doe now owns farm: Green Valley Farm
+[2025-09-03 15:08:39] [INFO] New farm created: Test Farm
+[2025-09-03 15:08:39] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:08:39] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:08:39] [INFO] John Doe bought Holstein for 2000. Remaining money: 3000
+[2025-09-03 15:08:39] [INFO] New farm created: Test Farm
+[2025-09-03 15:08:39] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:08:39] [WARNING] John Doe has insufficient money to buy animal (has: 500, needs: 2000)
+[2025-09-03 15:08:39] [INFO] New farm created: Test Farm
+[2025-09-03 15:08:39] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:08:39] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:08:39] [INFO] Removed cow Holstein from farm Test Farm
+[2025-09-03 15:08:39] [INFO] John Doe sold Holstein for 1500. New money: 2500
+[2025-09-03 15:08:39] [INFO] New farm created: Test Farm
+[2025-09-03 15:08:39] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:08:39] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:08:39] [INFO] John Doe fed Holstein
+[2025-09-03 15:08:39] [INFO] New farm created: Test Farm
+[2025-09-03 15:08:39] [DEBUG] Revenue set to 500 for farm Test Farm
+[2025-09-03 15:08:39] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:08:39] [DEBUG] Revenue set to 0 for farm Test Farm
+[2025-09-03 15:08:39] [INFO] John Doe collected revenue: 500. New money: 1500
+[2025-09-03 15:08:39] [WARNING] John Doe tried to buy animal without owning a farm
+[2025-09-03 15:08:39] [WARNING] John Doe tried to sell animal without owning a farm
+[2025-09-03 15:08:39] [DEBUG] John Doe spent 200. Remaining: 800
+[2025-09-03 15:08:39] [DEBUG] John Doe earned 500. New total: 1300
+[2025-09-03 15:09:41] [INFO] Leghorn laid an egg
+[2025-09-03 15:10:07] [INFO] Sparrow laid an egg
+[2025-09-03 15:10:07] [WARNING] Dead Sparrow cannot lay eggs
+[2025-09-03 15:10:07] [INFO] Sparrow is flying with wingspan 0.25m
+[2025-09-03 15:10:07] [WARNING] Dead Sparrow cannot fly
+[2025-09-03 15:10:07] [INFO] Sparrow is building a nest
+[2025-09-03 15:10:07] [WARNING] Dead Sparrow cannot build nest
+[2025-09-03 15:10:07] [DEBUG] Sparrow moved by flying
+[2025-09-03 15:10:07] [INFO] Leghorn laid an egg
+[2025-09-03 15:10:07] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:10:07] [INFO] John Doe now owns farm: Green Valley Farm
+[2025-09-03 15:10:07] [INFO] New farm created: Test Farm
+[2025-09-03 15:10:07] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:10:07] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:10:07] [INFO] John Doe bought Holstein for 2000. Remaining money: 3000
+[2025-09-03 15:10:07] [INFO] New farm created: Test Farm
+[2025-09-03 15:10:07] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:10:07] [WARNING] John Doe has insufficient money to buy animal (has: 500, needs: 2000)
+[2025-09-03 15:10:07] [INFO] New farm created: Test Farm
+[2025-09-03 15:10:07] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:10:07] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:10:07] [INFO] Removed cow Holstein from farm Test Farm
+[2025-09-03 15:10:07] [INFO] John Doe sold Holstein for 1500. New money: 2500
+[2025-09-03 15:10:07] [INFO] New farm created: Test Farm
+[2025-09-03 15:10:07] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:10:07] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:10:07] [INFO] John Doe fed Holstein
+[2025-09-03 15:10:07] [INFO] New farm created: Test Farm
+[2025-09-03 15:10:07] [DEBUG] Revenue set to 500 for farm Test Farm
+[2025-09-03 15:10:07] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:10:07] [DEBUG] Revenue set to 0 for farm Test Farm
+[2025-09-03 15:10:07] [INFO] John Doe collected revenue: 500. New money: 1500
+[2025-09-03 15:10:07] [WARNING] John Doe tried to buy animal without owning a farm
+[2025-09-03 15:10:07] [WARNING] John Doe tried to sell animal without owning a farm
+[2025-09-03 15:10:07] [DEBUG] John Doe spent 200. Remaining: 800
+[2025-09-03 15:10:07] [DEBUG] John Doe earned 500. New total: 1300
+[2025-09-03 15:10:07] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:10:07] [INFO] New farm created: Sunny Hill Farm
+[2025-09-03 15:10:07] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:10:07] [INFO] New farm created: Test Farm
+[2025-09-03 15:10:07] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:10:07] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:10:07] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:10:07] [INFO] Added horse Arabian to farm Green Valley Farm
+[2025-09-03 15:10:07] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:10:07] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:10:07] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:10:07] [INFO] Removed cow Holstein from farm Green Valley Farm
+[2025-09-03 15:10:07] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:10:07] [WARNING] Failed to remove animal from farm Green Valley Farm - animal not found
+[2025-09-03 15:10:07] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:10:07] [DEBUG] Revenue set to 1500 for farm Green Valley Farm
+[2025-09-03 15:10:07] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:10:07] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:10:07] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:10:07] [INFO] Daily update completed for farm Green Valley Farm with 1 animals
+[2025-09-03 15:12:26] [INFO] Sparrow laid an egg
+[2025-09-03 15:12:26] [WARNING] Dead Sparrow cannot lay eggs
+[2025-09-03 15:12:26] [INFO] Sparrow is flying with wingspan 0.25m
+[2025-09-03 15:12:26] [WARNING] Dead Sparrow cannot fly
+[2025-09-03 15:12:26] [INFO] Sparrow is building a nest
+[2025-09-03 15:12:26] [WARNING] Dead Sparrow cannot build nest
+[2025-09-03 15:12:26] [DEBUG] Sparrow moved by flying
+[2025-09-03 15:12:31] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:12:31] [INFO] New farm created: Sunny Hill Farm
+[2025-09-03 15:12:31] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:12:31] [INFO] New farm created: Test Farm
+[2025-09-03 15:12:31] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:12:31] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Added horse Arabian to farm Green Valley Farm
+[2025-09-03 15:12:31] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:12:31] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Removed cow Holstein from farm Green Valley Farm
+[2025-09-03 15:12:31] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:12:31] [WARNING] Failed to remove animal from farm Green Valley Farm - animal not found
+[2025-09-03 15:12:31] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:12:31] [DEBUG] Revenue set to 1500 for farm Green Valley Farm
+[2025-09-03 15:12:31] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:12:31] [DEBUG] Revenue set to 0 for farm Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Revenue calculated for farm Green Valley Farm: 0
+[2025-09-03 15:12:31] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Daily update completed for farm Green Valley Farm with 1 animals
+[2025-09-03 15:12:31] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Added cow Angus to farm Green Valley Farm
+[2025-09-03 15:12:31] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Added horse Arabian to farm Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:12:31] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:12:31] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:12:31] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:12:31] [INFO] New farm created: Empty Farm
+[2025-09-03 15:12:31] [DEBUG] Revenue set to 0 for farm Empty Farm
+[2025-09-03 15:12:31] [INFO] Revenue calculated for farm Empty Farm: 0
+[2025-09-03 15:12:37] [INFO] Sparrow laid an egg
+[2025-09-03 15:12:37] [WARNING] Dead Sparrow cannot lay eggs
+[2025-09-03 15:12:37] [INFO] Sparrow is flying with wingspan 0.25m
+[2025-09-03 15:12:37] [WARNING] Dead Sparrow cannot fly
+[2025-09-03 15:12:37] [INFO] Sparrow is building a nest
+[2025-09-03 15:12:37] [WARNING] Dead Sparrow cannot build nest
+[2025-09-03 15:12:37] [DEBUG] Sparrow moved by flying
+[2025-09-03 15:12:37] [INFO] Leghorn laid an egg
+[2025-09-03 15:14:26] [INFO] Sparrow laid an egg
+[2025-09-03 15:14:26] [WARNING] Dead Sparrow cannot lay eggs
+[2025-09-03 15:14:26] [INFO] Sparrow is flying with wingspan 0.25m
+[2025-09-03 15:14:26] [WARNING] Dead Sparrow cannot fly
+[2025-09-03 15:14:26] [INFO] Sparrow is building a nest
+[2025-09-03 15:14:26] [WARNING] Dead Sparrow cannot build nest
+[2025-09-03 15:14:26] [DEBUG] Sparrow moved by flying
+[2025-09-03 15:14:34] [INFO] Leghorn laid an egg
+[2025-09-03 15:15:22] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:22] [INFO] John Doe now owns farm: Green Valley Farm
+[2025-09-03 15:15:22] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:22] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:15:22] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:22] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:15:22] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:22] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:15:22] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:22] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:15:22] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:22] [DEBUG] Revenue set to 500 for farm Test Farm
+[2025-09-03 15:15:22] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:15:22] [DEBUG] Revenue set to 0 for farm Test Farm
+[2025-09-03 15:15:22] [INFO] John Doe collected revenue: 500. New money: 1500
+[2025-09-03 15:15:22] [DEBUG] John Doe spent 200. Remaining: 800
+[2025-09-03 15:15:22] [DEBUG] John Doe earned 500. New total: 1300
+[2025-09-03 15:15:37] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:37] [INFO] John Doe now owns farm: Green Valley Farm
+[2025-09-03 15:15:37] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:37] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:15:37] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:15:37] [INFO] John Doe bought Holstein for 2000. Remaining money: 3000
+[2025-09-03 15:15:37] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:37] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:15:37] [WARNING] John Doe has insufficient money to buy animal (has: 500, needs: 2000)
+[2025-09-03 15:15:37] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:37] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:15:37] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:15:37] [INFO] Removed cow Holstein from farm Test Farm
+[2025-09-03 15:15:37] [INFO] John Doe sold Holstein for 1500. New money: 2500
+[2025-09-03 15:15:37] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:37] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:15:37] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:15:37] [INFO] John Doe fed Holstein
+[2025-09-03 15:15:37] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:37] [DEBUG] Revenue set to 500 for farm Test Farm
+[2025-09-03 15:15:37] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:15:37] [DEBUG] Revenue set to 0 for farm Test Farm
+[2025-09-03 15:15:37] [INFO] John Doe collected revenue: 500. New money: 1500
+[2025-09-03 15:15:37] [WARNING] John Doe tried to buy animal without owning a farm
+[2025-09-03 15:15:37] [WARNING] John Doe tried to sell animal without owning a farm
+[2025-09-03 15:15:37] [DEBUG] John Doe spent 200. Remaining: 800
+[2025-09-03 15:15:37] [DEBUG] John Doe earned 500. New total: 1300
+[2025-09-03 15:15:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:42] [INFO] New farm created: Sunny Hill Farm
+[2025-09-03 15:15:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:42] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:15:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Added horse Arabian to farm Green Valley Farm
+[2025-09-03 15:15:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:15:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Removed cow Holstein from farm Green Valley Farm
+[2025-09-03 15:15:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:42] [WARNING] Failed to remove animal from farm Green Valley Farm - animal not found
+[2025-09-03 15:15:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:42] [DEBUG] Revenue set to 1500 for farm Green Valley Farm
+[2025-09-03 15:15:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:15:42] [DEBUG] Revenue set to 0 for farm Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Revenue calculated for farm Green Valley Farm: 0
+[2025-09-03 15:15:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Daily update completed for farm Green Valley Farm with 1 animals
+[2025-09-03 15:15:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Added cow Angus to farm Green Valley Farm
+[2025-09-03 15:15:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Added horse Arabian to farm Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:15:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:42] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:15:42] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:42] [INFO] New farm created: Empty Farm
+[2025-09-03 15:15:42] [DEBUG] Revenue set to 0 for farm Empty Farm
+[2025-09-03 15:15:42] [INFO] Revenue calculated for farm Empty Farm: 0
+[2025-09-03 15:15:50] [INFO] Sparrow laid an egg
+[2025-09-03 15:15:50] [WARNING] Dead Sparrow cannot lay eggs
+[2025-09-03 15:15:50] [INFO] Sparrow is flying with wingspan 0.25m
+[2025-09-03 15:15:50] [WARNING] Dead Sparrow cannot fly
+[2025-09-03 15:15:50] [INFO] Sparrow is building a nest
+[2025-09-03 15:15:50] [WARNING] Dead Sparrow cannot build nest
+[2025-09-03 15:15:50] [DEBUG] Sparrow moved by flying
+[2025-09-03 15:15:50] [INFO] Leghorn laid an egg
+[2025-09-03 15:15:50] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:15:50] [INFO] John Doe now owns farm: Green Valley Farm
+[2025-09-03 15:15:50] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:50] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:15:50] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:15:50] [INFO] John Doe bought Holstein for 2000. Remaining money: 3000
+[2025-09-03 15:15:50] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:50] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:15:50] [WARNING] John Doe has insufficient money to buy animal (has: 500, needs: 2000)
+[2025-09-03 15:15:50] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:50] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:15:50] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:15:50] [INFO] Removed cow Holstein from farm Test Farm
+[2025-09-03 15:15:50] [INFO] John Doe sold Holstein for 1500. New money: 2500
+[2025-09-03 15:15:50] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:50] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:15:50] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:15:50] [INFO] John Doe fed Holstein
+[2025-09-03 15:15:50] [INFO] New farm created: Test Farm
+[2025-09-03 15:15:50] [DEBUG] Revenue set to 500 for farm Test Farm
+[2025-09-03 15:15:50] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:15:50] [DEBUG] Revenue set to 0 for farm Test Farm
+[2025-09-03 15:15:50] [INFO] John Doe collected revenue: 500. New money: 1500
+[2025-09-03 15:15:50] [WARNING] John Doe tried to buy animal without owning a farm
+[2025-09-03 15:15:50] [WARNING] John Doe tried to sell animal without owning a farm
+[2025-09-03 15:15:50] [DEBUG] John Doe spent 200. Remaining: 800
+[2025-09-03 15:15:50] [DEBUG] John Doe earned 500. New total: 1300
+[2025-09-03 15:16:56] [INFO] Sparrow laid an egg
+[2025-09-03 15:16:56] [WARNING] Dead Sparrow cannot lay eggs
+[2025-09-03 15:16:56] [INFO] Sparrow is flying with wingspan 0.25m
+[2025-09-03 15:16:56] [WARNING] Dead Sparrow cannot fly
+[2025-09-03 15:16:56] [INFO] Sparrow is building a nest
+[2025-09-03 15:16:56] [WARNING] Dead Sparrow cannot build nest
+[2025-09-03 15:16:56] [DEBUG] Sparrow moved by flying
+[2025-09-03 15:16:56] [INFO] Leghorn laid an egg
+[2025-09-03 15:16:56] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:16:56] [INFO] John Doe now owns farm: Green Valley Farm
+[2025-09-03 15:16:56] [INFO] New farm created: Test Farm
+[2025-09-03 15:16:56] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:16:56] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:16:56] [INFO] John Doe bought Holstein for 2000. Remaining money: 3000
+[2025-09-03 15:16:56] [INFO] New farm created: Test Farm
+[2025-09-03 15:16:56] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:16:56] [WARNING] John Doe has insufficient money to buy animal (has: 500, needs: 2000)
+[2025-09-03 15:16:56] [INFO] New farm created: Test Farm
+[2025-09-03 15:16:56] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:16:56] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:16:56] [INFO] Removed cow Holstein from farm Test Farm
+[2025-09-03 15:16:56] [INFO] John Doe sold Holstein for 1500. New money: 2500
+[2025-09-03 15:16:56] [INFO] New farm created: Test Farm
+[2025-09-03 15:16:56] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:16:56] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:16:56] [INFO] John Doe fed Holstein
+[2025-09-03 15:16:56] [INFO] New farm created: Test Farm
+[2025-09-03 15:16:56] [DEBUG] Revenue set to 500 for farm Test Farm
+[2025-09-03 15:16:56] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:16:56] [DEBUG] Revenue set to 0 for farm Test Farm
+[2025-09-03 15:16:56] [INFO] John Doe collected revenue: 500. New money: 1500
+[2025-09-03 15:16:56] [WARNING] John Doe tried to buy animal without owning a farm
+[2025-09-03 15:16:56] [WARNING] John Doe tried to sell animal without owning a farm
+[2025-09-03 15:16:56] [DEBUG] John Doe spent 200. Remaining: 800
+[2025-09-03 15:16:56] [DEBUG] John Doe earned 500. New total: 1300
+[2025-09-03 15:18:04] [INFO] Sparrow laid an egg
+[2025-09-03 15:18:04] [WARNING] Dead Sparrow cannot lay eggs
+[2025-09-03 15:18:04] [INFO] Sparrow is flying with wingspan 0.25m
+[2025-09-03 15:18:04] [WARNING] Dead Sparrow cannot fly
+[2025-09-03 15:18:04] [INFO] Sparrow is building a nest
+[2025-09-03 15:18:04] [WARNING] Dead Sparrow cannot build nest
+[2025-09-03 15:18:04] [DEBUG] Sparrow moved by flying
+[2025-09-03 15:18:04] [INFO] Leghorn laid an egg
+[2025-09-03 15:18:04] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:18:04] [INFO] John Doe now owns farm: Green Valley Farm
+[2025-09-03 15:18:04] [INFO] New farm created: Test Farm
+[2025-09-03 15:18:04] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:18:04] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:18:04] [INFO] John Doe bought Holstein for 2000. Remaining money: 3000
+[2025-09-03 15:18:04] [INFO] New farm created: Test Farm
+[2025-09-03 15:18:04] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:18:04] [WARNING] John Doe has insufficient money to buy animal (has: 500, needs: 2000)
+[2025-09-03 15:18:04] [INFO] New farm created: Test Farm
+[2025-09-03 15:18:04] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:18:04] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:18:04] [INFO] Removed cow Holstein from farm Test Farm
+[2025-09-03 15:18:04] [INFO] John Doe sold Holstein for 1500. New money: 2500
+[2025-09-03 15:18:04] [INFO] New farm created: Test Farm
+[2025-09-03 15:18:04] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:18:04] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:18:04] [INFO] John Doe fed Holstein
+[2025-09-03 15:18:04] [INFO] New farm created: Test Farm
+[2025-09-03 15:18:04] [DEBUG] Revenue set to 500 for farm Test Farm
+[2025-09-03 15:18:04] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:18:04] [DEBUG] Revenue set to 0 for farm Test Farm
+[2025-09-03 15:18:04] [INFO] John Doe collected revenue: 500. New money: 1500
+[2025-09-03 15:18:04] [WARNING] John Doe tried to buy animal without owning a farm
+[2025-09-03 15:18:04] [WARNING] John Doe tried to sell animal without owning a farm
+[2025-09-03 15:18:04] [DEBUG] John Doe spent 200. Remaining: 800
+[2025-09-03 15:18:04] [DEBUG] John Doe earned 500. New total: 1300
+[2025-09-03 15:18:04] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:18:04] [INFO] New farm created: Sunny Hill Farm
+[2025-09-03 15:18:04] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:18:04] [INFO] New farm created: Test Farm
+[2025-09-03 15:18:04] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:18:04] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:18:04] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:18:04] [INFO] Added horse Arabian to farm Green Valley Farm
+[2025-09-03 15:18:04] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:18:04] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:18:04] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:18:04] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:18:04] [INFO] Removed cow Holstein from farm Green Valley Farm
+[2025-09-03 15:18:04] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:18:04] [WARNING] Failed to remove animal from farm Green Valley Farm - animal not found
+[2025-09-03 15:18:04] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:18:04] [DEBUG] Revenue set to 1500 for farm Green Valley Farm
+[2025-09-03 15:18:04] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:18:04] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:18:04] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:18:04] [DEBUG] Revenue set to 0 for farm Green Valley Farm
+[2025-09-03 15:18:04] [INFO] Revenue calculated for farm Green Valley Farm: 0
+[2025-09-03 15:19:11] [INFO] Sparrow laid an egg
+[2025-09-03 15:19:11] [WARNING] Dead Sparrow cannot lay eggs
+[2025-09-03 15:19:11] [INFO] Sparrow is flying with wingspan 0.25m
+[2025-09-03 15:19:11] [WARNING] Dead Sparrow cannot fly
+[2025-09-03 15:19:11] [INFO] Sparrow is building a nest
+[2025-09-03 15:19:11] [WARNING] Dead Sparrow cannot build nest
+[2025-09-03 15:19:11] [DEBUG] Sparrow moved by flying
+[2025-09-03 15:19:11] [INFO] Leghorn laid an egg
+[2025-09-03 15:19:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:19:11] [INFO] John Doe now owns farm: Green Valley Farm
+[2025-09-03 15:19:11] [INFO] New farm created: Test Farm
+[2025-09-03 15:19:11] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:19:11] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:19:11] [INFO] John Doe bought Holstein for 2000. Remaining money: 3000
+[2025-09-03 15:19:11] [INFO] New farm created: Test Farm
+[2025-09-03 15:19:11] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:19:11] [WARNING] John Doe has insufficient money to buy animal (has: 500, needs: 2000)
+[2025-09-03 15:19:11] [INFO] New farm created: Test Farm
+[2025-09-03 15:19:11] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:19:11] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:19:11] [INFO] Removed cow Holstein from farm Test Farm
+[2025-09-03 15:19:11] [INFO] John Doe sold Holstein for 1500. New money: 2500
+[2025-09-03 15:19:11] [INFO] New farm created: Test Farm
+[2025-09-03 15:19:11] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:19:11] [INFO] Added cow Holstein to farm Test Farm
+[2025-09-03 15:19:11] [INFO] John Doe fed Holstein
+[2025-09-03 15:19:11] [INFO] New farm created: Test Farm
+[2025-09-03 15:19:11] [DEBUG] Revenue set to 500 for farm Test Farm
+[2025-09-03 15:19:11] [INFO] John Doe now owns farm: Test Farm
+[2025-09-03 15:19:11] [DEBUG] Revenue set to 0 for farm Test Farm
+[2025-09-03 15:19:11] [INFO] John Doe collected revenue: 500. New money: 1500
+[2025-09-03 15:19:11] [WARNING] John Doe tried to buy animal without owning a farm
+[2025-09-03 15:19:11] [WARNING] John Doe tried to sell animal without owning a farm
+[2025-09-03 15:19:11] [DEBUG] John Doe spent 200. Remaining: 800
+[2025-09-03 15:19:11] [DEBUG] John Doe earned 500. New total: 1300
+[2025-09-03 15:19:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:19:11] [INFO] New farm created: Sunny Hill Farm
+[2025-09-03 15:19:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:19:11] [INFO] New farm created: Test Farm
+[2025-09-03 15:19:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:19:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Added horse Arabian to farm Green Valley Farm
+[2025-09-03 15:19:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:19:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Removed cow Holstein from farm Green Valley Farm
+[2025-09-03 15:19:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:19:11] [WARNING] Failed to remove animal from farm Green Valley Farm - animal not found
+[2025-09-03 15:19:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:19:11] [DEBUG] Revenue set to 1500 for farm Green Valley Farm
+[2025-09-03 15:19:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:19:11] [DEBUG] Revenue set to 0 for farm Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Revenue calculated for farm Green Valley Farm: 0
+[2025-09-03 15:19:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Daily update completed for farm Green Valley Farm with 1 animals
+[2025-09-03 15:19:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Added cow Angus to farm Green Valley Farm
+[2025-09-03 15:19:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Added horse Arabian to farm Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Added chicken Leghorn to farm Green Valley Farm
+[2025-09-03 15:19:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:19:11] [INFO] Added cow Holstein to farm Green Valley Farm
+[2025-09-03 15:19:11] [INFO] New farm created: Green Valley Farm
+[2025-09-03 15:19:11] [INFO] New farm created: Empty Farm
+[2025-09-03 15:19:11] [DEBUG] Revenue set to 0 for farm Empty Farm
+[2025-09-03 15:19:11] [INFO] Revenue calculated for farm Empty Farm: 0
