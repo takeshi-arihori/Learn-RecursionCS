@@ -6,7 +6,7 @@ namespace DynamicWebServer\Engine;
 
 use DynamicWebServer\Interfaces\Engine;
 
-class GasolineEngine implements Engine
+class ElectricEngine implements Engine
 {
     private \DynamicWebServer\Logger\LoggerInterface $logger;
 
@@ -17,9 +17,9 @@ class GasolineEngine implements Engine
 
     public function start(): string
     {
-        $this->logger->info("Gasoline engine starting...");
-        $result = "Starting the gasoline engine...";
-        $this->logger->debug("Gasoline engine started successfully");
+        $this->logger->info("Electric engine starting...");
+        $result = "Starting the electric engine...";
+        $this->logger->debug("Electric engine started successfully");
         return $result;
     }
 }

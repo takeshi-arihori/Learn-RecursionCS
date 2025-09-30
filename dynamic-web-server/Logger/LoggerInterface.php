@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace DynamicWebServer\Common\Logger;
+namespace DynamicWebServer\Logger;
 
 /**
  * ログ出力インターフェース
  * PSR-3 LoggerInterfaceに類似した簡易版
  *
- * @package App\Common\Logger
+ * @package App\Logger
  */
 interface LoggerInterface
 {

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace DynamicWebServer\Common\Logger;
+namespace DynamicWebServer\Logger;
 
 /**
  * ログレベルの定数クラス
  *
- * @package DynamicWebServer\Common\Logger
+ * @package DynamicWebServer\Logger
  */
 class LogLevel
 {

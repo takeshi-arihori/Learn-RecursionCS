@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DynamicWebServer\Common\Logger;
+namespace DynamicWebServer\Logger;
 
 use DateTime;
 
@@ -10,7 +10,7 @@ use DateTime;
  * ログ出力クラス
  * ファイルベースのシンプルなログ出力機能を提供
  *
- * @package App\Common\Logger
+ * @package App\Logger
  */
 class Logger implements LoggerInterface
 {
