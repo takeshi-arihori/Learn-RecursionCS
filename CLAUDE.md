@@ -10,15 +10,17 @@ This is a Recursion Curriculum learning repository containing programming exerci
 
 ```
 /
-├── beginner/               # Basic programming exercises
-│   └── php/               # PHP fundamentals and basic concepts
-├── intermediate/          # Intermediate level algorithms and concepts
-│   └── php/              # PHP intermediate exercises with extensive testing
+├── php/                   # PHP projects (unified)
+│   ├── beginner/         # PHP fundamentals and basic concepts
+│   ├── intermediate/     # PHP intermediate exercises with extensive testing
+│   ├── advanced/         # PHP binary tree implementations
+│   ├── oop/              # Object-oriented programming with Docker
+│   ├── dynamic-web-server/ # Web server project with Cars/Engine
+│   └── docker-php/       # PHP Docker integration environment
+├── beginner/             # Basic programming exercises (multi-language)
+├── intermediate/         # Intermediate level algorithms (multi-language)
 ├── advanced/             # Advanced algorithms and data structures
-│   ├── php/             # PHP binary tree implementations  
 │   └── java/            # Java advanced algorithms
-├── oop/                 # Object-oriented programming with Docker
-│   └── src/models/      # Person and Wallet classes (PHP)
 ├── lang-training/       # Language-specific training projects
 │   ├── go/             # Go web API server with frontend
 │   └── typescript/     # TypeScript exercises
@@ -36,7 +38,7 @@ This is a Recursion Curriculum learning repository containing programming exerci
 #### Beginner Level
 ```bash
 # Run beginner exercises
-cd beginner/php
+cd php/beginner
 php main.php
 
 # Run tests (TDD approach)
@@ -46,7 +48,7 @@ php tests/ConvertToCenturyTest.php
 #### Intermediate Level
 ```bash
 # Run intermediate exercises
-cd intermediate/php
+cd php/intermediate
 php main.php
 
 # Run PHPUnit tests
@@ -56,20 +58,30 @@ php main.php
 #### OOP with Docker
 ```bash
 # Run tests for OOP exercises
-cd oop && ./vendor/bin/phpunit
+cd php/oop && ./vendor/bin/phpunit
 
 # Docker environment
-cd oop && docker-compose up -d
+cd php/oop && docker-compose up -d
 ```
 
 #### Advanced Level
 ```bash
 # Run advanced PHP exercises
-cd advanced/php
+cd php/advanced
 php main.php
 
 # Run advanced tests
 ./vendor/bin/phpunit tests/
+```
+
+#### Dynamic Web Server
+```bash
+# Run web server project
+cd php/dynamic-web-server
+php index.php
+
+# Run Pest tests
+./vendor/bin/pest
 ```
 
 ### PHP Quality Assurance & Testing
@@ -208,12 +220,15 @@ g++ -o db db.cpp
 ## Key Architecture Patterns
 
 ### PHP Structure
-- **Beginner**: Basic PHP concepts and fundamental programming
-- **Intermediate**: Advanced algorithms with comprehensive testing
-- **OOP**: Object-oriented patterns with Docker containerization
-- **Advanced**: Binary tree implementations and complex data structures
-- Test-driven development with PHPUnit in relevant sections
-- Uses Composer for dependency management in OOP section
+All PHP projects are organized under the `php/` directory:
+- **php/beginner/**: Basic PHP concepts and fundamental programming
+- **php/intermediate/**: Advanced algorithms with comprehensive PHPUnit testing
+- **php/advanced/**: Binary tree implementations and complex data structures
+- **php/oop/**: Object-oriented patterns with Docker containerization
+- **php/dynamic-web-server/**: Web server project with Pest testing, logging, and OOP design
+- **php/docker-php/**: PHP Docker integration environment (Nginx, MySQL, PHP-FPM)
+- Test-driven development with PHPUnit/Pest across all projects
+- Composer for dependency management, PHPStan for static analysis
 
 ### Go API Server (lang-training/go)
 - RESTful API design with standard library (`net/http`)
@@ -234,11 +249,12 @@ g++ -o db db.cpp
 - Real-time data transmission
 
 ### Testing Strategy
-- **PHP**: PHPUnit with comprehensive test suites in `oop/tests/` and `intermediate/php/tests/`
+- **PHP**: PHPUnit/Pest with comprehensive test suites in `php/oop/tests/`, `php/intermediate/tests/`, `php/dynamic-web-server/tests/`
   - TDD (Red-Green-Refactor) methodology
-  - PHPStan static analysis for type safety
+  - PHPStan static analysis for type safety (Level 9 recommended)
   - Interface segregation testing (PersonLensesTest, TruckPhysicsTest)
   - Given-When-Then test structure pattern
+  - Pest framework for dynamic-web-server project
 - **Java**: Standard algorithmic testing patterns
 - **Go**: Standard library testing patterns
 - **Python**: Integration testing for networking components
@@ -296,11 +312,13 @@ This curriculum follows TDD methodology:
 
 ### Directory Standards
 ```
-{level}/php/
+php/{project}/
 ├── src/          # Implementation files
 ├── tests/        # Test files (TDD)
 ├── docs/         # Documentation
-└── main.php      # Entry point
+├── composer.json # Dependencies
+├── phpstan.neon  # Static analysis config
+└── README.md     # Project documentation
 ```
 
 ### Coding Standards

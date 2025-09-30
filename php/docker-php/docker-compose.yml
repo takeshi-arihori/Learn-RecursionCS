@@ -1,0 +1,234 @@
+version: '3.8'
+
+# ==============================================
+# RecursionCurriculum PHP統合開発環境
+# 共通データベース（docker-shared）を使用
+# ==============================================
+
+services:
+  # ==============================================
+  # PHP-FPM統合開発環境
+  # ==============================================
+  php-fpm:
+    build:
+      context: ../
+      dockerfile: docker-php/Dockerfile
+    container_name: recursion-php-fpm
+    hostname: php-fpm
+    volumes:
+      - ../:/workspace
+      - ./php/php.ini:/usr/local/etc/php/conf.d/99-custom.ini
+      - composer-cache:/tmp/composer-cache
+    working_dir: /workspace
+    environment:
+      - PHP_IDE_CONFIG=serverName=docker
+      - XDEBUG_CONFIG=client_host=host.docker.internal
+      # 共通MySQL接続情報
+      - DB_CONNECTION=mysql
+      - DB_HOST=recursion-shared-mysql
+      - DB_PORT=3306
+      - DB_DATABASE=recursion_db
+      - DB_USERNAME=recursion_user
+      - DB_PASSWORD=recursion_pass
+    networks:
+      - php-network
+      - shared-network
+    restart: unless-stopped
+
+  # ==============================================
+  # Nginx Webサーバー
+  # ==============================================
+  nginx:
+    image: nginx:1.25-alpine
+    container_name: recursion-nginx
+    hostname: nginx
+    ports:
+      - "8080:8080"  # メインダッシュボード
+      - "8081:8081"  # Beginner PHP
+      - "8082:8082"  # Intermediate PHP
+      - "8083:8083"  # Advanced PHP
+      - "8084:8084"  # OOP PHP
+      - "8085:8085"  # Dynamic Web Server
+      - "8443:443"   # HTTPS (将来用)
+    volumes:
+      - ../:/workspace
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/html:/workspace/docker-php/nginx/html
+      - ./nginx/logs:/var/log/nginx
+    networks:
+      - php-network
+    depends_on:
+      - php-fpm
+    restart: unless-stopped
+
+  # ==============================================
+  # CLI開発環境（個別プロジェクト用）
+  # ==============================================
+  php-cli:
+    build:
+      context: ../
+      dockerfile: docker-php/Dockerfile
+    container_name: recursion-php-cli
+    volumes:
+      - ../:/workspace
+      - composer-cache:/tmp/composer-cache
+    working_dir: /workspace
+    environment:
+      - DB_HOST=recursion-shared-mysql
+      - DB_PORT=3306
+      - DB_DATABASE=recursion_db
+      - DB_USERNAME=recursion_user
+      - DB_PASSWORD=recursion_pass
+    command: ["php", "-a"]
+    networks:
+      - php-network
+      - shared-network
+    profiles:
+      - cli
+
+  # ==============================================
+  # Beginner PHP環境
+  # ==============================================
+  php-beginner:
+    build:
+      context: ../
+      dockerfile: docker-php/Dockerfile
+    container_name: recursion-php-beginner
+    volumes:
+      - ../beginner/php:/workspace
+      - composer-cache:/tmp/composer-cache
+    working_dir: /workspace
+    environment:
+      - DB_HOST=recursion-shared-mysql
+      - DB_PORT=3306
+      - DB_DATABASE=recursion_db
+      - DB_USERNAME=recursion_user
+      - DB_PASSWORD=recursion_pass
+    command: ["tail", "-f", "/dev/null"]
+    networks:
+      - php-network
+      - shared-network
+    profiles:
+      - beginner
+
+  # ==============================================
+  # Intermediate PHP環境
+  # ==============================================
+  php-intermediate:
+    build:
+      context: ../
+      dockerfile: docker-php/Dockerfile
+    container_name: recursion-php-intermediate
+    volumes:
+      - ../intermediate/php:/workspace
+      - composer-cache:/tmp/composer-cache
+    working_dir: /workspace
+    environment:
+      - DB_HOST=recursion-shared-mysql
+      - DB_PORT=3306
+      - DB_DATABASE=recursion_db
+      - DB_USERNAME=recursion_user
+      - DB_PASSWORD=recursion_pass
+    command: ["tail", "-f", "/dev/null"]
+    networks:
+      - php-network
+      - shared-network
+    profiles:
+      - intermediate
+
+  # ==============================================
+  # Advanced PHP環境
+  # ==============================================
+  php-advanced:
+    build:
+      context: ../
+      dockerfile: docker-php/Dockerfile
+    container_name: recursion-php-advanced
+    volumes:
+      - ../advanced/php:/workspace
+      - composer-cache:/tmp/composer-cache
+    working_dir: /workspace
+    environment:
+      - DB_HOST=recursion-shared-mysql
+      - DB_PORT=3306
+      - DB_DATABASE=recursion_db
+      - DB_USERNAME=recursion_user
+      - DB_PASSWORD=recursion_pass
+    command: ["tail", "-f", "/dev/null"]
+    networks:
+      - php-network
+      - shared-network
+    profiles:
+      - advanced
+
+  # ==============================================
+  # OOP PHP環境
+  # ==============================================
+  php-oop:
+    build:
+      context: ../
+      dockerfile: docker-php/Dockerfile
+    container_name: recursion-php-oop
+    volumes:
+      - ../oop:/workspace
+      - composer-cache:/tmp/composer-cache
+    working_dir: /workspace
+    environment:
+      - DB_HOST=recursion-shared-mysql
+      - DB_PORT=3306
+      - DB_DATABASE=recursion_db
+      - DB_USERNAME=recursion_user
+      - DB_PASSWORD=recursion_pass
+    command: ["tail", "-f", "/dev/null"]
+    networks:
+      - php-network
+      - shared-network
+    profiles:
+      - oop
+
+  # ==============================================
+  # Dynamic Web Server環境
+  # ==============================================
+  php-web:
+    build:
+      context: ../
+      dockerfile: docker-php/Dockerfile
+    container_name: recursion-php-web
+    volumes:
+      - ../dynamic-web-server:/workspace
+      - composer-cache:/tmp/composer-cache
+    working_dir: /workspace
+    environment:
+      - DB_HOST=recursion-shared-mysql
+      - DB_PORT=3306
+      - DB_DATABASE=recursion_db
+      - DB_USERNAME=recursion_user
+      - DB_PASSWORD=recursion_pass
+    command: ["tail", "-f", "/dev/null"]
+    networks:
+      - php-network
+      - shared-network
+    profiles:
+      - web
+
+# ==============================================
+# ボリューム定義
+# ==============================================
+volumes:
+  composer-cache:
+    driver: local
+    name: recursion-php-composer-cache
+
+# ==============================================
+# ネットワーク定義
+# ==============================================
+networks:
+  php-network:
+    driver: bridge
+    name: recursion-php-network
+
+  # 共通ネットワークに参加（docker-sharedで作成済み）
+  shared-network:
+    external: true
+    name: recursion-shared-network

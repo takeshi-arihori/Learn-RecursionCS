@@ -1,0 +1,188 @@
+version: '3.8'
+
+# ==============================================
+# RecursionCurriculum 共通インフラストラクチャ
+# 全言語環境（PHP, Java, Go, TypeScript, Python, C++）から共有
+# ==============================================
+
+services:
+  # ==============================================
+  # MySQL 8.0 - 全言語共通リレーショナルDB
+  # ==============================================
+  mysql:
+    image: mysql:8.0
+    container_name: recursion-shared-mysql
+    hostname: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: recursion_db
+      MYSQL_USER: recursion_user
+      MYSQL_PASSWORD: recursion_pass
+      TZ: 'Asia/Tokyo'
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./mysql/init:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "3306:3306"
+    networks:
+      - shared-network
+    restart: unless-stopped
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --default-authentication-plugin=mysql_native_password
+      - --max_connections=200
+      - --innodb_buffer_pool_size=256M
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # ==============================================
+  # PostgreSQL 16 - Java/Python/TypeScript推奨DB
+  # ==============================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: recursion-shared-postgres
+    hostname: postgres
+    environment:
+      POSTGRES_DB: recursion_db
+      POSTGRES_USER: recursion_user
+      POSTGRES_PASSWORD: recursion_pass
+      PGDATA: /var/lib/postgresql/data/pgdata
+      TZ: 'Asia/Tokyo'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - shared-network
+    restart: unless-stopped
+    command:
+      - postgres
+      - -c
+      - max_connections=200
+      - -c
+      - shared_buffers=256MB
+      - -c
+      - effective_cache_size=1GB
+      - -c
+      - maintenance_work_mem=64MB
+      - -c
+      - checkpoint_completion_target=0.9
+      - -c
+      - wal_buffers=16MB
+      - -c
+      - default_statistics_target=100
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U recursion_user -d recursion_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # ==============================================
+  # phpMyAdmin - MySQL管理画面
+  # ==============================================
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: recursion-shared-phpmyadmin
+    hostname: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: recursion_user
+      PMA_PASSWORD: recursion_pass
+      UPLOAD_LIMIT: 100M
+      MEMORY_LIMIT: 512M
+      MAX_EXECUTION_TIME: 600
+    ports:
+      - "8090:80"
+    networks:
+      - shared-network
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ==============================================
+  # pgAdmin - PostgreSQL管理画面
+  # ==============================================
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: recursion-shared-pgadmin
+    hostname: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@recursion.local
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: 'False'
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    ports:
+      - "8091:80"
+    networks:
+      - shared-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ==============================================
+  # Redis 7 - キャッシュ・セッション管理（オプション）
+  # ==============================================
+  redis:
+    image: redis:7-alpine
+    container_name: recursion-shared-redis
+    hostname: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - shared-network
+    restart: unless-stopped
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    profiles:
+      - cache
+
+# ==============================================
+# 永続化ボリューム定義
+# ==============================================
+volumes:
+  mysql-data:
+    driver: local
+    name: recursion-shared-mysql-data
+
+  postgres-data:
+    driver: local
+    name: recursion-shared-postgres-data
+
+  pgadmin-data:
+    driver: local
+    name: recursion-shared-pgadmin-data
+
+  redis-data:
+    driver: local
+    name: recursion-shared-redis-data
+
+# ==============================================
+# 共通ネットワーク定義
+# ==============================================
+networks:
+  shared-network:
+    driver: bridge
+    name: recursion-shared-network
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.30.0.0/16
+          gateway: 172.30.0.1

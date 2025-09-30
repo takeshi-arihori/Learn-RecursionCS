@@ -143,14 +143,25 @@ docker-compose exec php-fpm php /workspace/docker/examples/mysql-connection.php
 
 ```
 /
-├── beginner/          # 基礎レベル - プログラミングの基本概念
-├── intermediate/      # 中級レベル - アルゴリズムと問題解決
-├── advanced/         # 上級レベル - 高度なデータ構造とアルゴリズム
-├── oop/             # オブジェクト指向プログラミング（Docker環境付き）
-├── lang-training/   # 言語別トレーニング
-├── database/        # データベースプログラミング
-├── video-compressor/# ネットワークプログラミングと動画処理
-└── daily/          # 学習ログと日記
+├── php/                      # PHP統合プロジェクト（新構造）
+│   ├── beginner/            # 基礎PHP演習
+│   ├── intermediate/        # 中級アルゴリズム（PHPUnit）
+│   ├── advanced/           # 高度データ構造（二分木等）
+│   ├── oop/                # オブジェクト指向（Docker統合）
+│   ├── dynamic-web-server/ # Webサーバープロジェクト（Pest）
+│   └── docker-php/         # PHP Docker環境設定
+├── beginner/               # 多言語基礎演習
+├── intermediate/           # 多言語中級演習
+├── advanced/              # 高度アルゴリズム
+│   └── java/             # Java実装
+├── lang-training/        # 言語別トレーニング
+│   ├── go/              # Go Web API
+│   └── typescript/      # TypeScript演習
+├── database/            # データベースプログラミング
+│   └── c/              # C++実装
+├── video-compressor/    # ネットワークプログラミング
+│   └── python/         # Python UDP通信
+└── daily/              # 学習ログと日記
 ```
 
 ## 使用言語と技術スタック
@@ -182,7 +193,9 @@ docker-compose exec php-fpm php /workspace/docker/examples/mysql-connection.php
 - 計算量最適化
 
 ### ⚙️ 専門分野
-- **OOP**: オブジェクト指向設計とDocker環境
+- **PHP統合**: 全PHPプロジェクトを`php/`ディレクトリに統合
+  - beginner, intermediate, advanced, oop, dynamic-web-server
+  - Docker環境（php/docker-php/）で統一管理
 - **Lang-training**: Go/TypeScript言語習得
 - **Database**: C++によるデータベースプログラミング
 - **Video-compressor**: Pythonネットワーキングとリアルタイム通信

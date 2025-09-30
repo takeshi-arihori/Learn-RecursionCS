@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  cpp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: recursion-cpp
+    hostname: cpp-dev
+    volumes:
+      - ../database/c:/workspace
+    working_dir: /workspace
+    networks:
+      - cpp-network
+    restart: unless-stopped
+    command: ["tail", "-f", "/dev/null"]
+
+networks:
+  cpp-network:
+    driver: bridge
+    name: recursion-cpp-network
