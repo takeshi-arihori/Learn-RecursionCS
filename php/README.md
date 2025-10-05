@@ -4,6 +4,21 @@
 
 このディレクトリには、RecursionCurriculumの全PHPプロジェクトが統合されています。各プロジェクトは独立した構成を持ちながら、統一された開発環境とツールチェーンで管理されています。
 
+## Docker 開発環境
+
+ルート直下の `compose.yaml` を利用すると、Nginx + PHP-FPM + MySQL の統合開発環境をすぐに立ち上げられます。
+
+```bash
+cd php
+docker compose up -d --build
+```
+
+- Web: http://localhost:8080 (`php/src` がドキュメントルート)
+- PHP-FPM: `app` サービス (Xdebug 9005/TCP, `host.docker.internal` 宛に接続)
+- MySQL: `mysql://app:app@localhost:3306/app` (初期データは `docker/mysql/init/` 以下の `.sql` / `.sh` を配置)
+
+終了する場合は `docker compose down`、ボリュームも同時に破棄する場合は `docker compose down -v` を実行してください。
+
 ## プロジェクト一覧
 
 ### 1. beginner/ - 基礎PHP演習
