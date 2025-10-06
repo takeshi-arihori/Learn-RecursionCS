@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DynamicWebServer\Interfaces;
+namespace Interfaces;
 
 interface Engine
 {

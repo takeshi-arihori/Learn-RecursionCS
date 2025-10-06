@@ -2,19 +2,16 @@
 
 declare(strict_types=1);
 
-namespace DynamicWebServer\Cars;
+namespace Cars;
 
-use DynamicWebServer\Engine\ElectricEngine;
+use Engines\ElectricEngine;
 
-class ElectricCar extends Car
-{
-    public function __construct(string $make, ElectricEngine $engine, \DynamicWebServer\Logger\LoggerInterface $logger)
-    {
-        parent::__construct($make, $engine, $logger);
+class ElectricCar extends Car {
+    public function __construct(string $make) {
+        parent::__construct($make, new ElectricEngine());
     }
 
-    public function drive(): string
-    {
+    public function drive(): string {
         return "Driving the electric car...";
     }
 }
